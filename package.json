@@ -5,7 +5,11 @@
   "main": "index.js",
   "keywords": [],
   "scripts": {
-    "dev": "pnpm run --stream --parallel dev"
+    "dev": "pnpm run --stream --parallel dev",
+    "build": "pnpm run --stream --parallel build"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7"
   },
   "author": "",
   "license": "ISC"

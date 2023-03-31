@@ -1,0 +1,11 @@
+@import "./button.scss";
+
+body{
+    display: grid;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    grid-area: nav;
+}
