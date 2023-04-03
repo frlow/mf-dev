@@ -3,5 +3,7 @@ const pages = await Astro.glob("../pages/**/*.astro")
 ---
 
 <nav>
-{pages.map(page=><a href={page.url+"/"}>{page.url || 'index'}</a>)}
+  <ul>
+{pages.map(page=><li><a href={page.url+"/"}>{page.url || 'index'}</a></li>)}
+    </ul>
 </nav>
