@@ -3,7 +3,7 @@ export const App = () => {
     <>
       <nav>Navigation</nav>
       <main>
-        <ex-button onClick={e => console.log(e)}></ex-button>
+        <button is="ex-button">Demo</button>
       </main>
     </>
   )

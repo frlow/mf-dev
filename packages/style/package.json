@@ -3,14 +3,24 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "docs": "astro dev",
+    "build": "astro build && pnpm run bundle",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "bundle": "node bundle.mjs",
+    "dev": "mfdev 3200"
   },
-  "dependencies": {
+  "devDependencies": {
     "astro": "^2.1.7",
-    "sass": "^1.60.0"
-  }
+    "sass": "^1.60.0",
+    "esbuild": "^0.17.15",
+    "esbuild-sass-plugin": "^2.8.0",
+    "@types/node": "^18.15.11",
+    "mfdev": "^1.0.5",
+    "vite": "^4.2.1"
+  },
+  "main": "style/index.js",
+  "files": [
+    "style"
+  ]
 }

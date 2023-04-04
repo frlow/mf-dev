@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [],
   build: {
     rollupOptions: {
-      input: ['src/main.ts'],
+      input: ['src/style/index.ts'],
       output: {
         assetFileNames: '[name]-[hash][extname]',
         entryFileNames: '[name]-[hash].js',

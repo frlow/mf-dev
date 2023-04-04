@@ -1,6 +1,6 @@
 @import "./variables.scss";
 
-button[is=ex-button] {
+button[is^=ex-button]{
   color: white;
   padding: 12px;
   margin: 2px;

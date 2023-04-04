@@ -1,1 +1,1 @@
-console.log("N/A")
+console.log("Core not loaded")
