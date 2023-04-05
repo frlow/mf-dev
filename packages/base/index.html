@@ -4,10 +4,15 @@
     <title>Micro-Frontend demo</title>
     <script type="module" src="/public/core.js"></script>
     <script type="module" src="/public/style.js"></script>
+    <script type="module">
+        import {registerLazyComponents} from './public/lazy.js'
+
+        registerLazyComponents(await fetch("/public/lazy.json").then(r => r.json()), false)
+    </script>
 </head>
 
-<body>
-<ex-core></ex-core>
+<body is="ex-body">
+
 </body>
 
 </html>
