@@ -17,16 +17,14 @@ export const App = () => {
           {navLinks.map((nl, i) => <NavLink key={i} text={nl.text} url={nl.url}/>)}
         </ul>
       </nav>
-      <main is="ex-main">
-        <Router>
-          <Route default path={"/first"}>
-            <div>A</div>
-          </Route>
-          <Route path={"/second"}>
-            <Red/>
-          </Route>
-        </Router>
-      </main>
+      <Router>
+        <Route default path={"/first"}>
+          <div>A</div>
+        </Route>
+        <Route path={"/second"}>
+          <Red/>
+        </Route>
+      </Router>
     </>
   )
 }

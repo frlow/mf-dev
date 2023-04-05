@@ -20,8 +20,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       mfdev:
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^1.0.6
+        version: 1.0.6
       react:
         specifier: experimental
         version: 0.0.0-experimental-b14f8da15-20230403
@@ -54,8 +54,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       mfdev:
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^1.0.6
+        version: 1.0.6
       svelte:
         specifier: ^3.55.1
         version: 3.58.0
@@ -87,8 +87,8 @@ importers:
         specifier: ^2.8.0
         version: 2.8.0(esbuild@0.17.15)
       mfdev:
-        specifier: ^1.0.5
-        version: 1.0.5(@types/node@18.15.11)(sass@1.60.0)
+        specifier: ^1.0.6
+        version: 1.0.6(@types/node@18.15.11)(sass@1.60.0)
       sass:
         specifier: ^1.60.0
         version: 1.60.0
@@ -3098,8 +3098,8 @@ packages:
     resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
     engines: {node: '>= 0.6'}
 
-  /mfdev@1.0.5:
-    resolution: {integrity: sha512-jhOh8ccXy1AefyMh4aNcQV6PlSFOVX02BOxV5hi24jActoeWKNyjCHvtsBAS5fnOh/JU1e1K16dLVnCCNHMGeg==}
+  /mfdev@1.0.6:
+    resolution: {integrity: sha512-kOJak5Pq3AFNwfwdQxBOS6vvuAtNILNp77w5uhmhlB+TNbMexw2Y4iLvW8LkgBRxTA4i83hPo95S7YedlAE/bA==}
     hasBin: true
     dependencies:
       express: 4.18.2
@@ -3113,8 +3113,8 @@ packages:
       - supports-color
       - terser
 
-  /mfdev@1.0.5(@types/node@18.15.11)(sass@1.60.0):
-    resolution: {integrity: sha512-jhOh8ccXy1AefyMh4aNcQV6PlSFOVX02BOxV5hi24jActoeWKNyjCHvtsBAS5fnOh/JU1e1K16dLVnCCNHMGeg==}
+  /mfdev@1.0.6(@types/node@18.15.11)(sass@1.60.0):
+    resolution: {integrity: sha512-kOJak5Pq3AFNwfwdQxBOS6vvuAtNILNp77w5uhmhlB+TNbMexw2Y4iLvW8LkgBRxTA4i83hPo95S7YedlAE/bA==}
     hasBin: true
     dependencies:
       express: 4.18.2

@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "mfdev": "^1.0.5",
+    "history": "^5.3.0",
+    "mfdev": "^1.0.6",
     "react": "experimental",
-    "react-dom": "experimental",
-    "history": "^5.3.0"
+    "react-dom": "experimental"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

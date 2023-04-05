@@ -1,4 +1,8 @@
 import App from './App.svelte'
 import {createSvelteWrapper} from 'mfdev/svelte'
+import './app.css'
 
-createSvelteWrapper({tag: "ex-red", component: App})
+
+createSvelteWrapper(
+  {component: App, tag: "ex-red"})
+

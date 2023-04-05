@@ -11,12 +11,12 @@
     "dev": "mfdev 3200"
   },
   "devDependencies": {
+    "@types/node": "^18.15.11",
     "astro": "^2.1.7",
-    "sass": "^1.60.0",
     "esbuild": "^0.17.15",
     "esbuild-sass-plugin": "^2.8.0",
-    "@types/node": "^18.15.11",
-    "mfdev": "^1.0.5",
+    "mfdev": "^1.0.6",
+    "sass": "^1.60.0",
     "vite": "^4.2.1"
   },
   "main": "style/index.js",
