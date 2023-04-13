@@ -2,17 +2,13 @@ import {NavLink} from "./components/NavLink.js";
 import {Router, Route} from "./components/Router.js";
 
 export const App = () => {
-  const navLinks: { text: string, url: string }[] = [{
-    text: "Green",
-    url: "/green"
-  }, {text: "Red", url: "/red"}]
-
   return (
     <>
       <nav is="ex-nav">
         <ul>
           <NavLink text={"Green"} url={"/green"}/>
           <NavLink text={"Red"} url={"/red"}/>
+          <NavLink text={"Blue"} url={"/blue"}/>
         </ul>
       </nav>
       <Router>
@@ -21,6 +17,9 @@ export const App = () => {
         </Route>
         <Route path={"/red"}>
           <ex-red/>
+        </Route>
+        <Route path={"/blue"}>
+          <ex-blue/>
         </Route>
       </Router>
     </>

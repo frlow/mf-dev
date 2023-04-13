@@ -13,6 +13,7 @@ declare global {
     interface IntrinsicElements {
       "ex-green": {},
       "ex-red": {},
+      "ex-blue": {},
     }
   }
 }
