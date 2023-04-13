@@ -6,7 +6,8 @@
   "keywords": [],
   "scripts": {
     "dev": "pnpm run --stream --parallel dev",
-    "build": "pnpm run --stream --parallel build"
+    "build": "rm -rf packages/base/public && mkdir packages/base/public && pnpm run --stream --parallel build",
+    "preview": "pnpm run build && pnpm run --filter=base dev"
   },
   "devDependencies": {
     "prettier": "^2.8.7"

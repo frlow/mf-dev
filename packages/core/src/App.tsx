@@ -1,28 +1,26 @@
 import {NavLink} from "./components/NavLink.js";
 import {Router, Route} from "./components/Router.js";
-import {ReactNode} from "react";
 
 export const App = () => {
   const navLinks: { text: string, url: string }[] = [{
-    text: "First",
-    url: "/first"
-  }, {text: "Second", url: "/second"}]
-
-  const Red = "ex-red" as undefined as () => JSX.Element
+    text: "Green",
+    url: "/green"
+  }, {text: "Red", url: "/red"}]
 
   return (
     <>
       <nav is="ex-nav">
         <ul>
-          {navLinks.map((nl, i) => <NavLink key={i} text={nl.text} url={nl.url}/>)}
+          <NavLink text={"Green"} url={"/green"}/>
+          <NavLink text={"Red"} url={"/red"}/>
         </ul>
       </nav>
       <Router>
-        <Route default path={"/first"}>
-          <div>A</div>
+        <Route default path={"/green"}>
+          <ex-green/>
         </Route>
-        <Route path={"/second"}>
-          <Red/>
+        <Route path={"/red"}>
+          <ex-red/>
         </Route>
       </Router>
     </>

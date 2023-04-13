@@ -11,7 +11,8 @@ declare global {
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "ex-button": { onClick: (e: Event) => void }
+      "ex-green": {},
+      "ex-red": {},
     }
   }
 }
