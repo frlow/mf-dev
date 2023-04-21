@@ -2,12 +2,12 @@
 <html>
 <head>
     <title>Micro-Frontend demo</title>
-    <script type="module" src="/public/core.js"></script>
-    <script type="module" src="/public/style.js"></script>
     <script type="module">
         import {registerLazyComponents} from './public/lazy.js'
-
-        registerLazyComponents(await fetch("/public/lazy.json").then(r => r.json()), false)
+        const assets = await fetch("/public/assets.json").then(r => r.json())
+        registerLazyComponents(Object.values(assets).filter(a=>a.component).reduce((acc,cur)=>({...acc, [cur.component]:cur.target}),{}), false)
+        import(assets.core.target)
+        import(assets.style.target)
     </script>
 </head>
 
