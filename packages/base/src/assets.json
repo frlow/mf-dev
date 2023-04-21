@@ -5,6 +5,6 @@
   },
   "green": { "target": "/public/green.js", "component": "ex-green" },
   "blue": { "target": "/public/blue.js", "component": "ex-blue" },
-  "core": { "target": "/public/core.js" },
-  "style": { "target": "/public/style.js" }
+  "core": { "target": "/public/core.js", "load": true },
+  "style": { "target": "/public/style.js", "load": true }
 }

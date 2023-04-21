@@ -6,8 +6,7 @@
         import {registerLazyComponents} from './public/lazy.js'
         const assets = await fetch("/public/assets.json").then(r => r.json())
         registerLazyComponents(Object.values(assets).filter(a=>a.component).reduce((acc,cur)=>({...acc, [cur.component]:cur.target}),{}), false)
-        import(assets.core.target)
-        import(assets.style.target)
+        Object.values(assets).filter(a=>a.load).forEach(a=>import(a.target))
     </script>
 </head>
 
