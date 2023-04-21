@@ -1,0 +1,19 @@
+nav[is^=ex-nav] {
+  border-right: 1px solid black;
+  margin-right: 1rem;
+  width: 200px;
+  background-color: #41B883;
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    font-size: 2rem;
+  }
+
+  a {
+    //text-decoration: none;
+    color: white;
+  }
+}
