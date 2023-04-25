@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cp -r src/* public/",
-    "dev": "ws -p 3012 --spa index.html -z"
+    "dev": "ws -p 3000 --spa index.html -z"
   },
   "keywords": [],
   "author": "",

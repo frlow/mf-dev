@@ -3,9 +3,10 @@
   "devDependencies": {
     "@types/express": "^4.17.17",
     "express": "^4.18.2",
-    "@types/node": "^18.16.0"
+    "@types/node": "^18.16.0",
+    "cors": "^2.8.5"
   },
   "scripts": {
-    "dev1": "node helper.mjs"
+    "dev": "node helper.mjs"
   }
 }

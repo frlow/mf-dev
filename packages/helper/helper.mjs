@@ -1,6 +1,7 @@
 import express from "express";
 import util from "util";
 import { exec } from "child_process";
+import cors from 'cors'
 
 const asyncExec = util.promisify(exec);
 
@@ -20,6 +21,7 @@ const listPorts = async () => {
 listPorts();
 
 const app = express();
+app.use(cors())
 
 app.get("/", async (req, res) => {
   res.setHeader("content-type", "application/json");

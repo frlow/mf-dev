@@ -4,7 +4,8 @@
     <title>Micro-Frontend demo</title>
     <script type="module">
         import {registerLazyComponents} from './public/lazy.js'
-        const assets = await fetch("/public/assets.json").then(r => r.json())
+        let assets = await fetch("/public/assets.json").then(r => r.json())
+        if(localStorage.getItem("dev")) assets = await (await import('./public/dev.js')).loadDevAssets(assets)
         registerLazyComponents(Object.values(assets).filter(a=>a.component).reduce((acc,cur)=>({...acc, [cur.component]:cur.target}),{}), false)
         Object.values(assets).filter(a=>a.load).forEach(a=>import(a.target))
     </script>
