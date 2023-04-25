@@ -5,7 +5,11 @@
     <script type="module">
         import {registerLazyComponents} from './public/lazy.js'
         let assets = await fetch("/public/assets.json").then(r => r.json())
-        if(localStorage.getItem("dev")) assets = await (await import('./public/dev.js')).loadDevAssets(assets)
+        if(localStorage.getItem("dev")) {
+            const devModule = await import('http://localhost:1234/dev.js').catch(()=>undefined)
+            if(devModule) assets=devModule.dev(assets)
+            else console.warn("Helper server not started")
+        }
         registerLazyComponents(Object.values(assets).filter(a=>a.component).reduce((acc,cur)=>({...acc, [cur.component]:cur.target}),{}), false)
         Object.values(assets).filter(a=>a.load).forEach(a=>import(a.target))
     </script>

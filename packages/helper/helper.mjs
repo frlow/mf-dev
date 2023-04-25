@@ -22,9 +22,14 @@ const getApps = async () => {
 const app = express();
 app.use(cors())
 
-app.get("/", async (req, res) => {
-  res.setHeader("content-type", "application/json");
-  res.send(JSON.stringify(await getApps(), null ,2));
+app.get("/dev.js", async (req, res) => {
+  res.setHeader("content-type", "text/javascript");
+  const code = `export const dev = (assets)=>{
+    const apps = JSON.parse('${JSON.stringify(await getApps())}')
+    apps.forEach(app=>assets[app.name]={...assets[app.name], target:\`http://localhost:\${app.port}\${app.target}\`})
+    return assets
+  }`
+  res.send(code);
 });
 
 app.listen(1234);
