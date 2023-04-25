@@ -5,7 +5,7 @@ import cors from 'cors'
 
 const asyncExec = util.promisify(exec);
 
-const listPorts = async () => {
+const getApps = async () => {
   const result = await asyncExec("lsof -i -P -n | grep LISTEN");
   const output = result.stdout;
   const ports = output.split("\n")
@@ -18,14 +18,14 @@ const listPorts = async () => {
       .then(r => r.json().then(j => ({ ...j, port })))
       .catch(() => undefined)))).filter(r => !!r)
 };
-listPorts();
 
 const app = express();
 app.use(cors())
 
 app.get("/", async (req, res) => {
   res.setHeader("content-type", "application/json");
-  res.send(JSON.stringify(await listPorts(), null ,2));
+  res.send(JSON.stringify(await getApps(), null ,2));
 });
 
 app.listen(1234);
+console.log("Helper is listening on: http://localhost:1234")
