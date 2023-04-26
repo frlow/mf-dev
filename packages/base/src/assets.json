@@ -3,8 +3,20 @@
     "target": "/public/red.js",
     "component": "ex-red"
   },
-  "green": { "target": "/public/green.js", "component": "ex-green" },
-  "blue": { "target": "/public/blue.js", "component": "ex-blue" },
-  "core": { "target": "/public/core.js", "load": true },
-  "style": { "target": "/public/style.js", "load": true }
+  "green": {
+    "target": "/public/green.js",
+    "component": "ex-green"
+  },
+  "blue": {
+    "target": "/public/blue.js",
+    "component": "ex-blue"
+  },
+  "core": {
+    "target": "/public/core.js",
+    "load": true
+  },
+  "style": {
+    "target": "/public/style.js",
+    "load": true
+  }
 }
