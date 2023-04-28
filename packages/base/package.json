@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "cp -r src/* public/",
-    "dev": "ws -p 3000 --spa index.html -z"
+    "copy": "copy-and-watch src/* public/",
+    "dev": "concurrently \"ws -p 3000 --spa index.html -z\" \"pnpm run copy\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "local-web-server": "^5.3.0"
+    "local-web-server": "^5.3.0",
+    "copy-and-watch": "^0.1.6",
+    "concurrently": "^8.0.1"
   }
 }
