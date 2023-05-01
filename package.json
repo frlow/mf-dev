@@ -11,7 +11,8 @@
     "test": "pnpm dlx playwright test",
     "helper": "pnpm run --filter helper dev",
     "devone": "concurrently \" pnpm run helper\" \"pnpm run --filter $APP dev\"",
-    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting"
+    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting",
+    "clear": "rm -rf .firebase public playwright-report test-results"
   },
   "devDependencies": {
     "@playwright/test": "^1.33.0",
