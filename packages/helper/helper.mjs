@@ -21,15 +21,18 @@ const getApps = async () => {
 
 const app = express();
 app.use(cors())
+app.use(express.json())
 
-app.get("/dev.js", async (req, res) => {
-  res.setHeader("content-type", "text/javascript");
-  const code = `export const dev = (assets)=>{
-    const apps = JSON.parse('${JSON.stringify(await getApps())}')
-    apps.forEach(app=>assets[app.name]={...assets[app.name], target:\`http://localhost:\${app.port}\${app.target}\`})
-    return assets
-  }`
-  res.send(code);
+app.post("/dev", async (req, res) => {
+  res.setHeader("content-type", "application/json");
+  const apps = await getApps()
+  const ret = Object.entries(req.body).reduce((acc, [key, value])=>{
+    const app = apps.find(a=>a.name===key)
+    if(!app) return value
+    acc[key] = {...value, target: `http://localhost:${app.port}${app.target}`}
+    return acc
+  }, {})
+  res.send(JSON.stringify(ret));
 });
 app.get('/', (req,res)=>{
   res.setHeader("content-type","text/html")

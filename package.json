@@ -8,12 +8,15 @@
     "dev": "pnpm run --stream --parallel dev",
     "build": "rm -rf packages/base/public && mkdir packages/base/public && pnpm run --stream --parallel build",
     "preview": "pnpm run build && pnpm run --filter=base dev",
-    "test": "pnpm dlx playwright test"
+    "test": "pnpm dlx playwright test",
+    "helper": "pnpm run --filter helper dev",
+    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
     "prettier": "^2.8.7",
-    "@playwright/test": "^1.33.0"
+    "@playwright/test": "^1.33.0",
+    "firebase-tools": "^11.29.1"
   },
   "author": "",
   "license": "ISC"

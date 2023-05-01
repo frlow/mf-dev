@@ -3,3 +3,6 @@ node_modules/
 dist/
 packages/base/public/
 test-results/
+public/
+*.cache
+playwright-report/
