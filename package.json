@@ -13,10 +13,10 @@
     "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3",
-    "prettier": "^2.8.7",
     "@playwright/test": "^1.33.0",
-    "firebase-tools": "^11.29.1"
+    "@types/node": "^18.16.3",
+    "firebase-tools": "^11.29.1",
+    "prettier": "^2.8.8"
   },
   "author": "",
   "license": "ISC"
