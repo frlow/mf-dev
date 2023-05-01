@@ -10,6 +10,9 @@ importers:
       '@types/node':
         specifier: ^18.16.3
         version: 18.16.3
+      concurrently:
+        specifier: ^8.0.1
+        version: 8.0.1
       firebase-tools:
         specifier: ^11.29.1
         version: 11.29.1

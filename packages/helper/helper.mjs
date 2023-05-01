@@ -28,8 +28,7 @@ app.post("/dev", async (req, res) => {
   const apps = await getApps()
   const ret = Object.entries(req.body).reduce((acc, [key, value])=>{
     const app = apps.find(a=>a.name===key)
-    if(!app) return value
-    acc[key] = {...value, target: `http://localhost:${app.port}${app.target}`}
+    acc[key] = app ? {...value, target: `http://localhost:${app.port}${app.target}`} : value
     return acc
   }, {})
   res.send(JSON.stringify(ret));

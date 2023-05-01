@@ -10,13 +10,15 @@
     "preview": "pnpm run build && pnpm run --filter=base dev",
     "test": "pnpm dlx playwright test",
     "helper": "pnpm run --filter helper dev",
+    "devone": "concurrently \" pnpm run helper\" \"pnpm run --filter $APP dev\"",
     "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@playwright/test": "^1.33.0",
     "@types/node": "^18.16.3",
     "firebase-tools": "^11.29.1",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "concurrently": "^8.0.1"
   },
   "author": "",
   "license": "ISC"
