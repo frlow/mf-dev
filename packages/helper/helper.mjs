@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import express from "express";
 import util from "util";
 import { exec } from "child_process";
@@ -17,8 +18,8 @@ const getApps = async () => {
     port => fetch(`http://localhost:${port}/package.json`)
       .then(r => r.json().then(j => {
         if (!j.helper) return undefined;
-        const target = `http://localhost:${port}/${j.helper.entry || "src/main.ts"}`
-        return { name: j.name,target, ...j.helper, port };
+        const target = `http://localhost:${port}/${j.helper.entry || "src/main.ts"}`;
+        return { name: j.name, target, ...j.helper, port };
       }))
       .catch(() => undefined)))).filter(r => !!r);
 };
@@ -28,10 +29,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/dev", async (req, res) => {
-  const assets = req.body
+  const assets = req.body;
   res.setHeader("content-type", "application/json");
   const apps = await getApps();
-  apps.forEach(app=> assets[app.name] = {...assets[app.name], ...app})
+  apps.forEach(app => assets[app.name] = { ...assets[app.name], ...app });
   res.send(JSON.stringify(assets));
 });
 app.get("/", (req, res) => {
@@ -81,3 +82,6 @@ app.get("/apps", async (req, res) => {
 
 app.listen(1234);
 console.log("Helper is listening on: http://localhost:1234");
+
+// @ts-ignore
+if (process.argv[2]) import("mfdev/dev");

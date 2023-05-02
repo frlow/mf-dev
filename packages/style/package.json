@@ -11,12 +11,12 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
-    "astro": "^2.3.3",
+    "astro": "^2.3.4",
     "esbuild": "^0.17.18",
     "esbuild-sass-plugin": "^2.9.0",
-    "mfdev": "^1.0.12",
+    "mfdev": "^1.0.13",
     "sass": "^1.62.1",
-    "vite": "^4.3.3"
+    "vite": "^4.3.4"
   },
   "main": "style/index.js",
   "files": [

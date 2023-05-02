@@ -10,7 +10,6 @@
     "preview": "pnpm run build && pnpm run --filter=base dev",
     "test": "pnpm dlx playwright test",
     "helper": "pnpm run --filter helper dev",
-    "devone": "concurrently \" pnpm run helper\" \"pnpm run --filter $APP dev\"",
     "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting",
     "clear": "rm -rf .firebase public playwright-report test-results",
     "build-tests": "node testbuild.mjs"
@@ -20,7 +19,6 @@
     "@types/node": "^18.16.3",
     "firebase-tools": "^11.29.1",
     "prettier": "^2.8.8",
-    "concurrently": "^8.0.1",
     "esbuild": "^0.17.18",
     "glob": "^10.2.2"
   },
