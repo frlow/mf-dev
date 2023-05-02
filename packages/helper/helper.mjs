@@ -1,7 +1,7 @@
 import express from "express";
 import util from "util";
 import { exec } from "child_process";
-import cors from 'cors'
+import cors from "cors";
 
 const asyncExec = util.promisify(exec);
 
@@ -10,31 +10,32 @@ const getApps = async () => {
   const output = result.stdout;
   const ports = output.split("\n")
     .map(l => l.split(" ")
-    .filter(d => d))
-    .filter(l=>l[0]==="node")
-    .map(l=>l[8].split(":")[1])
+      .filter(d => d))
+    .filter(l => l[0] === "node")
+    .map(l => l[8].split(":")[1]);
   return (await Promise.all(ports.map(
-    port => fetch(`http://localhost:${port}/__mfdev`)
-      .then(r => r.json().then(j => ({ ...j, port })))
-      .catch(() => undefined)))).filter(r => !!r)
+    port => fetch(`http://localhost:${port}/package.json`)
+      .then(r => r.json().then(j => {
+        if (!j.helper) return undefined;
+        const target = `http://localhost:${port}/${j.helper.entry || "src/main.ts"}`
+        return { name: j.name,target, ...j.helper, port };
+      }))
+      .catch(() => undefined)))).filter(r => !!r);
 };
 
 const app = express();
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 app.post("/dev", async (req, res) => {
+  const assets = req.body
   res.setHeader("content-type", "application/json");
-  const apps = await getApps()
-  const ret = Object.entries(req.body).reduce((acc, [key, value])=>{
-    const app = apps.find(a=>a.name===key)
-    acc[key] = app ? {...value, target: `http://localhost:${app.port}${app.target}`} : value
-    return acc
-  }, {})
-  res.send(JSON.stringify(ret));
+  const apps = await getApps();
+  apps.forEach(app=> assets[app.name] = {...assets[app.name], ...app})
+  res.send(JSON.stringify(assets));
 });
-app.get('/', (req,res)=>{
-  res.setHeader("content-type","text/html")
+app.get("/", (req, res) => {
+  res.setHeader("content-type", "text/html");
   res.send(`<!DOCTYPE html>
 <html>
 <head>
@@ -71,12 +72,12 @@ app.get('/', (req,res)=>{
     </div>
 </body>
 
-</html>`)
-})
-app.get('/apps', async (req,res)=>{
+</html>`);
+});
+app.get("/apps", async (req, res) => {
   res.setHeader("content-type", "application/json");
   res.send(JSON.stringify(await getApps()));
-})
+});
 
 app.listen(1234);
-console.log("Helper is listening on: http://localhost:1234")
+console.log("Helper is listening on: http://localhost:1234");

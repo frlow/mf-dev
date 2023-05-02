@@ -9,15 +9,16 @@
   "type": "module",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^3.21.2",
+    "rollup": "^3.21.3",
     "rollup-plugin-import-css": "^3.2.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.3",
     "vite-plugin-solid": "^2.7.0"
   },
   "dependencies": {
-    "mfdev": "^1.0.11",
-    "solid-js": "^1.7.3",
+    "mfdev": "^1.0.12",
+    "solid-js": "^1.7.4",
     "solid-styled-components": "^0.28.5"
-  }
+  },
+  "helper": {}
 }

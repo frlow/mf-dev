@@ -8,7 +8,7 @@
     let assets = await fetch("/public/assets.json").then(r => r.json());
     if (localStorage.getItem("dev")) {
       try {
-        assets = await fetch("http://localhost:1234/dev", {
+        assets = await fetch(localStorage.getItem("dev"), {
           method: "POST",
           body: JSON.stringify(assets),
           headers: { "content-type": "application/json" }
@@ -26,7 +26,7 @@
 </head>
 
 <body is="ex-body">
-
+<div id="core"></div>
 </body>
 
 </html>
