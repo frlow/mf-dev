@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
+    "start": "helper 3300",
     "dev": "mfdev 3500",
     "build": "vite build"
   },
@@ -13,7 +14,8 @@
     "rollup-plugin-import-css": "^3.2.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "helper": "workspace:*"
   },
   "dependencies": {
     "mfdev": "^1.0.13",

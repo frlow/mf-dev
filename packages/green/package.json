@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "helper 3300",
     "dev": "mfdev 3400",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
@@ -16,7 +17,8 @@
     "mfdev": "^1.0.13",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
-    "vue-tsc": "^1.6.3"
+    "vue-tsc": "^1.6.3",
+    "helper": "workspace:*"
   },
   "helper": {}
 }

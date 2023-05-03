@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "helper 3300",
     "dev": "mfdev 3100",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -19,7 +20,8 @@
     "@types/react-dom": "^18.2.1",
     "@vitejs/plugin-react": "^4.0.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.4"
+    "vite": "^4.3.4",
+    "helper": "workspace:*"
   },
   "helper": {
     "entry": "src/dev.ts"

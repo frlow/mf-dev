@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start": "helper 3300",
     "docs": "astro dev",
     "build": "astro build && vite build --config style.config.ts",
     "preview": "astro preview",
@@ -16,7 +17,8 @@
     "esbuild-sass-plugin": "^2.9.0",
     "mfdev": "^1.0.13",
     "sass": "^1.62.1",
-    "vite": "^4.3.4"
+    "vite": "^4.3.4",
+    "helper": "workspace:*"
   },
   "main": "style/index.js",
   "files": [
