@@ -13,7 +13,7 @@ const getApps = async () => {
     .map(l => l.split(" ")
       .filter(d => d))
     .filter(l => l[0] === "node")
-    .map(l => l[8].split(":")[1]);
+    .map(l => l[8].split(":").slice(-1)[0]);
   return (await Promise.all(ports.map(
     port => fetch(`http://localhost:${port}/package.json`)
       .then(r => r.json().then(j => {
@@ -76,12 +76,10 @@ app.get("/", (req, res) => {
 </html>`);
 });
 app.get("/apps", async (req, res) => {
+  const apps = await getApps()
   res.setHeader("content-type", "application/json");
-  res.send(JSON.stringify(await getApps()));
+  res.send(JSON.stringify(apps));
 });
 
 app.listen(1234);
 console.log("Helper is listening on: http://localhost:1234");
-
-// @ts-ignore
-if (process.argv[2]) import("mfdev/dev");

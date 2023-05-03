@@ -1,0 +1,8 @@
+{
+  "name": "loader-file",
+  "devDependencies": {
+    "vite": "^4.3.4"
+  },
+  "type": "module",
+  "main": "./index.js"
+}
