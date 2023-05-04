@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
   res.send(`<!DOCTYPE html>
 <html>
 <head>
-    <title>MfDev Dashboard</title>
+    <title>Mf-Dev Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <style>
@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 <body x-data="{apps:[]}" x-effect="apps = await fetch('/apps').then(r=>r.json()); setInterval(async ()=>{
     apps = await fetch('/apps').then(r=>r.json())
 },1000)">
-    <h1>MfDev Dashboard</h1>
+    <h1>Mf-∫Dev Dashboard</h1>
     <div class="app-drawer">
       <template x-for="app in apps">
         <div class="app">

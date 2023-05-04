@@ -3,21 +3,23 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start": "vite --config style.config.ts",
     "docs": "astro dev",
     "build": "astro build && vite build --config style.config.ts",
     "preview": "astro preview",
     "astro": "astro",
-    "dev": "mfdev 3200"
+    "dev": "concurrently \"helper\" \"vite --config style.config.ts\""
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
     "astro": "^2.3.4",
     "esbuild": "^0.17.18",
     "esbuild-sass-plugin": "^2.9.0",
-    "mfdev": "^1.0.13",
     "sass": "^1.62.1",
     "vite": "^4.3.4",
-    "@mf-dev/helper": "workspace:*"
+    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/loader-file": "workspace:*",
+    "concurrently": "^8.0.1"
   },
   "main": "style/index.js",
   "files": [
