@@ -5,14 +5,13 @@ import { loaderFile } from '@mf-dev/loader-file'
 import { autoTransform } from '@mf-dev/vite-transform'
 
 const name = path.parse(__dirname).name
-const entry = 'src/main.ts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), loaderFile(name), autoTransform(entry)],
+  plugins: [svelte(), loaderFile(name), autoTransform()],
   build: {
     rollupOptions: {
-      input: [entry],
+      input: ['src/main.ts'],
       output: {
         dir: '../base/public',
         assetFileNames: `${name}-[hash][extname]`,

@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "helper 3300",
     "dev": "mfdev 3100",
     "build": "tsc && vite build",
     "preview": "vite preview"

@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "start": "helper 3300",
     "docs": "astro dev",
     "build": "astro build && vite build --config style.config.ts",
     "preview": "astro preview",

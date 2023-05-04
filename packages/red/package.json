@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "helper 3300",
+    "start": "vite",
     "dev": "concurrently \"vite\" \"helper\"",
     "build": "vite build",
     "preview": "vite preview",

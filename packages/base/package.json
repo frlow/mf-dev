@@ -6,6 +6,7 @@
   "scripts": {
     "build": "cp -r src/* public/",
     "copy": "copy-and-watch src/* public/",
+    "start": "pnpm run dev",
     "dev": "concurrently \"ws -p 3000 --spa index.html -z\" \"pnpm run copy\""
   },
   "keywords": [],

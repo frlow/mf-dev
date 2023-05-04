@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "start": "helper 3300",
     "dev": "mfdev 3500",
     "build": "vite build"
   },

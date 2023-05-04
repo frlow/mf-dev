@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "helper 3300",
-    "dev": "mfdev 3400",
+    "start": "vite",
+    "dev": "concurrently \"vite\" \"helper\"",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -15,10 +15,13 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.1",
     "mfdev": "^1.0.13",
+    "@mf-dev/vite-transform": "workspace:^",
+    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/helper": "workspace:*",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
     "vue-tsc": "^1.6.3",
-    "@mf-dev/helper": "workspace:*"
+    "concurrently": "^8.0.1"
   },
   "helper": {}
 }

@@ -5,7 +5,7 @@
   "main": "index.js",
   "keywords": [],
   "scripts": {
-    "dev": "pnpm run --stream --parallel dev",
+    "start": "pnpm run --stream --parallel start",
     "build": "rm -rf packages/base/public && mkdir packages/base/public && pnpm run --stream --parallel build",
     "preview": "pnpm run build && pnpm run --filter=base dev",
     "test": "pnpm dlx playwright test",
