@@ -5,7 +5,7 @@ import { applyProps, emit } from '@mf-dev/wrapper-common'
   tag?: string,
   attributes?: string[],
   extendsClass?: typeof HTMLElement
-})=>void} **/
+})=>HTMLElement} **/
 export const createSvelteWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends (options.extendsClass ||

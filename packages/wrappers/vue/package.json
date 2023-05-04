@@ -1,0 +1,11 @@
+{
+  "name": "@mf-dev/wrapper-vue",
+  "type": "module",
+  "main": "./index.js",
+  "dependencies": {
+    "@mf-dev/wrapper-common": "workspace:^"
+  },
+  "devDependencies": {
+    "vue": "^3.2.47"
+  }
+}

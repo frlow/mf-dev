@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "dev": "mfdev 3500",
+    "start": "vite",
+    "dev": "concurrently \"vite\" \"helper\"",
     "build": "vite build"
   },
   "type": "module",
@@ -14,7 +15,10 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
     "vite-plugin-solid": "^2.7.0",
-    "@mf-dev/helper": "workspace:*"
+    "@mf-dev/vite-transform": "workspace:^",
+    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/helper": "workspace:*",
+    "concurrently": "^8.0.1"
   },
   "dependencies": {
     "mfdev": "^1.0.13",

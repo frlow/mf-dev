@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.1",
-    "mfdev": "^1.0.13",
+    "@mf-dev/wrapper-vue": "workspace:^",
     "@mf-dev/vite-transform": "workspace:^",
     "@mf-dev/loader-file": "workspace:^",
     "@mf-dev/helper": "workspace:*",
