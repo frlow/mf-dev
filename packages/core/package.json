@@ -21,7 +21,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
-    "helper": "workspace:*"
+    "@mf-dev/helper": "workspace:*"
   },
   "helper": {
     "entry": "src/dev.ts"

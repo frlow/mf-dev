@@ -1,0 +1,8 @@
+{
+  "name": "@mf-dev/wrapper-svelte",
+  "type": "module",
+  "main": "./index.js",
+  "dependencies": {
+    "@mf-dev/wrapper-common": "workspace:^"
+  }
+}

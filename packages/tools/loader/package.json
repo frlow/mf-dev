@@ -1,5 +1,5 @@
 {
-  "name": "loader-file",
+  "name": "@mf-dev/loader-file",
   "devDependencies": {
     "vite": "^4.3.4"
   },

@@ -22,6 +22,9 @@ importers:
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
+      prettier-plugin-sort-json:
+        specifier: ^1.0.0
+        version: 1.0.0(prettier@2.8.8)
 
   packages/base:
     devDependencies:
@@ -47,7 +50,7 @@ importers:
         specifier: ^0.28.5
         version: 0.28.5(solid-js@1.7.4)
     devDependencies:
-      helper:
+      '@mf-dev/helper':
         specifier: workspace:*
         version: link:../tools/helper
       rollup:
@@ -81,6 +84,9 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@mf-dev/helper':
+        specifier: workspace:*
+        version: link:../tools/helper
       '@types/react':
         specifier: ^18.2.0
         version: 18.2.0
@@ -90,9 +96,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.0.0
         version: 4.0.0(vite@4.3.4)
-      helper:
-        specifier: workspace:*
-        version: link:../tools/helper
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -106,12 +109,12 @@ importers:
         specifier: ^3.2.47
         version: 3.2.47
     devDependencies:
+      '@mf-dev/helper':
+        specifier: workspace:*
+        version: link:../tools/helper
       '@vitejs/plugin-vue':
         specifier: ^4.2.1
         version: 4.2.1(vite@4.3.4)(vue@3.2.47)
-      helper:
-        specifier: workspace:*
-        version: link:../tools/helper
       mfdev:
         specifier: ^1.0.13
         version: 1.0.13(@types/node@18.16.3)(sass@1.62.1)
@@ -127,6 +130,18 @@ importers:
 
   packages/red:
     devDependencies:
+      '@mf-dev/helper':
+        specifier: workspace:*
+        version: link:../tools/helper
+      '@mf-dev/loader-file':
+        specifier: workspace:^
+        version: link:../tools/loader
+      '@mf-dev/vite-transform':
+        specifier: workspace:^
+        version: link:../tools/viteTransform
+      '@mf-dev/wrapper-svelte':
+        specifier: workspace:^
+        version: link:../wrappers/svelte
       '@sveltejs/vite-plugin-svelte':
         specifier: ^2.1.1
         version: 2.1.1(svelte@3.58.0)(vite@4.3.4)
@@ -136,15 +151,6 @@ importers:
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
-      helper:
-        specifier: workspace:*
-        version: link:../tools/helper
-      loader-file:
-        specifier: workspace:^
-        version: link:../tools/loader
-      mfdev:
-        specifier: ^1.0.13
-        version: 1.0.13(@types/node@18.16.3)(sass@1.62.1)
       svelte:
         specifier: ^3.58.0
         version: 3.58.0
@@ -160,12 +166,12 @@ importers:
       vite:
         specifier: ^4.3.4
         version: 4.3.4(@types/node@18.16.3)(sass@1.62.1)
-      vite-transform:
-        specifier: workspace:^
-        version: link:../tools/viteTransform
 
   packages/style:
     devDependencies:
+      '@mf-dev/helper':
+        specifier: workspace:*
+        version: link:../tools/helper
       '@types/node':
         specifier: ^18.16.3
         version: 18.16.3
@@ -178,9 +184,6 @@ importers:
       esbuild-sass-plugin:
         specifier: ^2.9.0
         version: 2.9.0(esbuild@0.17.18)
-      helper:
-        specifier: workspace:*
-        version: link:../tools/helper
       mfdev:
         specifier: ^1.0.13
         version: 1.0.13(@types/node@18.16.3)(sass@1.62.1)
@@ -220,6 +223,14 @@ importers:
       vite:
         specifier: ^4.3.4
         version: 4.3.4(@types/node@18.16.3)(sass@1.62.1)
+
+  packages/wrappers/common: {}
+
+  packages/wrappers/svelte:
+    dependencies:
+      '@mf-dev/wrapper-common':
+        specifier: workspace:^
+        version: link:../common
 
 packages:
 
@@ -1382,6 +1393,10 @@ packages:
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
+    dev: true
+
+  /@types/prettier@2.7.2:
+    resolution: {integrity: sha512-KufADq8uQqo1pYKVIYzfKbJfBAc0sOeXqGbFaSpv8MRmC/zXgowNZmFcbngndGk922QDmOASEXUZCaY48gs4cg==}
     dev: true
 
   /@types/prop-types@15.7.5:
@@ -6648,6 +6663,16 @@ packages:
       prettier: 2.8.8
       sass-formatter: 0.7.6
       synckit: 0.8.5
+    dev: true
+
+  /prettier-plugin-sort-json@1.0.0(prettier@2.8.8):
+    resolution: {integrity: sha512-XgcaF/Sojax1vD6j53wNIByx0rp7ecang+A8W0eM+Ks3yBFu/qXjJNvUtC1lEWeYbNfmRs/d8FyYJCYozAVENw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      prettier: ^2.3.2
+    dependencies:
+      '@types/prettier': 2.7.2
+      prettier: 2.8.8
     dev: true
 
   /prettier@2.8.8:

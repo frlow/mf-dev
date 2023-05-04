@@ -1,0 +1,5 @@
+{
+  "name": "@mf-dev/wrapper-common",
+  "type": "module",
+  "main": "./index.js"
+}

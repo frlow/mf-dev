@@ -15,7 +15,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
     "vite-plugin-solid": "^2.7.0",
-    "helper": "workspace:*"
+    "@mf-dev/helper": "workspace:*"
   },
   "dependencies": {
     "mfdev": "^1.0.13",

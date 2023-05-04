@@ -18,7 +18,7 @@
     "mfdev": "^1.0.13",
     "sass": "^1.62.1",
     "vite": "^4.3.4",
-    "helper": "workspace:*"
+    "@mf-dev/helper": "workspace:*"
   },
   "main": "style/index.js",
   "files": [

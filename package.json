@@ -20,7 +20,8 @@
     "firebase-tools": "^11.29.1",
     "prettier": "^2.8.8",
     "esbuild": "^0.17.18",
-    "glob": "^10.2.2"
+    "glob": "^10.2.2",
+    "prettier-plugin-sort-json": "^1.0.0"
   },
   "author": "",
   "license": "ISC"

@@ -1,5 +1,5 @@
 /** @type {(name: string)=>import('vite').Plugin} **/
-export const createLoaderFile = (name) => ({
+export const loaderFile = (name) => ({
   name: 'create-loader-file',
   apply: 'build',
   generateBundle(options, bundle) {

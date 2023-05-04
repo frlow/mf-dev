@@ -1,5 +1,5 @@
 {
-  "name": "helper",
+  "name": "@mf-dev/helper",
   "dependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^18.16.3",
