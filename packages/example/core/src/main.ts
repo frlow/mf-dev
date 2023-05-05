@@ -2,7 +2,7 @@ import { createBrowserHistory } from 'history'
 import './core.css'
 
 import App from './App.js'
-import { createReactWrapper } from 'mfdev/react'
+import { createReactWrapper } from '@mf-dev/wrapper-react'
 
 window.HistoryLibrary = createBrowserHistory()
 
