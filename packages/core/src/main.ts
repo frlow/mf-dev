@@ -1,4 +1,3 @@
-// import 'mfdev/polyfill'
 import { createBrowserHistory } from 'history'
 import './core.css'
 
