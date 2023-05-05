@@ -1,10 +1,10 @@
 import 'mfdev/polyfill'
 import { createBrowserHistory } from 'history'
+import './core.css'
 
 import App from './App.js'
-import { createRoot } from 'react-dom/client'
-import { createElement } from 'react'
+import { createReactWrapper } from 'mfdev/react'
 
 window.HistoryLibrary = createBrowserHistory()
 
-createRoot(document.body).render(createElement(App))
+createReactWrapper({ tag: 'ex-core', component: App })
