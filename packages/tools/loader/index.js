@@ -6,11 +6,16 @@ export const loaderFile = (name) => ({
     const entryPoint = Object.values(bundle).find((d) => d.isEntry)
     const css = Array.from(entryPoint.viteMetadata.importedCss?.values() || [])
     const code = `import './${entryPoint.fileName}'
+const base = import.meta.url.split('/').slice(0,-1).join('/')
 ${css
   .map(
     (css, index) =>
-      `import sheet${index} from './${css.toString()}' assert { type: 'css' }
-document.adoptedStyleSheets.push(sheet${index})`
+      `const sheet${index} = base+'/${css.toString()}'
+const el${index} = document.createElement("link")
+el${index}.rel='stylesheet'
+el${index}.href=sheet${index}
+document.head.appendChild(el${index})
+`
   )
   .join('\n')}`
     this.emitFile({
