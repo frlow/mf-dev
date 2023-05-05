@@ -1,4 +1,4 @@
-import {createSolidWrapper} from 'mfdev/solid'
-import {App} from './App.js'
+import { createSolidWrapper } from '@mf-dev/wrapper-solid'
+import { App } from './App.js'
 
-createSolidWrapper({component: App, tag: 'ex-blue'})
+createSolidWrapper({ component: App, tag: 'ex-blue' })

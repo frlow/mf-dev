@@ -40,9 +40,6 @@ importers:
 
   packages/blue:
     dependencies:
-      mfdev:
-        specifier: ^1.0.13
-        version: 1.0.13(@types/node@18.16.3)
       solid-js:
         specifier: ^1.7.4
         version: 1.7.4
@@ -59,6 +56,9 @@ importers:
       '@mf-dev/vite-transform':
         specifier: workspace:^
         version: link:../tools/viteTransform
+      '@mf-dev/wrapper-solid':
+        specifier: workspace:*
+        version: link:../wrappers/solid
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
@@ -252,6 +252,16 @@ importers:
         version: 4.3.4(@types/node@18.16.3)(sass@1.62.1)
 
   packages/wrappers/common: {}
+
+  packages/wrappers/solid:
+    dependencies:
+      '@mf-dev/wrapper-common':
+        specifier: workspace:^
+        version: link:../common
+    devDependencies:
+      solid-js:
+        specifier: ^1.7.4
+        version: 1.7.4
 
   packages/wrappers/svelte:
     dependencies:

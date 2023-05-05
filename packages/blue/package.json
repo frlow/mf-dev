@@ -18,10 +18,10 @@
     "@mf-dev/vite-transform": "workspace:^",
     "@mf-dev/loader-file": "workspace:^",
     "@mf-dev/helper": "workspace:*",
+    "@mf-dev/wrapper-solid": "workspace:*",
     "concurrently": "^8.0.1"
   },
   "dependencies": {
-    "mfdev": "^1.0.13",
     "solid-js": "^1.7.4",
     "solid-styled-components": "^0.28.5"
   },
