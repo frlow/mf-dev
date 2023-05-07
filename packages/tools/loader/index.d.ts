@@ -1,1 +1,1 @@
-export const loaderFile: (name: string) => any
+export const loaderFile: (name?: string) => any

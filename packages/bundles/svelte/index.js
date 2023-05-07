@@ -3,7 +3,7 @@ import { autoTransform } from '@mf-dev/vite-transform'
 
 export { createSvelteWrapper } from '@mf-dev/wrapper-svelte'
 
-export const svelteMicroFrontendPlugin = ({ name }) => [
+export const svelteMicroFrontendPlugin = ({ name, entry }) => [
   loaderFile(name),
-  autoTransform(),
+  autoTransform(entry),
 ]

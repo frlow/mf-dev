@@ -1,5 +1,9 @@
-import { createSvelteWrapper as _createSvelteWrapper } from '@mf-dev/wrapper-svelte'
+export { createSvelteWrapper } from '@mf-dev/wrapper-svelte'
 
-export const createSvelteWrapper: typeof _createSvelteWrapper
-
-export const svelteMicroFrontendPlugin: ({ name: string }) => any
+export const svelteMicroFrontendPlugin: ({
+  name,
+  entry,
+}: {
+  name?: string
+  entry?: string
+}) => any
