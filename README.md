@@ -7,3 +7,10 @@ Seems to be working fine
 Wrong app is updated if multiple vue apps are running at the same time
 ### Solid
 ### React
+
+# TODO
+- [ ] React bundle
+- [ ] Vue bundle
+- [ ] Solid bundle
+- [ ] Lazy component loader
+- [ ] Helper assets loader
