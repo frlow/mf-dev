@@ -21,12 +21,11 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.4",
     "@mf-dev/vite-transform": "workspace:^",
+    "@mf-dev/react-preamble": "workspace:^",
     "@mf-dev/loader-file": "workspace:^",
     "@mf-dev/helper": "workspace:*",
     "@mf-dev/wrapper-react": "workspace:*",
     "concurrently": "^8.0.1S"
   },
-  "helper": {
-    "entry": "src/dev.ts"
-  }
+  "helper": {}
 }
