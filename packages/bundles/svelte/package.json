@@ -1,0 +1,10 @@
+{
+  "name": "@mf-dev/svelte",
+  "type": "module",
+  "main": "./index.js",
+  "dependencies": {
+    "@mf-dev/wrapper-svelte": "workspace:^",
+    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/vite-transform": "workspace:^"
+  }
+}

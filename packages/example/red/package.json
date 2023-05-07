@@ -11,9 +11,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@mf-dev/vite-transform": "workspace:^",
-    "@mf-dev/loader-file": "workspace:^",
-    "@mf-dev/wrapper-svelte": "workspace:^",
+    "@mf-dev/svelte": "workspace:^",
     "@mf-dev/helper": "workspace:*",
     "@sveltejs/vite-plugin-svelte": "^2.1.1",
     "@tsconfig/svelte": "^4.0.1",
