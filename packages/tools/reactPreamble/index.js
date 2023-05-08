@@ -4,6 +4,7 @@ import { promises as fsPromises } from 'fs'
 /** @type {(entry: string)=>import('vite').Plugin} **/
 export const reactPreamble = (entry = 'src/main.ts') => ({
   name: 'react-preamble',
+  apply: 'serve',
   async resolveId(source) {
     if (source === './___preamble.js') return '___preamble'
   },

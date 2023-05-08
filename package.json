@@ -10,7 +10,7 @@
     "preview": "pnpm run build && pnpm run --filter=base dev",
     "test": "pnpm dlx playwright test",
     "helper": "pnpm run --filter helper dev",
-    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/base/index.html public/ && cp -r packages/example/base/public public/public/ && firebase deploy --only hosting",
+    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/base/index.html public/ && cp -r packages/example/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results",
     "build-tests": "node testbuild.mjs"
   },
