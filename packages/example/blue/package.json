@@ -10,16 +10,15 @@
   "type": "module",
   "license": "MIT",
   "devDependencies": {
+    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/wrapper-solid": "workspace:*",
+    "concurrently": "^8.0.1",
     "rollup": "^3.21.3",
     "rollup-plugin-import-css": "^3.2.1",
     "typescript": "^5.0.4",
-    "vite": "^4.3.4",
-    "vite-plugin-solid": "^2.7.0",
-    "@mf-dev/vite-transform": "workspace:^",
-    "@mf-dev/loader-file": "workspace:^",
-    "@mf-dev/helper": "workspace:*",
-    "@mf-dev/wrapper-solid": "workspace:*",
-    "concurrently": "^8.0.1"
+    "vite": "^4.3.5",
+    "vite-plugin-solid": "^2.7.0"
   },
   "dependencies": {
     "solid-js": "^1.7.4",

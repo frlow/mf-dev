@@ -2,13 +2,12 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
 import { loaderFile } from '@mf-dev/loader-file'
-import { autoTransform } from '@mf-dev/vite-transform'
 
 const name = path.parse(__dirname).name
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), loaderFile(name), autoTransform()],
+  plugins: [vue(), loaderFile(name)],
   build: {
     rollupOptions: {
       input: ['src/main.ts'],

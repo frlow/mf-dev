@@ -15,17 +15,16 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/react-preamble": "workspace:^",
+    "@mf-dev/wrapper-react": "workspace:*",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
     "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.0.1S",
     "typescript": "^5.0.4",
-    "vite": "^4.3.4",
-    "@mf-dev/vite-transform": "workspace:^",
-    "@mf-dev/react-preamble": "workspace:^",
-    "@mf-dev/loader-file": "workspace:^",
-    "@mf-dev/helper": "workspace:*",
-    "@mf-dev/wrapper-react": "workspace:*",
-    "concurrently": "^8.0.1S"
+    "vite": "^4.3.5"
   },
   "helper": {}
 }

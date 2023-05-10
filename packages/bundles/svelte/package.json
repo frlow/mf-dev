@@ -4,7 +4,6 @@
   "main": "./index.js",
   "dependencies": {
     "@mf-dev/wrapper-svelte": "workspace:^",
-    "@mf-dev/loader-file": "workspace:^",
-    "@mf-dev/vite-transform": "workspace:^"
+    "@mf-dev/loader-file": "workspace:^"
   }
 }

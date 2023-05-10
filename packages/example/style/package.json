@@ -11,15 +11,15 @@
     "dev": "concurrently \"helper\" \"vite --config style.config.ts\""
   },
   "devDependencies": {
+    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/loader-file": "workspace:*",
     "@types/node": "^18.16.3",
     "astro": "^2.3.4",
+    "concurrently": "^8.0.1",
     "esbuild": "^0.17.18",
     "esbuild-sass-plugin": "^2.9.0",
     "sass": "^1.62.1",
-    "vite": "^4.3.4",
-    "@mf-dev/helper": "workspace:*",
-    "@mf-dev/loader-file": "workspace:*",
-    "concurrently": "^8.0.1"
+    "vite": "^4.3.5"
   },
   "main": "style/index.js",
   "files": [
