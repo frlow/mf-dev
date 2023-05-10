@@ -47,7 +47,9 @@ export const createSvelteWrapper = (options) => {
       )
     }
 
-    disconnectedCallback() {}
+    disconnectedCallback() {
+      this.app.$destroy()
+    }
   }
   applyProps(wrapperClass, attributes)
   if (options.tag) customElements.define(options.tag, wrapperClass)
