@@ -1,1 +1,5 @@
-export const entry: (options: { name: string; entry?: string }) => any
+export const entry: (options: {
+  name: string
+  entry?: string
+  hashEntry?: boolean
+}) => any

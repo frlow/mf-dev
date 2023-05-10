@@ -3,7 +3,7 @@ import * as path from 'path'
 const getDir = (options) =>
   options && options.entry ? path.parse(options.entry).dir : 'src'
 
-/** @type {(options: {entry?: string, name: string})=>import("vite").Plugin} **/
+/** @type {(options: {entry?: string, name: string, hashEntry?: boolean})=>import("vite").Plugin} **/
 export const entry = (options) => ({
   name: 'entry',
   apply: 'build',
@@ -21,13 +21,13 @@ export const entry = (options) => ({
       }')`
   },
   async buildStart(buildOptions) {
-    debugger
     buildOptions.input = ['___entry.js']
   },
   outputOptions(outputOptions) {
     outputOptions.assetFileNames = `${options.name}-[name]-[hash][extname]`
     outputOptions.chunkFileNames = `${options.name}-[name]-[hash].js`
-    outputOptions.entryFileNames = options.name + '.js'
+    outputOptions.entryFileNames =
+      options.name + (options.hashEntry ? '-[hash]' : '') + '.js'
     return outputOptions
   },
 })
