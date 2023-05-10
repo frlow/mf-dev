@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import * as path from 'path'
-import { svelteMicroFrontendPlugin } from '@mf-dev/svelte'
+import { loaderFile } from '@mf-dev/loader-file'
 
 const name = path.parse(__dirname).name
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), svelteMicroFrontendPlugin({ name })],
+  plugins: [svelte(), loaderFile(name)],
   build: {
     rollupOptions: {
       input: ['src/main.ts'],
