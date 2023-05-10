@@ -50,12 +50,12 @@ importers:
         specifier: ^0.28.5
         version: 0.28.5(solid-js@1.7.4)
     devDependencies:
+      '@mf-dev/entry':
+        specifier: workspace:^
+        version: link:../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../tools/helper
-      '@mf-dev/loader-file':
-        specifier: workspace:^
-        version: link:../../tools/loader
       '@mf-dev/wrapper-solid':
         specifier: workspace:*
         version: link:../../wrappers/solid
@@ -90,12 +90,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@mf-dev/entry':
+        specifier: workspace:^
+        version: link:../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../tools/helper
-      '@mf-dev/loader-file':
-        specifier: workspace:^
-        version: link:../../tools/loader
       '@mf-dev/react-preamble':
         specifier: workspace:^
         version: link:../../tools/reactPreamble
@@ -127,12 +127,12 @@ importers:
         specifier: ^3.2.47
         version: 3.2.47
     devDependencies:
+      '@mf-dev/entry':
+        specifier: workspace:^
+        version: link:../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../tools/helper
-      '@mf-dev/loader-file':
-        specifier: workspace:^
-        version: link:../../tools/loader
       '@mf-dev/wrapper-vue':
         specifier: workspace:^
         version: link:../../wrappers/vue
@@ -154,12 +154,12 @@ importers:
 
   packages/example/red:
     devDependencies:
+      '@mf-dev/entry':
+        specifier: workspace:^
+        version: link:../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../tools/helper
-      '@mf-dev/loader-file':
-        specifier: workspace:^
-        version: link:../../tools/loader
       '@mf-dev/wrapper-svelte':
         specifier: workspace:^
         version: link:../../wrappers/svelte
@@ -190,12 +190,12 @@ importers:
 
   packages/example/style:
     devDependencies:
+      '@mf-dev/entry':
+        specifier: workspace:*
+        version: link:../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../tools/helper
-      '@mf-dev/loader-file':
-        specifier: workspace:*
-        version: link:../../tools/loader
       '@types/node':
         specifier: ^18.16.3
         version: 18.16.3
@@ -218,6 +218,12 @@ importers:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@18.16.3)(sass@1.62.1)
 
+  packages/tools/entry:
+    devDependencies:
+      vite:
+        specifier: ^4.3.5
+        version: 4.3.5(@types/node@18.16.3)(sass@1.62.1)
+
   packages/tools/helper:
     dependencies:
       '@types/express':
@@ -232,12 +238,6 @@ importers:
       express:
         specifier: ^4.18.2
         version: 4.18.2
-
-  packages/tools/loader:
-    devDependencies:
-      vite:
-        specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)(sass@1.62.1)
 
   packages/tools/reactPreamble:
     devDependencies:

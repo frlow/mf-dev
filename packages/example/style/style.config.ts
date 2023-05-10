@@ -1,19 +1,16 @@
 import { defineConfig } from 'vite'
 import * as path from 'path'
-import { loaderFile } from '@mf-dev/loader-file'
+import { entry } from '@mf-dev/entry'
 
 const name = path.parse(__dirname).name
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [loaderFile(name)],
+  plugins: [entry({ name, entry: 'src/style/index.ts' })],
   build: {
     rollupOptions: {
-      input: ['src/style/index.ts'],
       output: {
         dir: '../base/public',
-        assetFileNames: `${name}-[hash][extname]`,
-        entryFileNames: `${name}-[hash].js`,
       },
     },
   },

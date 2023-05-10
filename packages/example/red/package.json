@@ -13,7 +13,7 @@
   "devDependencies": {
     "@mf-dev/helper": "workspace:*",
     "@mf-dev/wrapper-svelte": "workspace:^",
-    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/entry": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^2.1.1",
     "@tsconfig/svelte": "^4.0.1",
     "concurrently": "^8.0.1",

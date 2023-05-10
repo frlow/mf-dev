@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@mf-dev/helper": "workspace:*",
-    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/entry": "workspace:^",
     "@mf-dev/wrapper-vue": "workspace:^",
     "@vitejs/plugin-vue": "^4.2.1",
     "concurrently": "^8.0.1",

@@ -1,20 +1,17 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import * as path from 'path'
-import { loaderFile } from '@mf-dev/loader-file'
+import { entry } from '@mf-dev/entry'
 
 const name = path.parse(__dirname).name
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), loaderFile(name)],
+  plugins: [svelte(), entry({ name, entry: 'src/main.ts' })],
   build: {
     rollupOptions: {
-      input: ['src/main.ts'],
       output: {
         dir: '../base/public',
-        assetFileNames: `${name}-[hash][extname]`,
-        entryFileNames: `${name}-[hash].js`,
       },
     },
   },

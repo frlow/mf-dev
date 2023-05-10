@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@mf-dev/helper": "workspace:*",
-    "@mf-dev/loader-file": "workspace:^",
+    "@mf-dev/entry": "workspace:^",
     "@mf-dev/react-preamble": "workspace:^",
     "@mf-dev/wrapper-react": "workspace:*",
     "@types/react": "^18.2.0",
