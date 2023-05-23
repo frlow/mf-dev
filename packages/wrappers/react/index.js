@@ -3,10 +3,7 @@ import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
 export const createReactWrapper = (options) => {
-  const attributes =
-    options.component.__props?.map((p) => kebabize(p)) ||
-    options.attributes ||
-    []
+  const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends (options.extendsClass ||
     HTMLElement) {
     app
