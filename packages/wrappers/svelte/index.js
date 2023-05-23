@@ -1,4 +1,4 @@
-import { applyProps, emit } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 
 /** @type {(options: {
   component: any,
@@ -36,15 +36,6 @@ export const createSvelteWrapper = (options) => {
         props: this.temp,
       })
       delete this.temp
-      const self = this
-      this.app.$$.callbacks = new Proxy(
-        {},
-        {
-          get(target, prop) {
-            return [(arg) => emit(self, prop.toString(), arg.detail)]
-          },
-        }
-      )
     }
 
     disconnectedCallback() {

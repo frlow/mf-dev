@@ -1,4 +1,4 @@
-import { applyProps, emit, camelize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { createApp, reactive } from 'vue'
 
 /** @type {(options: {
@@ -35,9 +35,6 @@ export const createVueWrapper = (options) => {
     }
 
     connectedCallback() {
-      options.component.emits?.forEach(
-        (e) => (this.props[camelize(`on-${e}`)] = (args) => emit(this, e, args))
-      )
       this.app = options.createCustom
         ? options.createCustom(this.props)
         : createApp(options.component, this.props)

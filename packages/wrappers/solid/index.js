@@ -1,4 +1,4 @@
-import { applyProps, emit, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
 
@@ -29,15 +29,7 @@ export const createSolidWrapper = (options) => {
       const self = this
       const app = createRoot((dispose) => {
         self.dispose = dispose
-        const props = new Proxy(this.signals, {
-          get(target, prop) {
-            const regex = /on[A-Z]/
-            if (regex.test(prop))
-              return (detail) => emit(self, kebabize(prop.substring(2)), detail)
-            return target[prop][0]()
-          },
-        })
-        return createComponent(options.component, props)
+        return createComponent(options.component, this.signals)
       })
       render(() => app, this)
     }
