@@ -3,10 +3,10 @@ import { Router, Route } from './components/Router.js'
 
 export const App = ({
   dispatch,
-  counter,
+  'my-counter': myCounter,
 }: {
   dispatch: (e: Event) => void
-  counter: number
+  'my-counter': number
 }) => {
   return (
     <>
@@ -20,7 +20,7 @@ export const App = ({
               dispatch(new CustomEvent('my-event', { detail: 'demo' }))
             }
           >
-            Dispatch {counter}
+            Dispatch {myCounter}
           </button>
         </ul>
       </nav>

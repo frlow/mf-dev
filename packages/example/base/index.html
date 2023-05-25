@@ -7,7 +7,7 @@
 </head>
 
 <body is="ex-body" x-data="{ counter: 0 }">
-<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:counter="counter"></ex-core>
+<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:my-counter="counter"></ex-core>
 </body>
 
 </html>

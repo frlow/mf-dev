@@ -6,4 +6,8 @@ import { createReactWrapper } from '@mf-dev/wrapper-react'
 
 window.HistoryLibrary = createBrowserHistory()
 
-createReactWrapper({ tag: 'ex-core', component: App, attributes: ['counter'] })
+createReactWrapper({
+  tag: 'ex-core',
+  component: App,
+  attributes: ['my-counter'],
+})
