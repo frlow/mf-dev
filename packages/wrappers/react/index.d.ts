@@ -1,7 +1,7 @@
-export const createReactWrapper: (options: {
-  attributes?: string[]
+export const createReactWrapper: <T>(options: {
+  attributes?: (keyof Omit<T, 'dispatch'>)[]
   emits?: string[]
-  component: any
+  component: (props?: T) => any
   tag?: string
   extendsClass?: typeof HTMLElement
 }) => HTMLElement
