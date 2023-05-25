@@ -84,11 +84,11 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       react:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: experimental
+        version: 0.0.0-experimental-5dd90c562-20230502
       react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: experimental
+        version: 0.0.0-experimental-5dd90c562-20230502(react@0.0.0-experimental-5dd90c562-20230502)
     devDependencies:
       '@mf-dev/entry':
         specifier: workspace:^
@@ -6982,6 +6982,16 @@ packages:
     dev: true
     optional: true
 
+  /react-dom@0.0.0-experimental-5dd90c562-20230502(react@0.0.0-experimental-5dd90c562-20230502):
+    resolution: {integrity: sha512-v0DqgksUe8Ro9vsZrtAEB7rEcU3WUAdEme91uNhdZYJam9iqtY53r3NcrrHLEUZVHs5VCfLC+9zVMTPqIg4yCA==}
+    peerDependencies:
+      react: 0.0.0-experimental-5dd90c562-20230502
+    dependencies:
+      loose-envify: 1.4.0
+      react: 0.0.0-experimental-5dd90c562-20230502
+      scheduler: 0.0.0-experimental-5dd90c562-20230502
+    dev: false
+
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -6990,17 +7000,26 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: true
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /react@0.0.0-experimental-5dd90c562-20230502:
+    resolution: {integrity: sha512-XgR1zSOzjfiH0mg9hcRNB5qluVbkrcp8EOR39UcbU3k6PV10Hc8DorcCHAV91viOhBV8IHG/Pf7EFJjS5BOBaA==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /readable-stream@1.1.14:
     resolution: {integrity: sha512-+MeVjFf4L44XUkhM1eYbD8fyEsxcV81pqMSR5gblfcLCHfZvbrqy4/qYHE+/R5HoBUT11WV5O08Cr1n3YXkWVQ==}
@@ -7417,10 +7436,17 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /scheduler@0.0.0-experimental-5dd90c562-20230502:
+    resolution: {integrity: sha512-NFWKaiBSBanTTFdNwwmcmej4/sfoQs5Vk4YyA1/i2o9A6Pu5sdyWA2GQqhTOZfIZ6HFwGSbo5qAyjjAKwC1HqA==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}

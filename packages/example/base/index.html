@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Micro-Frontend demo</title>
-  <script type="module" src="public/index.js">
-  </script>
+  <script type="module" src="public/index.js"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body is="ex-body">
-<ex-core></ex-core>
+<body is="ex-body" x-data="{ counter: 0 }">
+<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:counter="counter"></ex-core>
 </body>
 
 </html>

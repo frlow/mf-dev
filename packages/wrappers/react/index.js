@@ -16,7 +16,7 @@ export const createReactWrapper = (options) => {
     constructor() {
       super()
       this.app = createRoot(this)
-      this.props = {}
+      this.props = { dispatch: (e) => this.dispatchEvent(e) }
     }
 
     static get observedAttributes() {
