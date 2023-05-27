@@ -2,10 +2,15 @@ import { applyProps, kebabize } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
-export const createReactWrapper = (options) => {
+export const createReactWrapper = (options) =>
+  createReactWrapperImpl(options, false)
+
+export const createReactWebComponent = (options) =>
+  createReactWrapperImpl(options, true)
+
+export const createReactWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
-  const wrapperClass = class VueWrapper extends (options.extendsClass ||
-    HTMLElement) {
+  const wrapperClass = class VueWrapper extends HTMLElement {
     app
     props
 

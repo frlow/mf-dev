@@ -3,5 +3,8 @@ export const createReactWrapper: <T>(options: {
   emits?: string[]
   component: (props?: T) => any
   tag?: string
-  extendsClass?: typeof HTMLElement
 }) => HTMLElement
+
+export const createReactWebComponent: typeof createReactWrapper
+
+export type DispatchHandler = (e: Event) => void

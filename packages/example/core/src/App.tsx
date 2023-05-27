@@ -1,11 +1,12 @@
 import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
+import { DispatchHandler } from '@mf-dev/wrapper-react'
 
 export const App = ({
   dispatch,
   'my-counter': myCounter,
 }: {
-  dispatch: (e: Event) => void
+  dispatch: DispatchHandler
   'my-counter': number
 }) => {
   return (
