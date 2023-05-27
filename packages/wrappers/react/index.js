@@ -20,7 +20,8 @@ export const createReactWrapperImpl = (options, useShadowRoot) => {
 
     constructor() {
       super()
-      this.app = createRoot(this)
+      const root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
+      this.app = createRoot(root)
       this.props = { dispatch: (e) => this.dispatchEvent(e) }
     }
 
