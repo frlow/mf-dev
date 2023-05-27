@@ -8,7 +8,7 @@ export const createReactWrapper = (options) =>
 export const createReactWebComponent = (options) =>
   createReactWrapperImpl(options, true)
 
-export const createReactWrapperImpl = (options, useShadowRoot) => {
+const createReactWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
     app

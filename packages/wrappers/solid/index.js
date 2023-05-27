@@ -2,15 +2,20 @@ import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
 
-export const createSolidWrapper = (options) => {
+export const createSolidWrapper = (options) =>
+  createSolidWrapperImpl(options, false)
+export const createSolidWebComponent = (options) =>
+  createSolidWrapperImpl(options, true)
+const createSolidWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
-  const wrapperClass = class VueWrapper extends (options.extendsClass ||
-    HTMLElement) {
+  const wrapperClass = class VueWrapper extends HTMLElement {
+    root
     signals
     dispose
 
     constructor() {
       super()
+      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.signals = attributes.reduce(
         (acc, cur) => ({ ...acc, [cur]: createSignal() }),
         {}
@@ -31,7 +36,7 @@ export const createSolidWrapper = (options) => {
         self.dispose = dispose
         return createComponent(options.component, this.signals)
       })
-      render(() => app, this)
+      render(() => app, this.root)
     }
 
     disconnectedCallback() {
