@@ -1,4 +1,4 @@
-import { applyProps, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
