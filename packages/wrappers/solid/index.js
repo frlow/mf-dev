@@ -34,7 +34,12 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       const self = this
       const app = createRoot((dispose) => {
         self.dispose = dispose
-        return createComponent(options.component, this.signals)
+        const props = Object.entries(this.signals).reduce((acc, cur) => {
+          acc[cur[0]] = cur[1][0]
+          return acc
+        }, {})
+        props['dispatch'] = (e) => this.dispatchEvent(e)
+        return createComponent(options.component, props)
       })
       render(() => app, this.root)
     }

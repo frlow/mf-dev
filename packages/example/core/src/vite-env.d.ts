@@ -1,19 +1,19 @@
 /// <reference types="vite/client" />
 
-import type {BrowserHistory} from "history";
+import type { BrowserHistory } from 'history'
 
 declare global {
   interface Window {
-    HistoryLibrary: BrowserHistory;
+    HistoryLibrary: BrowserHistory
   }
 }
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "ex-green": {},
-      "ex-red": {},
-      "ex-blue": {},
+      'ex-green': any
+      'ex-red': any
+      'ex-blue': any
     }
   }
 }

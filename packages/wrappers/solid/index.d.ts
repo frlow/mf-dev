@@ -5,3 +5,5 @@ export const createSolidWrapper: (options: {
 }) => HTMLElement
 
 export const createSolidWebComponent: typeof createSolidWrapper
+
+export type DispatchHandler = (e: Event) => void

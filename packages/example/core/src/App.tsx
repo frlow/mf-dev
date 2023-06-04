@@ -18,7 +18,7 @@ export const App = ({
           <NavLink text={'Blue'} url={'/blue'} />
           <button
             onClick={() =>
-              dispatch(new CustomEvent('my-event', { detail: 'demo' }))
+              dispatch(new CustomEvent('my-event', { detail: 'core' }))
             }
           >
             Dispatch {myCounter}
@@ -33,7 +33,12 @@ export const App = ({
           <ex-red />
         </Route>
         <Route path={'/blue'}>
-          <ex-blue />
+          <ex-blue
+            count={myCounter}
+            onmy-event={(e) => {
+              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+            }}
+          />
         </Route>
       </Router>
     </>
