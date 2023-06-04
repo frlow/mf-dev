@@ -4,11 +4,12 @@ import { DispatchHandler } from '@mf-dev/wrapper-react'
 
 export const App = ({
   dispatch,
-  'my-counter': myCounter,
+  'my-count': myCount,
 }: {
   dispatch: DispatchHandler
-  'my-counter': number
+  'my-count': number
 }) => {
+  const count = parseInt(myCount.toString())
   return (
     <>
       <nav is="ex-nav">
@@ -17,24 +18,35 @@ export const App = ({
           <NavLink text={'Red'} url={'/red'} />
           <NavLink text={'Blue'} url={'/blue'} />
           <button
+            is="ex-button"
             onClick={() =>
               dispatch(new CustomEvent('my-event', { detail: 'core' }))
             }
           >
-            Dispatch {myCounter}
+            Dispatch {count}
           </button>
         </ul>
       </nav>
       <Router>
         <Route default path={'/green'}>
-          <ex-green />
+          <ex-green
+            my-count={count}
+            onmy-event={(e) => {
+              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+            }}
+          />
         </Route>
         <Route path={'/red'}>
-          <ex-red />
+          <ex-red
+            my-count={count}
+            onmy-event={(e) => {
+              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+            }}
+          />
         </Route>
         <Route path={'/blue'}>
           <ex-blue
-            count={myCounter}
+            my-count={count}
             onmy-event={(e) => {
               dispatch(new CustomEvent('my-event', { detail: e.detail }))
             }}

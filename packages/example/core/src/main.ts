@@ -9,7 +9,7 @@ window.HistoryLibrary = createBrowserHistory()
 createReactWrapper({
   tag: 'ex-core',
   component: App,
-  attributes: ['my-counter'],
+  attributes: ['my-count'],
 })
 
 const obj = {

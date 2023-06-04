@@ -4,3 +4,5 @@ export const createSvelteWrapper: (options: {
   attributes?: string[]
   extendsClass?: typeof HTMLElement
 }) => HTMLElement
+
+export type DispatchHandler = (e: Event) => void

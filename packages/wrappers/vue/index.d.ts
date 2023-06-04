@@ -6,3 +6,5 @@ export const createVueWrapper: (options: {
   tag?: string
   extendsClass?: typeof HTMLElement
 }) => HTMLElement
+
+export type DispatchHandler = (e: Event) => void

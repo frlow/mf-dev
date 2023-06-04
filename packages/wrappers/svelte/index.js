@@ -1,4 +1,4 @@
-import { applyProps } from '@mf-dev/wrapper-common'
+import { applyProps, camelize } from '@mf-dev/wrapper-common'
 
 /** @type {(options: {
   component: any,
@@ -15,14 +15,17 @@ export const createSvelteWrapper = (options) => {
 
     constructor() {
       super()
-      this.temp = {}
+      this.temp = {
+        dispatch: (e) => this.dispatchEvent(e),
+      }
     }
 
     static get observedAttributes() {
       return attributes
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
+    attributeChangedCallback(rawName, oldValue, newValue) {
+      const name = camelize(rawName)
       if (this.app)
         this.app.$$set({
           [name]: newValue,
