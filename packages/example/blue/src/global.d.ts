@@ -4,9 +4,7 @@ declare module 'solid-js' {
     interface HTMLAttributes {
       is?: string
     }
-    interface IntrinsicElements {
-      'my-svelte-button': any
-    }
+    interface IntrinsicElements {}
   }
 }
 
