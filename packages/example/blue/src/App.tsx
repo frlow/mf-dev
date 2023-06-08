@@ -21,6 +21,7 @@ export const App = (props: {
       >
         Dispatch {props['my-count']}
       </button>
+      <my-svelte-button></my-svelte-button>
     </div>
   )
 }

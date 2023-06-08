@@ -7,4 +7,6 @@ export const createVueWrapper: (options: {
   extendsClass?: typeof HTMLElement
 }) => HTMLElement
 
+export const createVueWebComponent: typeof createVueWrapper
+
 export type DispatchHandler = (e: Event) => void

@@ -3,28 +3,23 @@ import { createApp, reactive, h } from 'vue'
 
 /** @type {(options: {
   component: any,
-  tag?: string,
-  attributes?: string[],
-  extendsClass?: typeof HTMLElement
-})=>HTMLElement} **/
-
-/** @type {(options: {
-  component: any,
   createCustom?: (props: any) => App,
   tag?: string,
   extendsClass?: typeof HTMLElement
-})=>HTMLElement} **/
-export const createVueWrapper = (options) => {
+}, useShadowRoot: boolean)=>HTMLElement} **/
+export const createVueWrapperImpl = (options, useShadowRoot) => {
   const attributes = Object.keys(options.component.props || {})
     .filter((p) => p !== 'dispatch')
     .map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends (options.extendsClass ||
     HTMLElement) {
     props
+    root
     app = undefined
 
     constructor() {
       super()
+      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.props = reactive({ dispatch: (e) => this.dispatchEvent(e) })
     }
 
@@ -43,7 +38,7 @@ export const createVueWrapper = (options) => {
         : createApp({
             render: () => h(options.component, this.props),
           })
-      this.app.mount(this)
+      this.app.mount(this.root)
     }
 
     disconnectedCallback() {
@@ -55,3 +50,8 @@ export const createVueWrapper = (options) => {
   if (options.tag) customElements.define(options.tag, wrapperClass)
   return wrapperClass
 }
+
+export const createVueWrapper = (options) =>
+  createVueWrapperImpl(options, false)
+export const createVueWebComponent = (options) =>
+  createVueWrapperImpl(options, true)

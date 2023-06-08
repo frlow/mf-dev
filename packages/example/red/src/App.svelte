@@ -15,8 +15,6 @@
     <button is="ex-button" on:click={()=>dispatch(new CustomEvent("my-event", {detail: "red"}))}>Dispatch {myCount}</button>
 </main>
 
-<style>
-    h1{
-        color: #aa1e1e;
-    }
+<style lang="scss">
+@import "./style.scss";
 </style>
