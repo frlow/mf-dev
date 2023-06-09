@@ -40,3 +40,6 @@ export const applyProps = (wrapperClass, attributes) => {
 export const emit = (target, name, detail) => {
   target.dispatchEvent(new CustomEvent(name, { detail }))
 }
+
+export const css = (strings, ...variables) =>
+  strings.reduce((acc, cur, i) => acc + cur + (variables[i] || ''), '')

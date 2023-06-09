@@ -1,5 +1,7 @@
 import { applyProps, camelize } from '@mf-dev/wrapper-common'
 
+export { css } from '@mf-dev/wrapper-common'
+
 /** @type {(options: {
   component: any,
   tag?: string,

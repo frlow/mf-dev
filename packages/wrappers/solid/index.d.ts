@@ -7,3 +7,5 @@ export const createSolidWrapper: (options: {
 export const createSolidWebComponent: typeof createSolidWrapper
 
 export type DispatchHandler = (e: Event) => void
+
+export function css(strings: TemplateStringsArray, variables: string[]): string

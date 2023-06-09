@@ -2,6 +2,8 @@ import { applyProps } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
+export { css } from '@mf-dev/wrapper-common'
+
 export const createReactWrapper = (options) =>
   createReactWrapperImpl(options, false)
 

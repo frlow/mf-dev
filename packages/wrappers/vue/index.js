@@ -1,6 +1,8 @@
 import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
 
+export { css } from '@mf-dev/wrapper-common'
+
 /** @type {(options: {
   component: any,
   createCustom?: (props: any) => App,

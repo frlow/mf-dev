@@ -10,3 +10,5 @@ export const createVueWrapper: (options: {
 export const createVueWebComponent: typeof createVueWrapper
 
 export type DispatchHandler = (e: Event) => void
+
+export function css(strings: TemplateStringsArray, variables: string[]): string
