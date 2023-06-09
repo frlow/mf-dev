@@ -21,7 +21,7 @@ export const App = (props: {
       >
         Dispatch {props['my-count']}
       </button>
-      <vue-button />
+      <vue-button>Vue</vue-button>
     </div>
   )
 }

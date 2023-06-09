@@ -25,7 +25,7 @@ export const App = ({
           >
             Dispatch {count}
           </button>
-          <solid-button></solid-button>
+          <solid-button>Solid</solid-button>
         </ul>
       </nav>
       <Router>
