@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {DispatchHandler} from '@mf-dev/wrapper-svelte'
-  import { css } from "@mf-dev/wrapper-svelte";
+  import style from './SvelteButton.scss?inline'
 
   export let dispatch: DispatchHandler;
 </script>
@@ -9,8 +9,4 @@
   Svelte Button
 </button>
 
-<svelte:element this="style">{@html css`
-  .button {
-    background-color: #f86464;
-  }
-`}</svelte:element>
+<svelte:element this="style">{@html style}</svelte:element>
