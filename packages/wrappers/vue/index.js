@@ -29,9 +29,18 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       return attributes
     }
 
-    attributeChangedCallback(rawName, oldValue, newValue) {
+    attributeChangedCallback(name, oldValue, newValue) {
+      this.updateProp(
+        name,
+        options.handleAttribute
+          ? options.handleAttribute(name, newValue)
+          : newValue
+      )
+    }
+
+    updateProp(rawName, value) {
       const name = camelize(rawName)
-      this.props[name] = newValue
+      this.props[name] = value
     }
 
     connectedCallback() {

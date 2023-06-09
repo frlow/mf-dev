@@ -29,7 +29,16 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.signals[name][1](newValue)
+      this.updateProp(
+        name,
+        options.handleAttribute
+          ? options.handleAttribute(name, newValue)
+          : newValue
+      )
+    }
+
+    updateProp(name, value) {
+      this.signals[name][1](value)
     }
 
     connectedCallback() {

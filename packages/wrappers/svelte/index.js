@@ -33,13 +33,22 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       return attributes
     }
 
-    attributeChangedCallback(rawName, oldValue, newValue) {
+    attributeChangedCallback(name, oldValue, newValue) {
+      this.updateProp(
+        name,
+        options.handleAttribute
+          ? options.handleAttribute(name, newValue)
+          : newValue
+      )
+    }
+
+    updateProp(rawName, value) {
       const name = camelize(rawName)
       if (this.app)
         this.app.$$set({
-          [name]: newValue,
+          [name]: value,
         })
-      else this.temp[name] = newValue
+      else this.temp[name] = value
     }
 
     connectedCallback() {

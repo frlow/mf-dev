@@ -5,6 +5,7 @@ export const createVueWrapper: (options: {
   createCustom?: (props: any) => App
   tag?: string
   extendsClass?: typeof HTMLElement
+  handleAttribute?: (name: string, value: string) => any
 }) => HTMLElement
 
 export const createVueWebComponent: typeof createVueWrapper

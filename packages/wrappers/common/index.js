@@ -27,7 +27,7 @@ export const applyProps = (wrapperClass, attributes) => {
     const setter = {
       set: function (value) {
         // @ts-ignore
-        this.attributeChangedCallback(attribute, undefined, value)
+        this.updateProp(attribute, value)
       },
     }
     Object.defineProperty(wrapperClass.prototype, attribute, setter)

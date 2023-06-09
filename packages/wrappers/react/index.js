@@ -32,8 +32,17 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.props[name] = newValue
+      this.updateProp(
+        name,
+        options.handleAttribute
+          ? options.handleAttribute(name, newValue)
+          : newValue
+      )
       this.render()
+    }
+
+    updateProp(name, value) {
+      this.props[name] = value
     }
 
     connectedCallback() {

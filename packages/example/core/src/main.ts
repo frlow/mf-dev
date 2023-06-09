@@ -10,4 +10,12 @@ createReactWrapper({
   tag: 'ex-core',
   component: App,
   attributes: ['my-count'],
+  handleAttribute: (name, value) => {
+    switch (name) {
+      case 'my-count':
+        return parseInt(value)
+      default:
+        return value
+    }
+  },
 })

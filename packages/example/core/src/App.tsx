@@ -9,7 +9,6 @@ export const App = ({
   dispatch: DispatchHandler
   'my-count': number
 }) => {
-  const count = parseInt(myCount?.toString() || '0')
   return (
     <>
       <nav is="ex-nav">
@@ -23,7 +22,7 @@ export const App = ({
               dispatch(new CustomEvent('my-event', { detail: 'core' }))
             }
           >
-            Dispatch {count}
+            Dispatch {myCount}
           </button>
           <solid-button>Solid</solid-button>
         </ul>
@@ -31,7 +30,7 @@ export const App = ({
       <Router>
         <Route default path={'/green'}>
           <ex-green
-            my-count={count}
+            my-count={myCount}
             onmy-event={(e) => {
               dispatch(new CustomEvent('my-event', { detail: e.detail }))
             }}
@@ -39,7 +38,7 @@ export const App = ({
         </Route>
         <Route path={'/red'}>
           <ex-red
-            my-count={count}
+            my-count={myCount}
             onmy-event={(e) => {
               dispatch(new CustomEvent('my-event', { detail: e.detail }))
             }}
@@ -47,7 +46,7 @@ export const App = ({
         </Route>
         <Route path={'/blue'}>
           <ex-blue
-            my-count={count}
+            my-count={myCount}
             onmy-event={(e) => {
               dispatch(new CustomEvent('my-event', { detail: e.detail }))
             }}
