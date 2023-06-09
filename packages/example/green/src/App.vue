@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DispatchHandler } from '@mf-dev/wrapper-vue'
 const count = ref(0)
 const increment = () => {
   count.value++
 }
-const { dispatch } = defineProps<{
-  dispatch: DispatchHandler
+const { host } = defineProps<{
+  host: HTMLElement
   myCount: number
 }>()
-const send = () => dispatch(new CustomEvent('my-event', { detail: 'green' }))
+const send = () =>
+  host.dispatchEvent(new CustomEvent('my-event', { detail: 'green' }))
 </script>
 
 <template>

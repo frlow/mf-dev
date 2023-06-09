@@ -1,12 +1,11 @@
 import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
-import { DispatchHandler } from '@mf-dev/wrapper-react'
 
 export const App = ({
-  dispatch,
+  host,
   'my-count': myCount,
 }: {
-  dispatch: DispatchHandler
+  host: HTMLElement
   'my-count': number
 }) => {
   return (
@@ -19,7 +18,9 @@ export const App = ({
           <button
             is="ex-button"
             onClick={() =>
-              dispatch(new CustomEvent('my-event', { detail: 'core' }))
+              host.dispatchEvent(
+                new CustomEvent('my-event', { detail: 'core' })
+              )
             }
           >
             Dispatch {myCount}
@@ -32,7 +33,9 @@ export const App = ({
           <ex-green
             my-count={myCount}
             onmy-event={(e) => {
-              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+              host.dispatchEvent(
+                new CustomEvent('my-event', { detail: e.detail })
+              )
             }}
           />
         </Route>
@@ -40,7 +43,9 @@ export const App = ({
           <ex-red
             my-count={myCount}
             onmy-event={(e) => {
-              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+              host.dispatchEvent(
+                new CustomEvent('my-event', { detail: e.detail })
+              )
             }}
           />
         </Route>
@@ -48,7 +53,9 @@ export const App = ({
           <ex-blue
             my-count={myCount}
             onmy-event={(e) => {
-              dispatch(new CustomEvent('my-event', { detail: e.detail }))
+              host.dispatchEvent(
+                new CustomEvent('my-event', { detail: e.detail })
+              )
             }}
           />
         </Route>

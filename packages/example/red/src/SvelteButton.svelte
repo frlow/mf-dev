@@ -1,11 +1,10 @@
 <script lang="ts">
-  import type {DispatchHandler} from '@mf-dev/wrapper-svelte'
   import style from './SvelteButton.scss?inline'
 
-  export let dispatch: DispatchHandler;
+  export let host: HTMLElement;
 </script>
 
-<button class="button" on:click={()=>dispatch(new CustomEvent("my-click"))}>
+<button class="button" on:click={()=>host.dispatchEvent(new CustomEvent("my-click"))}>
   Svelte Button
 </button>
 

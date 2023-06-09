@@ -7,10 +7,3 @@ export const createSvelteWrapper: (options: {
 }) => HTMLElement
 
 export const createSvelteWebComponent: typeof createSvelteWrapper
-
-export type DispatchHandler = (e: Event) => void
-
-export function css(
-  strings: TemplateStringsArray,
-  ...variables: string[]
-): string

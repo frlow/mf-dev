@@ -2,8 +2,6 @@ import { applyProps } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
-export { css } from '@mf-dev/wrapper-common'
-
 export const createReactWrapper = (options) =>
   createReactWrapperImpl(options, false)
 
@@ -24,7 +22,7 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
       super()
       const root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.app = createRoot(root)
-      this.props = { dispatch: (e) => this.dispatchEvent(e) }
+      this.props = { host: this }
     }
 
     static get observedAttributes() {

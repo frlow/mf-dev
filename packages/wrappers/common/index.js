@@ -35,11 +35,3 @@ export const applyProps = (wrapperClass, attributes) => {
       Object.defineProperty(wrapperClass.prototype, camelize(attribute), setter)
   })
 }
-
-/** @type {(target: any, name: string, detail?: any)=>void} **/
-export const emit = (target, name, detail) => {
-  target.dispatchEvent(new CustomEvent(name, { detail }))
-}
-
-export const css = (strings, ...variables) =>
-  strings.reduce((acc, cur, i) => acc + cur + (variables[i] || ''), '')

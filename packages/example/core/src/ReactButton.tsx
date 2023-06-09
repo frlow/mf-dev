@@ -1,4 +1,4 @@
-import { createReactWebComponent, css } from '@mf-dev/wrapper-react'
+import { createReactWebComponent } from '@mf-dev/wrapper-react'
 
 createReactWebComponent({
   tag: 'react-button',
@@ -8,7 +8,7 @@ createReactWebComponent({
         <button>React Button</button>
         <style
           dangerouslySetInnerHTML={{
-            __html: css`
+            __html: `
               button {
                 background-color: cornflowerblue;
               }

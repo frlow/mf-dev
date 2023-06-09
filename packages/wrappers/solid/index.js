@@ -2,8 +2,6 @@ import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
 
-export { css } from '@mf-dev/wrapper-common'
-
 export const createSolidWrapper = (options) =>
   createSolidWrapperImpl(options, false)
 export const createSolidWebComponent = (options) =>
@@ -49,7 +47,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
           acc[cur[0]] = cur[1][0]
           return acc
         }, {})
-        props['dispatch'] = (e) => this.dispatchEvent(e)
+        props.host = this
         return createComponent(options.component, props)
       })
       render(() => app, this.root)

@@ -1,7 +1,5 @@
 import { applyProps, camelize } from '@mf-dev/wrapper-common'
 
-export { css } from '@mf-dev/wrapper-common'
-
 export const createSvelteWrapper = (options) =>
   createSvelteWrapperImpl(options, false)
 export const createSvelteWebComponent = (options) =>
@@ -24,7 +22,7 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
     constructor() {
       super()
       this.temp = {
-        dispatch: (e) => this.dispatchEvent(e),
+        host: this,
       }
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
     }

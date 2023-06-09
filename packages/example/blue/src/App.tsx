@@ -1,11 +1,7 @@
 import style from './App.module.scss'
 import { createSignal } from 'solid-js'
-import type { DispatchHandler } from '@mf-dev/wrapper-solid'
 
-export const App = (props: {
-  'my-count': number
-  dispatch: DispatchHandler
-}) => {
+export const App = (props: { 'my-count': number; host: HTMLElement }) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>
@@ -16,7 +12,9 @@ export const App = (props: {
       <button
         is="ex-button"
         onClick={(e) => {
-          props.dispatch(new CustomEvent('my-event', { detail: 'blue' }))
+          props.host.dispatchEvent(
+            new CustomEvent('my-event', { detail: 'blue' })
+          )
         }}
       >
         Dispatch {props['my-count']}

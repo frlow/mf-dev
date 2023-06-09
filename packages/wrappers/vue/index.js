@@ -1,8 +1,6 @@
 import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
 
-export { css } from '@mf-dev/wrapper-common'
-
 /** @type {(options: {
   component: any,
   createCustom?: (props: any) => App,
@@ -11,7 +9,7 @@ export { css } from '@mf-dev/wrapper-common'
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createVueWrapperImpl = (options, useShadowRoot) => {
   const attributes = Object.keys(options.component.props || {})
-    .filter((p) => p !== 'dispatch')
+    .filter((p) => p !== 'host')
     .map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends (options.extendsClass ||
     HTMLElement) {
@@ -22,7 +20,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
     constructor() {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
-      this.props = reactive({ dispatch: (e) => this.dispatchEvent(e) })
+      this.props = reactive({ host: this })
     }
 
     static get observedAttributes() {

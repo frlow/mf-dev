@@ -1,4 +1,4 @@
-import { createSolidWebComponent, css } from '@mf-dev/wrapper-solid'
+import { createSolidWebComponent } from '@mf-dev/wrapper-solid'
 
 createSolidWebComponent({
   tag: 'solid-button',
@@ -7,7 +7,7 @@ createSolidWebComponent({
       <>
         <button>Solid Button</button>
         <style
-          innerHTML={css`
+          innerHTML={`
             button {
               background-color: deeppink;
             }

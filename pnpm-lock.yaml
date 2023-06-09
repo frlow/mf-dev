@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 importers:
 
@@ -78,30 +82,6 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0(solid-js@1.7.4)(vite@4.3.5)
 
-  packages/example/components/svelte-components:
-    devDependencies:
-      '@sveltejs/vite-plugin-svelte':
-        specifier: ^2.0.4
-        version: 2.1.1(svelte@3.58.0)(vite@4.3.9)
-      '@tsconfig/svelte':
-        specifier: ^4.0.1
-        version: 4.0.1
-      svelte:
-        specifier: ^3.58.0
-        version: 3.58.0
-      svelte-check:
-        specifier: ^3.3.1
-        version: 3.3.1(svelte@3.58.0)
-      tslib:
-        specifier: ^2.5.0
-        version: 2.5.0
-      typescript:
-        specifier: ^5.0.2
-        version: 5.0.4
-      vite:
-        specifier: ^4.3.9
-        version: 4.3.9(@types/node@18.16.3)(sass@1.62.1)
-
   packages/example/core:
     dependencies:
       history:
@@ -166,9 +146,6 @@ importers:
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
-      goober:
-        specifier: ^2.1.13
-        version: 2.1.13(csstype@3.1.2)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -1328,25 +1305,6 @@ packages:
       svelte-hmr: 0.15.1(svelte@3.58.0)
       vite: 4.3.5(@types/node@18.16.3)(sass@1.62.1)
       vitefu: 0.2.4(vite@4.3.5)
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@sveltejs/vite-plugin-svelte@2.1.1(svelte@3.58.0)(vite@4.3.9):
-    resolution: {integrity: sha512-7YeBDt4us0FiIMNsVXxyaP4Hwyn2/v9x3oqStkHU3ZdIc5O22pGwUwH33wUqYo+7Itdmo8zxJ45Qvfm3H7UUjQ==}
-    engines: {node: ^14.18.0 || >= 16}
-    peerDependencies:
-      svelte: ^3.54.0
-      vite: ^4.0.0
-    dependencies:
-      debug: 4.3.4
-      deepmerge: 4.3.1
-      kleur: 4.1.5
-      magic-string: 0.30.0
-      svelte: 3.58.0
-      svelte-hmr: 0.15.1(svelte@3.58.0)
-      vite: 4.3.9(@types/node@18.16.3)(sass@1.62.1)
-      vitefu: 0.2.4(vite@4.3.9)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4160,6 +4118,7 @@ packages:
       csstype: ^3.0.10
     dependencies:
       csstype: 3.1.2
+    dev: false
 
   /google-auth-library@7.14.1:
     resolution: {integrity: sha512-5Rk7iLNDFhFeBYc3s8l1CqzbEBcdhwR193RlD4vSNFajIcINKI8W8P0JLmBpwymHqqWbX34pJDQu39cSy/6RsA==}
@@ -8033,33 +7992,6 @@ packages:
 
   /svelte-check@3.2.0(svelte@3.58.0):
     resolution: {integrity: sha512-6ZnscN8dHEN5Eq5LgIzjj07W9nc9myyBH+diXsUAuiY/3rt0l65/LCIQYlIuoFEjp2F1NhXqZiJwV9omPj9tMw==}
-    hasBin: true
-    peerDependencies:
-      svelte: ^3.55.0
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.18
-      chokidar: 3.5.3
-      fast-glob: 3.2.12
-      import-fresh: 3.3.0
-      picocolors: 1.0.0
-      sade: 1.8.1
-      svelte: 3.58.0
-      svelte-preprocess: 5.0.3(svelte@3.58.0)(typescript@5.0.4)
-      typescript: 5.0.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - coffeescript
-      - less
-      - postcss
-      - postcss-load-config
-      - pug
-      - sass
-      - stylus
-      - sugarss
-    dev: true
-
-  /svelte-check@3.3.1(svelte@3.58.0):
-    resolution: {integrity: sha512-+Yb1F50M76JRPdZlxB8/blg75GiqKH/8QJTNtC3cKvxCbrRK7zpgmOg2oxem9n4eDAIllesm74guR3AnlAtNVg==}
     hasBin: true
     peerDependencies:
       svelte: ^3.55.0
