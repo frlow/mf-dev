@@ -1,5 +1,5 @@
 import { createSolidWebComponent } from '@mf-dev/wrapper-solid'
-
+const css = String.raw
 createSolidWebComponent({
   tag: 'solid-button',
   component: () => {
@@ -7,7 +7,7 @@ createSolidWebComponent({
       <>
         <button>Solid Button</button>
         <style
-          innerHTML={`
+          innerHTML={css`
             button {
               background-color: deeppink;
             }
