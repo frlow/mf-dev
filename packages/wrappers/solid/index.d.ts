@@ -1,6 +1,6 @@
-export const createSolidWrapper: (options: {
-  component: any
-  attributes?: string[]
+export const createSolidWrapper: <T>(options: {
+  component: (props: T) => any
+  attributes?: (keyof Omit<T, 'dispatch'>)[]
   tag?: string
 }) => HTMLElement
 
