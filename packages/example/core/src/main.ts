@@ -11,8 +11,3 @@ createReactWrapper({
   component: App,
   attributes: ['my-count'],
 })
-
-const obj = {
-  'my-counter': null as number,
-  demo: null as { a: string },
-}
