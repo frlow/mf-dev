@@ -5,14 +5,12 @@ import { createApp, reactive, h } from 'vue'
   component: any,
   createCustom?: (props: any) => App,
   tag?: string,
-  extendsClass?: typeof HTMLElement
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createVueWrapperImpl = (options, useShadowRoot) => {
   const attributes = Object.keys(options.component.props || {})
     .filter((p) => p !== 'host')
     .map((p) => kebabize(p))
-  const wrapperClass = class VueWrapper extends (options.extendsClass ||
-    HTMLElement) {
+  const wrapperClass = class VueWrapper extends HTMLElement {
     props
     root
     app = undefined
