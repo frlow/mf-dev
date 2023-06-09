@@ -19,7 +19,6 @@ export const App = (props: { 'my-count': number; host: HTMLElement }) => {
       >
         Dispatch {props['my-count']}
       </button>
-      <vue-button>Vue</vue-button>
     </div>
   )
 }

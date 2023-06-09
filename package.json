@@ -6,11 +6,11 @@
   "keywords": [],
   "scripts": {
     "start": "pnpm run --stream --parallel start",
-    "build": "rm -rf packages/example/base/public && mkdir packages/example/base/public && pnpm run --stream --parallel build",
+    "build": "rm -rf packages/example/apps/base/public && mkdir packages/example/apps/base/public && pnpm run --stream --parallel build",
     "preview": "pnpm run build && pnpm run --filter=base start",
     "test": "pnpm dlx playwright test",
     "helper": "pnpm run --filter helper dev",
-    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/base/index.html public/ && cp -r packages/example/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
+    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/apps/base/index.html public/ && cp -r packages/example/apps/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results",
     "build-tests": "node testbuild.mjs"
   },
