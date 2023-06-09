@@ -9,7 +9,7 @@ export { css } from '@mf-dev/wrapper-common'
   tag?: string,
   extendsClass?: typeof HTMLElement
 }, useShadowRoot: boolean)=>HTMLElement} **/
-export const createVueWrapperImpl = (options, useShadowRoot) => {
+const createVueWrapperImpl = (options, useShadowRoot) => {
   const attributes = Object.keys(options.component.props || {})
     .filter((p) => p !== 'dispatch')
     .map((p) => kebabize(p))

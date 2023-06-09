@@ -4,7 +4,9 @@ declare module 'solid-js' {
     interface HTMLAttributes {
       is?: string
     }
-    interface IntrinsicElements {}
+    interface IntrinsicElements {
+      'vue-button': any
+    }
   }
 }
 

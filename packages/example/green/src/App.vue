@@ -13,11 +13,10 @@ const send = () => dispatch(new CustomEvent('my-event', { detail: 'green' }))
 </script>
 
 <template>
-  <div>
-    <h1>GREEN</h1>
-    <button is="ex-button" @click="increment">Clicked: {{ count }}</button>
-    <button is="ex-button" @click="send()">Dispatch: {{ myCount }}</button>
-  </div>
+  <h1>GREEN</h1>
+  <button is="ex-button" @click="increment">Clicked: {{ count }}</button>
+  <button is="ex-button" @click="send()">Dispatch: {{ myCount }}</button>
+  <svelte-button></svelte-button>
 </template>
 
 <style scoped>

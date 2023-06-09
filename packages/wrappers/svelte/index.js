@@ -13,7 +13,7 @@ export const createSvelteWebComponent = (options) =>
   attributes?: string[],
   extendsClass?: typeof HTMLElement
 }, useShadowRoot: boolean)=>HTMLElement} **/
-export const createSvelteWrapperImpl = (options, useShadowRoot) => {
+const createSvelteWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends (options.extendsClass ||
     HTMLElement) {
