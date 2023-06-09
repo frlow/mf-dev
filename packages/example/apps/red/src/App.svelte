@@ -12,7 +12,6 @@
   {/if}
   <button is="ex-button" on:click={()=>host.dispatchEvent(new CustomEvent("my-event", {detail: "red"}))}>
     Dispatch {myCount}</button>
-  <react-button>React</react-button>
 </main>
 
 <style lang="scss">
