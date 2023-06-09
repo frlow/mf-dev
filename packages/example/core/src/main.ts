@@ -3,7 +3,7 @@ import './core.css'
 
 import App from './App.js'
 import { createReactWrapper } from '@mf-dev/wrapper-react'
-
+import './ReactButton.js'
 window.HistoryLibrary = createBrowserHistory()
 
 createReactWrapper({

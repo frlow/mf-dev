@@ -14,6 +14,7 @@ declare global {
       'ex-green': any
       'ex-red': any
       'ex-blue': any
+      'solid-button': any
     }
   }
 }

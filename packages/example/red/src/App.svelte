@@ -13,6 +13,7 @@
         <button is="ex-button" class="secondary">Demo</button>
     {/if}
     <button is="ex-button" on:click={()=>dispatch(new CustomEvent("my-event", {detail: "red"}))}>Dispatch {myCount}</button>
+    <react-button></react-button>
 </main>
 
 <style lang="scss">

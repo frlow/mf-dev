@@ -9,7 +9,7 @@ export const App = ({
   dispatch: DispatchHandler
   'my-count': number
 }) => {
-  const count = parseInt(myCount.toString())
+  const count = parseInt(myCount?.toString() || '0')
   return (
     <>
       <nav is="ex-nav">
@@ -25,6 +25,7 @@ export const App = ({
           >
             Dispatch {count}
           </button>
+          <solid-button></solid-button>
         </ul>
       </nav>
       <Router>
