@@ -1,8 +1,5 @@
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
-import * as path from 'path'
-
-const name = path.parse(__dirname).name
 
 // https://vitejs.dev/config/
 export default defineConfig({
