@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/lazy-custom-elements": "workspace:*",
     "local-web-server": "^5.3.0",
     "copy-and-watch": "^0.1.6",

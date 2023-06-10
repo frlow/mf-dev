@@ -8,7 +8,7 @@
     "start": "pnpm run --stream --parallel start",
     "build": "rm -rf packages/example/apps/base/public && mkdir packages/example/apps/base/public && pnpm run --stream --parallel build",
     "preview": "pnpm run build && pnpm run --filter=base start",
-    "helper": "pnpm run --filter helper dev",
+    "helper": "pnpm run --filter @mf-dev/dev-helper dev",
     "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/apps/base/index.html public/ && cp -r packages/example/apps/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results"
   },

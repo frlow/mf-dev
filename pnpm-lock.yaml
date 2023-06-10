@@ -29,7 +29,7 @@ importers:
 
   packages/example/apps/base:
     devDependencies:
-      '@mf-dev/helper':
+      '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
       '@mf-dev/lazy-custom-elements':
@@ -57,7 +57,7 @@ importers:
         specifier: ^0.28.5
         version: 0.28.5(solid-js@1.7.4)
     devDependencies:
-      '@mf-dev/helper':
+      '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
       '@mf-dev/wrapper-solid':
@@ -94,7 +94,7 @@ importers:
         specifier: experimental
         version: 0.0.0-experimental-5dd90c562-20230502(react@0.0.0-experimental-5dd90c562-20230502)
     devDependencies:
-      '@mf-dev/helper':
+      '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
       '@mf-dev/react-preamble':
@@ -128,7 +128,7 @@ importers:
         specifier: ^3.2.47
         version: 3.2.47
     devDependencies:
-      '@mf-dev/helper':
+      '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
       '@mf-dev/wrapper-vue':
@@ -152,7 +152,7 @@ importers:
 
   packages/example/apps/red:
     devDependencies:
-      '@mf-dev/helper':
+      '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
       '@mf-dev/wrapper-svelte':

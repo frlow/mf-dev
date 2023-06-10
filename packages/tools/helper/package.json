@@ -1,5 +1,5 @@
 {
-  "name": "@mf-dev/helper",
+  "name": "@mf-dev/dev-helper",
   "type": "module",
   "main": "./index.js",
   "dependencies": {

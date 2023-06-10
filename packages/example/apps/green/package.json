@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"helper\"",
+    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -13,7 +13,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/wrapper-vue": "workspace:^",
     "@vitejs/plugin-vue": "^4.2.1",
     "concurrently": "^8.0.1",

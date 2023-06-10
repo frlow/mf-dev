@@ -4,13 +4,13 @@
   "description": "",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"helper\"",
+    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "vite build"
   },
   "type": "module",
   "license": "MIT",
   "devDependencies": {
-    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/wrapper-solid": "workspace:*",
     "concurrently": "^8.0.1",
     "rollup": "^3.21.3",

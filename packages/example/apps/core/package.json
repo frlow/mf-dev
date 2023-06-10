@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"helper\"",
+    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -15,7 +15,7 @@
     "react-dom": "experimental"
   },
   "devDependencies": {
-    "@mf-dev/helper": "workspace:*",
+    "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/react-preamble": "workspace:^",
     "@mf-dev/wrapper-react": "workspace:*",
     "@types/react": "^18.2.0",

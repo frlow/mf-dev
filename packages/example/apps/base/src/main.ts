@@ -1,5 +1,5 @@
 import { registerLazyCustomElements } from '@mf-dev/lazy-custom-elements'
-import { loadAssets } from '@mf-dev/helper'
+import { loadAssets } from '@mf-dev/dev-helper'
 ;(async () => {
   const assets = await loadAssets('/public/assets.json')
   registerLazyCustomElements(assets)
