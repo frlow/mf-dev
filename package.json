@@ -10,7 +10,7 @@
     "preview": "pnpm run build && pnpm run --filter=base start",
     "helper": "pnpm run --filter helper dev",
     "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/apps/base/index.html public/ && cp -r packages/example/apps/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
-    "clear": "rm -rf .firebase public playwright-report test-results",
+    "clear": "rm -rf .firebase public playwright-report test-results"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
