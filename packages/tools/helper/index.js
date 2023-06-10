@@ -16,5 +16,8 @@ export const loadAssets = async (url, localStorageKey = 'dev') => {
       console.warn('Helper server not started')
     }
   }
-  return assets
+  return Object.entries(assets).map(([name, value]) => ({
+    ...value,
+    name,
+  }))
 }

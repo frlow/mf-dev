@@ -1,4 +1,4 @@
-export const registerLazyComponents = (lazyComponents: any[]) =>
+export const registerLazyCustomElements = (lazyComponents) =>
   new MutationObserver((records) => {
     records
       .flatMap((mutationRecord) =>

@@ -1,5 +1,5 @@
 {
-  "name": "@mf-dev/react-preamble",
+  "name": "@mf-dev/lazy-custom-elements",
   "type": "module",
   "main": "./index.js"
 }
