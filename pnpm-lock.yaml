@@ -29,6 +29,9 @@ importers:
 
   packages/example/apps/base:
     devDependencies:
+      '@mf-dev/helper':
+        specifier: workspace:*
+        version: link:../../../tools/helper
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1

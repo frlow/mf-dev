@@ -1,11 +1,8 @@
-export type Asset = { [i: string]: string; target: string }
-export type Assets = Record<string, Asset>
-
-export const loadAssets = async (url: string) => {
-  let assets = (await fetch(url).then((r) => r.json())) as Assets
+export const loadAssets = async (url, localStorageKey = 'dev') => {
+  let assets = await fetch(url).then((r) => r.json())
   if (localStorage.getItem('dev')) {
     try {
-      assets = await fetch(localStorage.getItem('dev'), {
+      assets = await fetch(localStorage.getItem(localStorageKey), {
         method: 'POST',
         body: JSON.stringify(assets),
         headers: { 'content-type': 'application/json' },

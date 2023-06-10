@@ -1,10 +1,9 @@
-import { registerLazyComponentsFromAssets } from './lazyComponents'
-import { loadAssets } from './loadAssets'
-
+import { registerLazyComponents } from './lazyComponents.js'
+import { loadAssets } from '@mf-dev/helper'
 ;(async () => {
-  const assets = await loadAssets('/public/assets.json')
-  registerLazyComponentsFromAssets(assets)
-  Object.values(assets)
-    .filter((a) => a.load)
-    .forEach((a) => import(a.target))
+  const assets = Object.entries(await loadAssets('/public/assets.json')).map(
+    ([name, value]) => ({ ...value, name })
+  )
+  registerLazyComponents(assets)
+  assets.filter((a) => a.load).forEach((a) => import(a.target))
 })()
