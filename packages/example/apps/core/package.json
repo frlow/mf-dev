@@ -25,5 +25,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.5"
   },
-  "helper": {}
+  "helper": {
+    "entry": "src/dev.ts"
+  }
 }

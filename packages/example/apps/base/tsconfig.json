@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "isolatedModules": true,
     "moduleResolution": "Node16"
   }
