@@ -1,15 +1,27 @@
 {
   "red": {
     "target": "/public/red.js",
-    "component": "ex-red"
+    "component": "ex-red",
+    "menu": {
+      "label": "Red",
+      "route": "/red"
+    }
   },
   "green": {
     "target": "/public/green.js",
-    "component": "ex-green"
+    "component": "ex-green",
+    "menu": {
+      "label": "Green",
+      "route": "/green"
+    }
   },
   "blue": {
     "target": "/public/blue.js",
-    "component": "ex-blue"
+    "component": "ex-blue",
+    "menu": {
+      "label": "Blue",
+      "route": "/blue"
+    }
   },
   "core": {
     "target": "/public/core.js",

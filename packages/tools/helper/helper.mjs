@@ -6,6 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const merge = (t, s) => {
+  const o = Object, a = o.assign;
+  for (const k of o.keys(s)) s[k] instanceof o && a(s[k], merge(t[k], s[k]));
+  return a(t || {}, s), t;
+};
+
 app.post("/", async (req, res) => {
   const assets = req.body;
   res.setHeader("content-type", "application/json");
@@ -18,7 +24,7 @@ app.post("/", async (req, res) => {
         return { name: j.name, target, ...j.helper, port };
       }))
       .catch(() => undefined)))).filter(r => !!r);
-  apps.forEach(app => assets[app.name] = { ...assets[app.name], ...app });
+  apps.forEach(app => assets[app.name] = merge(assets[app.name], app));
   res.send(JSON.stringify(assets));
 });
 

@@ -8,13 +8,18 @@ export const App = ({
   host: HTMLElement
   'my-count': number
 }) => {
+  const menuItems = (window as any).assets.filter((asset) => asset.menu)
   return (
     <>
       <nav is="ex-nav">
         <ul>
-          <NavLink text={'Green'} url={'/green'} />
-          <NavLink text={'Red'} url={'/red'} />
-          <NavLink text={'Blue'} url={'/blue'} />
+          {menuItems.map((asset) => (
+            <NavLink
+              text={asset.menu.label}
+              url={asset.menu.route}
+              key={asset.name}
+            />
+          ))}
           <button
             is="ex-button"
             onClick={() =>
@@ -28,36 +33,21 @@ export const App = ({
         </ul>
       </nav>
       <Router>
-        <Route default path={'/green'}>
-          <ex-green
-            my-count={myCount}
-            onmy-event={(e) => {
-              host.dispatchEvent(
-                new CustomEvent('my-event', { detail: e.detail })
-              )
-            }}
-          />
-        </Route>
-        <Route path={'/red'}>
-          <ex-red
-            my-count={myCount}
-            onmy-event={(e) => {
-              host.dispatchEvent(
-                new CustomEvent('my-event', { detail: e.detail })
-              )
-            }}
-          />
-        </Route>
-        <Route path={'/blue'}>
-          <ex-blue
-            my-count={myCount}
-            onmy-event={(e) => {
-              host.dispatchEvent(
-                new CustomEvent('my-event', { detail: e.detail })
-              )
-            }}
-          />
-        </Route>
+        {menuItems.map((asset) => {
+          const Component = asset.component
+          return (
+            <Route default path={asset.menu.route} key={asset.name}>
+              <Component
+                my-count={myCount}
+                onmy-event={(e) => {
+                  host.dispatchEvent(
+                    new CustomEvent('my-event', { detail: e.detail })
+                  )
+                }}
+              />
+            </Route>
+          )
+        })}
       </Router>
     </>
   )

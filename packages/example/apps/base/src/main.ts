@@ -4,4 +4,6 @@ import { loadAssets } from '@mf-dev/helper'
   const assets = await loadAssets('/public/assets.json')
   registerLazyCustomElements(assets)
   assets.filter((a) => a.load).forEach((a) => import(a.target))
+  // @ts-ignore
+  window.assets = assets
 })()
