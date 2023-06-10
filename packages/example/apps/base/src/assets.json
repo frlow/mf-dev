@@ -14,9 +14,5 @@
   "core": {
     "target": "/public/core.js",
     "load": true
-  },
-  "style": {
-    "target": "/public/style.js",
-    "load": true
   }
 }

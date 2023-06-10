@@ -51,9 +51,6 @@ importers:
         specifier: ^0.28.5
         version: 0.28.5(solid-js@1.7.4)
     devDependencies:
-      '@mf-dev/entry':
-        specifier: workspace:^
-        version: link:../../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../../tools/helper
@@ -74,7 +71,7 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        version: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
       vite-plugin-solid:
         specifier: ^2.7.0
         version: 2.7.0(solid-js@1.7.4)(vite@4.3.5)
@@ -91,9 +88,6 @@ importers:
         specifier: experimental
         version: 0.0.0-experimental-5dd90c562-20230502(react@0.0.0-experimental-5dd90c562-20230502)
     devDependencies:
-      '@mf-dev/entry':
-        specifier: workspace:^
-        version: link:../../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../../tools/helper
@@ -120,7 +114,7 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        version: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
 
   packages/example/apps/green:
     dependencies:
@@ -128,9 +122,6 @@ importers:
         specifier: ^3.2.47
         version: 3.2.47
     devDependencies:
-      '@mf-dev/entry':
-        specifier: workspace:^
-        version: link:../../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../../tools/helper
@@ -148,16 +139,13 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        version: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
       vue-tsc:
         specifier: ^1.6.3
         version: 1.6.3(typescript@5.0.4)
 
   packages/example/apps/red:
     devDependencies:
-      '@mf-dev/entry':
-        specifier: workspace:^
-        version: link:../../../tools/entry
       '@mf-dev/helper':
         specifier: workspace:*
         version: link:../../../tools/helper
@@ -173,12 +161,15 @@ importers:
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
+      sass:
+        specifier: ^1.63.3
+        version: 1.63.3
       svelte:
         specifier: ^3.58.0
         version: 3.58.0
       svelte-check:
         specifier: ^3.2.0
-        version: 3.2.0(svelte@3.58.0)
+        version: 3.2.0(sass@1.63.3)(svelte@3.58.0)
       tslib:
         specifier: ^2.5.0
         version: 2.5.0
@@ -187,13 +178,32 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        version: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
 
-  packages/tools/entry:
+  packages/example/components/react-components:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@types/react':
+        specifier: ^18.0.37
+        version: 18.2.0
+      '@types/react-dom':
+        specifier: ^18.0.11
+        version: 18.2.1
+      '@vitejs/plugin-react':
+        specifier: ^4.0.0
+        version: 4.0.0(vite@4.3.9)
+      typescript:
+        specifier: ^5.0.2
+        version: 5.0.4
       vite:
-        specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        specifier: ^4.3.9
+        version: 4.3.9(@types/node@18.16.3)
 
   packages/tools/helper:
     dependencies:
@@ -214,7 +224,7 @@ importers:
     devDependencies:
       vite:
         specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.3)
+        version: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
 
   packages/wrappers/common: {}
 
@@ -1137,7 +1147,7 @@ packages:
       magic-string: 0.30.0
       svelte: 3.58.0
       svelte-hmr: 0.15.2(svelte@3.58.0)
-      vite: 4.3.5(@types/node@18.16.3)
+      vite: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
       vitefu: 0.2.4(vite@4.3.5)
     transitivePeerDependencies:
       - supports-color
@@ -1346,7 +1356,22 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.5)
       react-refresh: 0.14.0
-      vite: 4.3.5(@types/node@18.16.3)
+      vite: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@vitejs/plugin-react@4.0.0(vite@4.3.9):
+    resolution: {integrity: sha512-HX0XzMjL3hhOYm+0s95pb0Z7F8O81G7joUHgfDd/9J/ZZf5k4xX6QAMFkKsHFxaHlf6X7GD7+XuaZ66ULiJuhQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.2.0
+    dependencies:
+      '@babel/core': 7.22.5
+      '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.5)
+      '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.5)
+      react-refresh: 0.14.0
+      vite: 4.3.9(@types/node@18.16.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1358,7 +1383,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.5(@types/node@18.16.3)
+      vite: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
       vue: 3.2.47
     dev: true
 
@@ -3811,6 +3836,10 @@ packages:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
 
+  /immutable@4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: true
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -5625,7 +5654,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: true
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
@@ -5644,7 +5672,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /readable-stream@1.1.14:
     resolution: {integrity: sha512-+MeVjFf4L44XUkhM1eYbD8fyEsxcV81pqMSR5gblfcLCHfZvbrqy4/qYHE+/R5HoBUT11WV5O08Cr1n3YXkWVQ==}
@@ -5901,6 +5928,16 @@ packages:
       rimraf: 2.7.1
     dev: true
 
+  /sass@1.63.3:
+    resolution: {integrity: sha512-ySdXN+DVpfwq49jG1+hmtDslYqpS7SkOR5GpF6o2bmb1RL/xS+wvPmegMvMywyfsmAV6p7TgwXYGrCZIFFbAHg==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.0
+      source-map-js: 1.0.2
+    dev: true
+
   /scheduler@0.0.0-experimental-5dd90c562-20230502:
     resolution: {integrity: sha512-NFWKaiBSBanTTFdNwwmcmej4/sfoQs5Vk4YyA1/i2o9A6Pu5sdyWA2GQqhTOZfIZ6HFwGSbo5qAyjjAKwC1HqA==}
     dependencies:
@@ -5911,7 +5948,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /semver-diff@3.1.1:
     resolution: {integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==}
@@ -6353,7 +6389,7 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /svelte-check@3.2.0(svelte@3.58.0):
+  /svelte-check@3.2.0(sass@1.63.3)(svelte@3.58.0):
     resolution: {integrity: sha512-6ZnscN8dHEN5Eq5LgIzjj07W9nc9myyBH+diXsUAuiY/3rt0l65/LCIQYlIuoFEjp2F1NhXqZiJwV9omPj9tMw==}
     hasBin: true
     peerDependencies:
@@ -6366,7 +6402,7 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 3.58.0
-      svelte-preprocess: 5.0.4(svelte@3.58.0)(typescript@5.0.4)
+      svelte-preprocess: 5.0.4(sass@1.63.3)(svelte@3.58.0)(typescript@5.0.4)
       typescript: 5.0.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -6389,7 +6425,7 @@ packages:
       svelte: 3.58.0
     dev: true
 
-  /svelte-preprocess@5.0.4(svelte@3.58.0)(typescript@5.0.4):
+  /svelte-preprocess@5.0.4(sass@1.63.3)(svelte@3.58.0)(typescript@5.0.4):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -6430,6 +6466,7 @@ packages:
       '@types/pug': 2.0.6
       detect-indent: 6.1.0
       magic-string: 0.27.0
+      sass: 1.63.3
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 3.58.0
@@ -6813,14 +6850,48 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.7.4
       solid-refresh: 0.5.3(solid-js@1.7.4)
-      vite: 4.3.5(@types/node@18.16.3)
+      vite: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
       vitefu: 0.2.4(vite@4.3.5)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.3.5(@types/node@18.16.3):
+  /vite@4.3.5(@types/node@18.16.3)(sass@1.63.3):
     resolution: {integrity: sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 18.16.3
+      esbuild: 0.17.18
+      postcss: 8.4.24
+      rollup: 3.21.3
+      sass: 1.63.3
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite@4.3.9(@types/node@18.16.3):
+    resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -6860,7 +6931,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.5(@types/node@18.16.3)
+      vite: 4.3.5(@types/node@18.16.3)(sass@1.63.3)
     dev: true
 
   /vm2@3.9.19:

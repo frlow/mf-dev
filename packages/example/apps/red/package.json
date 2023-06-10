@@ -13,13 +13,13 @@
   "devDependencies": {
     "@mf-dev/helper": "workspace:*",
     "@mf-dev/wrapper-svelte": "workspace:^",
-    "@mf-dev/entry": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^2.1.1",
     "@tsconfig/svelte": "^4.0.1",
     "concurrently": "^8.0.1",
     "svelte": "^3.58.0",
     "svelte-check": "^3.2.0",
     "tslib": "^2.5.0",
+    "sass": "^1.63.3",
     "typescript": "^5.0.4",
     "vite": "^4.3.5"
   },
