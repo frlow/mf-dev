@@ -19,6 +19,7 @@ export const App = (props: { 'my-count': number; host: HTMLElement }) => {
       >
         Dispatch {props['my-count']}
       </button>
+      <ex-solid-button></ex-solid-button>
     </div>
   )
 }

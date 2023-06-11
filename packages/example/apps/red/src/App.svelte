@@ -12,6 +12,7 @@
   {/if}
   <button is="ex-button" on:click={()=>host.dispatchEvent(new CustomEvent("my-event", {detail: "red"}))}>
     Dispatch {myCount}</button>
+  <ex-svelte-button text="Svelte Button"></ex-svelte-button>
 </main>
 
 <style lang="scss">

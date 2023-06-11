@@ -20,17 +20,16 @@ export const App = ({
               key={asset.name}
             />
           ))}
-          <button
-            is="ex-button"
-            onClick={() =>
-              host.dispatchEvent(
-                new CustomEvent('my-event', { detail: 'core' })
-              )
-            }
-          >
-            Dispatch {myCount}
-          </button>
         </ul>
+        <button
+          is="ex-button"
+          onClick={() =>
+            host.dispatchEvent(new CustomEvent('my-event', { detail: 'core' }))
+          }
+        >
+          Dispatch {myCount}
+        </button>
+        <ex-react-button></ex-react-button>
       </nav>
       <Router>
         {menuItems.map((asset) => {
