@@ -5,11 +5,6 @@ export const createSvelteWrapper = (options) =>
 export const createSvelteWebComponent = (options) =>
   createSvelteWrapperImpl(options, true)
 
-/** @type {(options: {
-  component: any,
-  tag?: string,
-  props?: any,
-}, useShadowRoot: boolean)=>HTMLElement} **/
 const createSvelteWrapperImpl = (options, useShadowRoot) => {
   const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends HTMLElement {
@@ -61,5 +56,8 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
   }
   applyProps(wrapperClass, attributes)
   if (options.tag) customElements.define(options.tag, wrapperClass)
-  return wrapperClass
+  return {
+    wrapper: wrapperClass,
+    meta: { tag: options.tag, meta: { ...options.props, tag: options.tag } },
+  }
 }
