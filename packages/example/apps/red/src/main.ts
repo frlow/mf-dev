@@ -6,17 +6,17 @@ import {
 import App from './App.svelte'
 import SvelteButton from './SvelteButton.svelte'
 
-const app = createSvelteWrapper({
+export const appMeta = createSvelteWrapper({
   component: App,
   tag: 'ex-red',
   props: { myCount: t<number>() },
-})
+}).meta
 
-const button = createSvelteWebComponent({
+export const buttonMeta = createSvelteWebComponent({
   tag: 'ex-svelte-button',
   component: SvelteButton,
-  props: { text: t<string>() },
-})
-
-export type AppMeta = typeof app.meta
-export type ButtonMeta = typeof button.meta
+  props: {
+    text: t<string>(),
+    demo: t<number>(),
+  },
+}).meta

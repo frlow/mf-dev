@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { ButtonMeta } from "./main.js";
+import type { buttonMeta } from "./main.js";
 
 const css = String.raw
-export let {text}: ButtonMeta={}
+export let {text}: typeof buttonMeta={}
 </script>
 
 <button>{text}</button>

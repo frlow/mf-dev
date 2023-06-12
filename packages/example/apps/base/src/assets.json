@@ -5,7 +5,8 @@
     "menu": {
       "label": "Red",
       "route": "/red"
-    }
+    },
+    "types": "/public/red-types.json"
   },
   "green": {
     "target": "/public/green.js",

@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { parseTypes } from '@mf-dev/parse-types'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()],
+  plugins: [
+    svelte(),
+    parseTypes('src/main.ts', '../base/public/red-types.json'),
+  ],
   base: './',
   build: {
     rollupOptions: {
