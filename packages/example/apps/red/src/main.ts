@@ -1,19 +1,9 @@
 import App from './App.svelte'
-import {
-  createSvelteWebComponent,
-  createSvelteWrapper,
-} from '@mf-dev/wrapper-svelte'
-import './app.css'
-import SvelteButton from './SvelteButton.svelte'
+import { createSvelteWrapper } from '@mf-dev/wrapper-svelte'
+import './SvelteButton.svelte'
 
 createSvelteWrapper({
   component: App,
   tag: 'ex-red',
   attributes: ['my-count'],
-})
-
-createSvelteWebComponent({
-  tag: 'ex-svelte-button',
-  component: SvelteButton,
-  attributes: ['text'],
 })
