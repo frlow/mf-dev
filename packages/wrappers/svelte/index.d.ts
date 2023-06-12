@@ -4,6 +4,6 @@ export const createSvelteWrapper: <TProps, TTag extends string>(options: {
   tag?: TTag
   props?: TProps
   handleAttribute?: (name: string, value: string) => any
-}) => { wrapper: HTMLElement; meta: TProps & { tag: TTag; host: HTMLElement } }
+}) => TProps & { tag: TTag; host: Element; wrapper: HTMLElement }
 
 export const createSvelteWebComponent: typeof createSvelteWrapper

@@ -10,7 +10,7 @@ export const appMeta = createSvelteWrapper({
   component: App,
   tag: 'ex-red',
   props: { myCount: t<number>() },
-}).meta
+})
 
 export const buttonMeta = createSvelteWebComponent({
   tag: 'ex-svelte-button',
@@ -19,4 +19,4 @@ export const buttonMeta = createSvelteWebComponent({
     text: t<string>(),
     demo: t<number>(),
   },
-}).meta
+})
