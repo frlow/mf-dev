@@ -39,3 +39,7 @@ export const applyProps = (wrapperClass, attributes) => {
 export function t() {
   return null
 }
+
+export function meta(args) {
+  return args
+}

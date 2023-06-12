@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { appMeta } from "./main.js";
+  import type { AppMeta } from "./main.js";
 
   let show = false;
-  export let {myCount, host}: typeof appMeta = {}
+  export let host: Element
+  export let {myCount}: typeof AppMeta.props = {}
 </script>
 
 <main is="ex-main">

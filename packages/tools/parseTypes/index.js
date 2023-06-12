@@ -12,25 +12,25 @@ export const parseTypes = (files, outFile) =>
       const parsed = parseFromSource(content)
         .declarations.map((d) => d.type?.text)
         .filter((d) => d)
-      const types = parsed
-        .map((p) => p.match(/(.*?) & .*?tag: "(.*?)"/))
-        .filter((m) => m)
-        .map((m) => ({
-          type: m[1],
-          tag: m[2],
-        }))
+      const types = parsed.filter((p) => p.match(/tag:/) && p.match(/props:/))
       const tst = ts.default
       const tagTypes = types.map((t) => {
         const source = tst.createSourceFile(
           'demo.ts',
-          `type t = ${t.type}`,
+          `type t = ${t}`,
           tst.ScriptTarget.ES2020
         )
-        const props = source.statements[0].type.members.map((m) => ({
-          name: m.name.getText(source),
-          type: m.type.getText(source),
-        }))
-        return { tag: t.tag, props }
+        const tag = source.statements[0].type.members
+          .find((m) => m.name.getText(source) === 'tag')
+          .type.getText(source)
+          .replace(/"/g, '')
+        const props = source.statements[0].type.members
+          .find((m) => m.name.getText(source) === 'props')
+          .type.members.map((p) => ({
+            name: p.name.getText(source),
+            type: p.type.getText(source),
+          }))
+        return { tag, props }
       })
       fs.writeFileSync(outFile, JSON.stringify(tagTypes, null, 2), 'utf8')
     },

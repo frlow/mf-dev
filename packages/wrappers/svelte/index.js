@@ -56,7 +56,5 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
   }
   applyProps(wrapperClass, attributes)
   if (options.tag) customElements.define(options.tag, wrapperClass)
-  return {
-    wrapper: wrapperClass,
-  }
+  return wrapperClass
 }
