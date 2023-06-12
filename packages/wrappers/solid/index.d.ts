@@ -1,3 +1,4 @@
+export * from '@mf-dev/wrapper-common'
 export const createSolidWrapper: <T>(options: {
   component: (props: T) => any
   attributes?: (keyof Omit<T, 'host'>)[]

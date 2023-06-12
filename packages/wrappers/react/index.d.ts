@@ -1,3 +1,4 @@
+export * from '@mf-dev/wrapper-common'
 export const createReactWrapper: <T>(options: {
   attributes?: (keyof Omit<T, 'host'>)[]
   component: (props: T) => any

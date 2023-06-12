@@ -1,7 +1,7 @@
 import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
-
+export * from '@mf-dev/wrapper-common'
 export const createSolidWrapper = (options) =>
   createSolidWrapperImpl(options, false)
 export const createSolidWebComponent = (options) =>

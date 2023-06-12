@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-
+export * from '@mf-dev/wrapper-common'
 export const createVueWrapper: (options: {
   component: any
   createCustom?: (props: any) => App

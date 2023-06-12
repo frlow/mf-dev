@@ -1,18 +1,22 @@
 import {
   createSvelteWebComponent,
   createSvelteWrapper,
+  t,
 } from '@mf-dev/wrapper-svelte'
 import App from './App.svelte'
 import SvelteButton from './SvelteButton.svelte'
 
-createSvelteWrapper({
+const app = createSvelteWrapper({
   component: App,
   tag: 'ex-red',
-  attributes: ['my-count'],
+  props: { myCount: t<number>() },
 })
 
-createSvelteWebComponent({
+const button = createSvelteWebComponent({
   tag: 'ex-svelte-button',
   component: SvelteButton,
-  attributes: ['text'],
+  props: { text: t<string>() },
 })
+
+export type AppMeta = typeof app.meta
+export type ButtonMeta = typeof button.meta

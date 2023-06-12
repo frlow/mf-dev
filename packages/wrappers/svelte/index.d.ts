@@ -1,8 +1,9 @@
-export const createSvelteWrapper: (options: {
+export * from '@mf-dev/wrapper-common'
+export const createSvelteWrapper: <TProps, TTag extends string>(options: {
   component: any
-  tag?: string
-  attributes?: string[]
+  tag?: TTag
+  props?: TProps
   handleAttribute?: (name: string, value: string) => any
-}) => HTMLElement
+}) => { wrapper: HTMLElement; meta: TProps & { tag: TTag; host: HTMLElement } }
 
 export const createSvelteWebComponent: typeof createSvelteWrapper

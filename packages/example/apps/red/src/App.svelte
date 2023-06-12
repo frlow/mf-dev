@@ -1,7 +1,8 @@
 <script lang="ts">
+  import type { AppMeta } from "./main.js";
+
   let show = false;
-  export let host: HTMLElement;
-  export let myCount: number;
+  export let {myCount, host}: AppMeta = {}
 </script>
 
 <main is="ex-main">

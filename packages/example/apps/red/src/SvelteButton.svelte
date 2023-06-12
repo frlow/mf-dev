@@ -1,6 +1,8 @@
 <script lang="ts">
+import type { ButtonMeta } from "./main.js";
+
 const css = String.raw
-export let text: string
+export let {text}: ButtonMeta={}
 </script>
 
 <button>{text}</button>

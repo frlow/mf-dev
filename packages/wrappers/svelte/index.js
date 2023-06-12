@@ -1,5 +1,5 @@
-import { applyProps, camelize } from '@mf-dev/wrapper-common'
-
+import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
+export * from '@mf-dev/wrapper-common'
 export const createSvelteWrapper = (options) =>
   createSvelteWrapperImpl(options, false)
 export const createSvelteWebComponent = (options) =>
@@ -8,10 +8,10 @@ export const createSvelteWebComponent = (options) =>
 /** @type {(options: {
   component: any,
   tag?: string,
-  attributes?: string[],
+  props?: any,
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createSvelteWrapperImpl = (options, useShadowRoot) => {
-  const attributes = options.attributes || []
+  const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends HTMLElement {
     temp
     app

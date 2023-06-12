@@ -35,3 +35,7 @@ export const applyProps = (wrapperClass, attributes) => {
       Object.defineProperty(wrapperClass.prototype, camelize(attribute), setter)
   })
 }
+
+export function t() {
+  return null
+}
