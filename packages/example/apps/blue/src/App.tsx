@@ -1,7 +1,8 @@
 import style from './App.module.scss'
 import { createSignal } from 'solid-js'
+import { AppMeta } from './main.js'
 
-export const App = (props: { myCount: number; host: HTMLElement }) => {
+export const App = (props: typeof AppMeta.props) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>

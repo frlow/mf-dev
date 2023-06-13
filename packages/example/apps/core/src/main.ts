@@ -3,13 +3,18 @@ import './core.css'
 
 import './ReactButton.js'
 import App from './App.js'
-import { createReactWrapper } from '@mf-dev/wrapper-react'
+import {
+  createReactWebComponent,
+  createReactWrapper,
+  meta,
+  t,
+} from '@mf-dev/wrapper-react'
+import { ReactButton } from './ReactButton.js'
 window.HistoryLibrary = createBrowserHistory()
 
+export const AppMeta = meta('ex-core', { myCount: t<number>() })
 createReactWrapper({
-  tag: 'ex-core',
   component: App,
-  attributes: ['my-count'],
   handleAttribute: (name, value) => {
     switch (name) {
       case 'my-count':
@@ -18,4 +23,11 @@ createReactWrapper({
         return value
     }
   },
+  ...AppMeta,
+})
+
+export const ButtonMeta = meta('ex-react-button')
+createReactWebComponent({
+  component: ReactButton,
+  ...ButtonMeta,
 })

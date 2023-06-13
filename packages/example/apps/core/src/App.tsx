@@ -1,13 +1,8 @@
 import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
+import { AppMeta } from './main.js'
 
-export const App = ({
-  host,
-  'my-count': myCount,
-}: {
-  host: HTMLElement
-  'my-count': number
-}) => {
+export const App = ({ myCount, host }: typeof AppMeta.props) => {
   const menuItems = (window as any).assets.filter((asset) => asset.menu)
   return (
     <>

@@ -1,4 +1,4 @@
-import { applyProps } from '@mf-dev/wrapper-common'
+import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 export * from '@mf-dev/wrapper-common'
@@ -9,7 +9,7 @@ export const createReactWebComponent = (options) =>
   createReactWrapperImpl(options, true)
 
 const createReactWrapperImpl = (options, useShadowRoot) => {
-  const attributes = options.attributes || []
+  const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends HTMLElement {
     app
     props
@@ -40,7 +40,7 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
     }
 
     updateProp(name, value) {
-      this.props[name] = value
+      this.props[camelize(name)] = value
     }
 
     connectedCallback() {
