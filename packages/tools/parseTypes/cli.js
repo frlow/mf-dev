@@ -7,10 +7,17 @@ const parseTypes = async (url) => {
   let types = []
   if (Array.isArray(result)) result.forEach((r) => types.push(r))
   else {
-    const baseUrl = url.match(/^(.*?:\/\/.*?)\//)[1]
+    const baseRegex = /^(.*?:\/\/.*?)\//
+    const baseUrl = url.match(baseRegex)[1]
     const typeUrls = Object.values(result)
       .filter((r) => r.types)
-      .map((r) => (r.types.match(/:\/\//) ? r.types : baseUrl + r.types))
+      .map((r) =>
+        r.types.match(/:\/\//)
+          ? r.types
+          : r.target.match(/:\/\//)
+          ? r.target.match(baseRegex)[1] + r.types
+          : baseUrl + r.types
+      )
     for (const typeUrl of typeUrls) {
       types.push(...(await parseTypes(typeUrl)))
     }
