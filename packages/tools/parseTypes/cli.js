@@ -53,7 +53,7 @@ fs.writeFileSync(
     {
       $schema: 'http://json.schemastore.org/web-types',
       'description-markup': 'markdown',
-      name: 'example',
+      name: 'types',
       version: '1.0.0',
       contributions: {
         html: {
