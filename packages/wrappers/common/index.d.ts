@@ -3,6 +3,6 @@ export const camelize: (str: string) => string
 
 export function t<T>(): T
 export function meta<TTag extends string, TProps = undefined>(
-  tag: TTag,
+  tag?: TTag,
   props?: TProps
-): { tag: TTag; props: TProps & { host: Element }; attributes: string[] }
+): { tag: TTag; props: TProps; attributes: string[] }

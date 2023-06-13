@@ -1,1 +1,5 @@
-export const parseTypes: (file: string, outFile: string) => any
+export const parseTypes: (
+  file: string,
+  outFile: string,
+  deleteTemp?: boolean
+) => any

@@ -14,7 +14,8 @@
     "menu": {
       "label": "Green",
       "route": "/green"
-    }
+    },
+    "types": "/public/green-types.json"
   },
   "blue": {
     "target": "/public/blue.js",
@@ -22,10 +23,12 @@
     "menu": {
       "label": "Blue",
       "route": "/blue"
-    }
+    },
+    "types": "/public/blue-types.json"
   },
   "core": {
     "target": "/public/core.js",
-    "load": true
+    "load": true,
+    "types": "/public/core-types.json"
   }
 }

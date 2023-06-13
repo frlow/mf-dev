@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { parseTypes } from '@mf-dev/parse-types'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    parseTypes('src/main.ts', '../base/public/core-types.json'),
+  ],
   base: './',
   build: {
     rollupOptions: {
