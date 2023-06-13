@@ -3,7 +3,7 @@
 
   let show = false;
   export let host: Element
-  export let {myCount}: typeof AppMeta.props = {}
+  export let {myCount}: typeof AppMeta.props = {} as any
 </script>
 
 <main is="ex-main">

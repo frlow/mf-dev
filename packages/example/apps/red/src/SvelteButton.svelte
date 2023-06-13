@@ -2,7 +2,7 @@
 import type { ButtonMeta } from "./main.js";
 
 const css = String.raw
-export let {text}: typeof ButtonMeta.props={}
+export let {text}: typeof ButtonMeta.props={} as any
 </script>
 
 <button>{text}</button>
