@@ -1,7 +1,7 @@
 import style from './App.module.scss'
 import { createSignal } from 'solid-js'
 
-export const App = (props: { 'my-count': number; host: HTMLElement }) => {
+export const App = (props: { myCount: number; host: HTMLElement }) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>
@@ -17,7 +17,7 @@ export const App = (props: { 'my-count': number; host: HTMLElement }) => {
           )
         }}
       >
-        Dispatch {props['my-count']}
+        Dispatch {props.myCount}
       </button>
       <ex-solid-button></ex-solid-button>
     </div>

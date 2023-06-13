@@ -12,6 +12,7 @@
   "devDependencies": {
     "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/wrapper-solid": "workspace:*",
+    "@mf-dev/parse-types": "workspace:*",
     "concurrently": "^8.0.1",
     "rollup": "^3.21.3",
     "rollup-plugin-import-css": "^3.2.1",

@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
+import { parseTypes } from '@mf-dev/parse-types'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [solidPlugin()],
+  plugins: [
+    solidPlugin(),
+    parseTypes('src/main.ts', '../base/public/blue-types.json'),
+  ],
   base: './',
   build: {
     rollupOptions: {

@@ -60,6 +60,9 @@ importers:
       '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
+      '@mf-dev/parse-types':
+        specifier: workspace:*
+        version: link:../../../tools/parseTypes
       '@mf-dev/wrapper-solid':
         specifier: workspace:*
         version: link:../../../wrappers/solid

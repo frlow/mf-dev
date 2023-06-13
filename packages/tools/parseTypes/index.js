@@ -26,7 +26,7 @@ export const parseTypes = (files, outFile) =>
           .replace(/"/g, '')
         const props = source.statements[0].type.members
           .find((m) => m.name.getText(source) === 'props')
-          .type.members.map((p) => ({
+          .type.members?.map((p) => ({
             name: p.name.getText(source),
             type: p.type.getText(source),
           }))

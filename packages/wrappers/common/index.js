@@ -40,6 +40,6 @@ export function t() {
   return null
 }
 
-export function meta(args) {
-  return args
+export function meta(tag, props) {
+  return { tag, props }
 }

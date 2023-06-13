@@ -1,4 +1,4 @@
-import { applyProps } from '@mf-dev/wrapper-common'
+import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
 export * from '@mf-dev/wrapper-common'
@@ -7,7 +7,7 @@ export const createSolidWrapper = (options) =>
 export const createSolidWebComponent = (options) =>
   createSolidWrapperImpl(options, true)
 const createSolidWrapperImpl = (options, useShadowRoot) => {
-  const attributes = options.attributes || []
+  const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
   const wrapperClass = class VueWrapper extends HTMLElement {
     root
     signals
@@ -17,7 +17,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.signals = attributes.reduce(
-        (acc, cur) => ({ ...acc, [cur]: createSignal() }),
+        (acc, cur) => ({ ...acc, [camelize(cur)]: createSignal() }),
         {}
       )
     }
@@ -36,7 +36,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
     }
 
     updateProp(name, value) {
-      this.signals[name][1](value)
+      this.signals[camelize(name)][1](value)
     }
 
     connectedCallback() {
