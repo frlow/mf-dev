@@ -7,6 +7,9 @@
     "@ts-ast-parser/core": "^0.2.0",
     "typescript": "^5.1.3"
   },
+  "scripts": {
+    "parse-types": "node ./cli.js 'https://mf-demo-77739.web.app/public/assets.json'"
+  },
   "bin": {
     "parse-types": "./cli.js"
   }
