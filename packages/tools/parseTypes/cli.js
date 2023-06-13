@@ -33,3 +33,63 @@ fs.writeFileSync(
   JSON.stringify(types, null, 2),
   'utf8'
 )
+fs.writeFileSync(
+  path.join(targetDir, 'vscode.html-custom-data.json'),
+  JSON.stringify(
+    {
+      tags: types.map((type) => ({
+        name: type.tag,
+        attributes: type.props.map((p) => ({ name: p.name })),
+      })),
+    },
+    null,
+    2
+  ),
+  'utf8'
+)
+fs.writeFileSync(
+  path.join(targetDir, 'web-types.json'),
+  JSON.stringify(
+    {
+      $schema: 'http://json.schemastore.org/web-types',
+      'description-markup': 'markdown',
+      name: 'example',
+      version: '1.0.0',
+      contributions: {
+        html: {
+          elements: types.map((t) => ({
+            name: t.tag,
+            attributes: t.props.map((p) => ({
+              name: p.name,
+              value: {
+                type: p.type,
+              },
+            })),
+          })),
+        },
+      },
+    },
+    null,
+    2
+  ),
+  'utf8'
+)
+fs.writeFileSync(
+  path.join(targetDir, 'jsxIntrinsicElements.d.ts'),
+  `export {}
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+${types
+  .map(
+    (t) =>
+      `      "${t.tag}":{${t.props
+        .map((p) => `"${p.name}":${p.type}`)
+        .join(',')}}`
+  )
+  .join('\n')}
+    }
+  }
+}`,
+  'utf8'
+)
