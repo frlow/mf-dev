@@ -7,7 +7,7 @@ export const createSolidWrapper = (options) =>
 export const createSolidWebComponent = (options) =>
   createSolidWrapperImpl(options, true)
 const createSolidWrapperImpl = (options, useShadowRoot) => {
-  const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
+  const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
     root
     signals

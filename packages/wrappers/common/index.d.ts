@@ -5,4 +5,4 @@ export function t<T>(): T
 export function meta<TTag extends string, TProps = undefined>(
   tag: TTag,
   props?: TProps
-): { tag: TTag; props: TProps & { host: Element } }
+): { tag: TTag; props: TProps & { host: Element }; attributes: string[] }

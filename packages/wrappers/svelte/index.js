@@ -6,7 +6,7 @@ export const createSvelteWebComponent = (options) =>
   createSvelteWrapperImpl(options, true)
 
 const createSvelteWrapperImpl = (options, useShadowRoot) => {
-  const attributes = Object.keys(options.props || {}).map((p) => kebabize(p))
+  const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
     temp
     app

@@ -41,5 +41,9 @@ export function t() {
 }
 
 export function meta(tag, props) {
-  return { tag, props }
+  return {
+    tag,
+    props,
+    attributes: Object.keys(props || {}).map((p) => kebabize(p)),
+  }
 }
