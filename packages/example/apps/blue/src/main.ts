@@ -1,16 +1,16 @@
 import {
   createSolidWebComponent,
   createSolidWrapper,
-  meta,
+  typeInfo,
   t,
 } from '@mf-dev/wrapper-solid'
 import { App } from './App.js'
 import { SolidButton } from './SolidButton.js'
 
-export const AppMeta = meta('ex-blue', { myCount: t<number>() })
-createSolidWrapper({ component: App, ...AppMeta })
-export const ButtonMeta = meta('ex-solid-button')
+export const AppType = typeInfo('ex-blue', { myCount: t<number>() })
+createSolidWrapper({ component: App, ...AppType })
+export const ButtonType = typeInfo('ex-solid-button')
 createSolidWebComponent({
-  ...ButtonMeta,
+  ...ButtonType,
   component: SolidButton,
 })

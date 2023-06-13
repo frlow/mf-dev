@@ -1,4 +1,3 @@
-import { createSolidWebComponent } from '@mf-dev/wrapper-solid'
 const css = String.raw
 export const SolidButton = () => {
   return (

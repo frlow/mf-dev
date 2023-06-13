@@ -7,7 +7,7 @@ const increment = () => {
 }
 const { host } = defineProps<AppProps & { host: Element }>()
 const send = () =>
-  host.dispatchEvent(new CustomEvent('my-event', { detail: 'green' }))
+  host!.dispatchEvent(new CustomEvent('my-event', { detail: 'green' }))
 const log = console.log
 </script>
 

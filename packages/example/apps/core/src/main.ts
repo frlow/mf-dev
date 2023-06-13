@@ -6,13 +6,13 @@ import App from './App.js'
 import {
   createReactWebComponent,
   createReactWrapper,
-  meta,
+  typeInfo,
   t,
 } from '@mf-dev/wrapper-react'
 import { ReactButton } from './ReactButton.js'
 window.HistoryLibrary = createBrowserHistory()
 
-export const AppMeta = meta('ex-core', { myCount: t<number>() })
+export const AppType = typeInfo('ex-core', { myCount: t<number>() })
 createReactWrapper({
   component: App,
   handleAttribute: (name, value) => {
@@ -23,11 +23,11 @@ createReactWrapper({
         return value
     }
   },
-  ...AppMeta,
+  ...AppType,
 })
 
-export const ButtonMeta = meta('ex-react-button')
+export const ButtonType = typeInfo('ex-react-button')
 createReactWebComponent({
   component: ReactButton,
-  ...ButtonMeta,
+  ...ButtonType,
 })

@@ -1,4 +1,3 @@
-import { createReactWebComponent } from '@mf-dev/wrapper-react'
 const css = String.raw
 export const ReactButton = () => {
   return (

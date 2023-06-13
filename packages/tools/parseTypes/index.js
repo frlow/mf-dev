@@ -14,22 +14,24 @@ export const parseTypes = (files, outFile, deleteTemp = true) =>
       const declarations = parsed.declarations
         .map((d) => d.type?.text)
         .filter((d) => d)
-      const types = declarations.filter(
-        (p) => p.match(/tag:/) && p.match(/props:/)
-      )
+      const types = declarations.filter((p) => p.match(/tag:/))
       const tagTypes = types.map((t) => {
         const source = tst.createSourceFile(
           'demo.ts',
           `type t = ${t}`,
           tst.ScriptTarget.ES2020
         )
-        const tag = source.statements[0].type.members
-          .find((m) => m.name.getText(source) === 'tag')
-          .type.getText(source)
+        if (!source.statements[0].type.types)
+          return {
+            tag: source.statements[0].type.members[0].type
+              .getText(source)
+              .replace(/"/g, ''),
+            props: [],
+          }
+        const tag = source.statements[0].type.types[0].members[0].type
+          .getText(source)
           .replace(/"/g, '')
-        const propsType = source.statements[0].type.members.find(
-          (m) => m.name.getText(source) === 'props'
-        ).type
+        const propsType = source.statements[0].type.types[1]
         let props
         if (propsType.members)
           props = propsType.members?.map((p) => ({

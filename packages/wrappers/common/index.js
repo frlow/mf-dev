@@ -40,7 +40,7 @@ export function t() {
   return null
 }
 
-export function meta(tag, props) {
+export function typeInfo(tag, props) {
   return {
     tag,
     props,
