@@ -24,7 +24,7 @@ app.post("/", async (req, res) => {
         return { name: j.name, target, ...j.helper, port };
       }))
       .catch(() => undefined)))).filter(r => !!r);
-  apps.forEach(app => assets[app.name] = merge(assets[app.name], app));
+  apps.forEach(app => assets[app.name] = merge(assets[app.name]||{}, app));
   res.send(JSON.stringify(assets));
 });
 
