@@ -2,6 +2,16 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
+const kebabize = (str) =>
+  str
+    .split('')
+    .map((letter, idx) => {
+      return /[A-Z|a-z]/.test(letter) && letter.toUpperCase() === letter
+        ? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
+        : letter
+    })
+    .join('')
+
 const parseTypes = async (url) => {
   const result = await fetch(url).then((r) => r.json())
   let types = []
@@ -39,7 +49,7 @@ fs.writeFileSync(
     {
       tags: types.map((type) => ({
         name: type.tag,
-        attributes: type.props.map((p) => ({ name: p.name })),
+        attributes: type.props.map((p) => ({ name: kebabize(p.name) })),
       })),
     },
     null,
@@ -60,7 +70,7 @@ fs.writeFileSync(
           elements: types.map((t) => ({
             name: t.tag,
             attributes: t.props.map((p) => ({
-              name: p.name,
+              name: kebabize(p.name),
               value: {
                 type: p.type,
               },
@@ -84,7 +94,7 @@ ${types
   .map(
     (t) =>
       `      "${t.tag}":{${t.props
-        .map((p) => `"${p.name}":${p.type}`)
+        .map((p) => `"${kebabize(p.name)}":${p.type}`)
         .join(',')}}`
   )
   .join('\n')}
