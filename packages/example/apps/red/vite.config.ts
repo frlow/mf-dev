@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { parseTypes } from '@mf-dev/dev-helper/plugin'
+import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     svelte(),
-    parseTypes('src/main.ts', '../base/public/red-types.json'),
+    parseMfTypesPlugin('src/main.ts', '../base/public/red-types.json'),
   ],
   base: './',
   build: {

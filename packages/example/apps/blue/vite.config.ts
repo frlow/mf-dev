@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
-import { parseTypes } from '@mf-dev/dev-helper/plugin'
+import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    parseTypes('src/main.ts', '../base/public/blue-types.json'),
+    parseMfTypesPlugin('src/main.ts', '../base/public/blue-types.json'),
   ],
   base: './',
   build: {

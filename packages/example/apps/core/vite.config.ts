@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { parseTypes } from '@mf-dev/dev-helper/plugin'
+import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    parseTypes('src/main.ts', '../base/public/core-types.json'),
+    parseMfTypesPlugin('src/main.ts', '../base/public/core-types.json'),
   ],
   base: './',
   build: {

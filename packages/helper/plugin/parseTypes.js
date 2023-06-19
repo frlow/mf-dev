@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import { parseFromSource } from '@ts-ast-parser/core'
 import * as ts from 'typescript'
 
-export const parseTypes = (files, outFile, deleteTemp = true) =>
+export const parseMfTypesPlugin = (files, outFile, deleteTemp = true) =>
   dts({
     include: files,
     skipDiagnostics: true,
