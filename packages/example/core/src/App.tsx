@@ -2,7 +2,7 @@ import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
 import type { AppType } from './main.js'
 
-export const App = ({ myCount, host }: typeof AppType & { host: Element }) => {
+export const App = ({ myCount, host }: typeof AppType) => {
   const menuItems = (window as any).assets.filter((asset) => asset.menu)
   return (
     <>

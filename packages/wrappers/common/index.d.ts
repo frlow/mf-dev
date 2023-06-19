@@ -5,4 +5,5 @@ export function t<T>(): T
 export function typeInfo<TTag extends string, TProps = {}>(
   tag?: TTag,
   props?: TProps
-): { tag: TTag } & TProps
+): { tag: TTag } & TProps & BaseProps
+export type BaseProps = { host: Element }

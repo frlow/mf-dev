@@ -2,8 +2,7 @@
   import type { AppType } from "./main.js";
 
   let show = false;
-  export let host: Element
-  export let {myCount}: typeof AppType = {} as any
+  export let {myCount, host}: typeof AppType = {} as any
 </script>
 
 <main is="ex-main">

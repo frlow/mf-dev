@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AppProps } from './main.js'
+import type { BaseProps } from '@mf-dev/wrapper-vue'
 const count = ref(0)
 const increment = () => {
   count.value++
 }
-const { host } = defineProps<AppProps & { host: Element }>()
+const { host } = defineProps<AppProps>()
 const send = () =>
   host!.dispatchEvent(new CustomEvent('my-event', { detail: 'green' }))
 const log = console.log

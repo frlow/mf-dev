@@ -2,7 +2,7 @@ import style from './App.module.scss'
 import { createSignal } from 'solid-js'
 import { AppType } from './main.js'
 
-export const App = (props: typeof AppType & { host: Element }) => {
+export const App = (props: typeof AppType) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>

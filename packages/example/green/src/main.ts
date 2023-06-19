@@ -1,4 +1,5 @@
 import {
+  BaseProps,
   createVueWebComponent,
   createVueWrapper,
   typeInfo,
@@ -6,7 +7,7 @@ import {
 import App from './App.vue'
 import VueButton from './VueButton.vue'
 
-export type AppProps = { myCount: number; demo: { value: string } }
+export type AppProps = { myCount: number; demo: { value: string } } & BaseProps
 export const AppType = typeInfo<'ex-green', AppProps>('ex-green')
 createVueWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo('ex-vue-button')
