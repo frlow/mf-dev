@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { parseTypes } from '@mf-dev/parse-types'
+import { parseTypes } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({

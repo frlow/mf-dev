@@ -25,8 +25,8 @@ const parseTypes = async (url) => {
         r.types.match(/:\/\//)
           ? r.types
           : r.target.match(/:\/\//)
-          ? r.target.match(baseRegex)[1] + r.types
-          : baseUrl + r.types
+            ? r.target.match(baseRegex)[1] + r.types
+            : baseUrl + r.types
       )
     for (const typeUrl of typeUrls) {
       types.push(...(await parseTypes(typeUrl)))
@@ -91,13 +91,13 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
 ${types
-  .map(
-    (t) =>
-      `      "${t.tag}":{${t.props
-        .map((p) => `"${kebabize(p.name)}":${p.type}`)
-        .join(',')}}`
-  )
-  .join('\n')}
+    .map(
+      (t) =>
+        `      "${t.tag}":{${t.props
+          .map((p) => `"${kebabize(p.name)}":${p.type}`)
+          .join(',')}}`
+    )
+    .join('\n')}
     }
   }
 }`,

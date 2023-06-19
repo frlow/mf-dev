@@ -31,7 +31,7 @@ importers:
     devDependencies:
       '@mf-dev/dev-helper':
         specifier: workspace:*
-        version: link:../../../tools/helper
+        version: link:../../../helper
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
@@ -56,10 +56,7 @@ importers:
     devDependencies:
       '@mf-dev/dev-helper':
         specifier: workspace:*
-        version: link:../../../tools/helper
-      '@mf-dev/parse-types':
-        specifier: workspace:*
-        version: link:../../../tools/parseTypes
+        version: link:../../../helper
       '@mf-dev/wrapper-solid':
         specifier: workspace:*
         version: link:../../../wrappers/solid
@@ -96,10 +93,7 @@ importers:
     devDependencies:
       '@mf-dev/dev-helper':
         specifier: workspace:*
-        version: link:../../../tools/helper
-      '@mf-dev/parse-types':
-        specifier: workspace:*
-        version: link:../../../tools/parseTypes
+        version: link:../../../helper
       '@mf-dev/wrapper-react':
         specifier: workspace:*
         version: link:../../../wrappers/react
@@ -130,10 +124,7 @@ importers:
     devDependencies:
       '@mf-dev/dev-helper':
         specifier: workspace:*
-        version: link:../../../tools/helper
-      '@mf-dev/parse-types':
-        specifier: workspace:*
-        version: link:../../../tools/parseTypes
+        version: link:../../../helper
       '@mf-dev/wrapper-vue':
         specifier: workspace:^
         version: link:../../../wrappers/vue
@@ -157,10 +148,7 @@ importers:
     devDependencies:
       '@mf-dev/dev-helper':
         specifier: workspace:*
-        version: link:../../../tools/helper
-      '@mf-dev/parse-types':
-        specifier: workspace:*
-        version: link:../../../tools/parseTypes
+        version: link:../../../helper
       '@mf-dev/wrapper-svelte':
         specifier: workspace:^
         version: link:../../../wrappers/svelte
@@ -198,14 +186,23 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(@types/node@18.16.3)(vite@4.3.5)
 
-  packages/tools/helper:
+  packages/helper:
     dependencies:
+      '@ts-ast-parser/core':
+        specifier: ^0.2.0
+        version: 0.2.0(typescript@5.1.3)
       cors:
         specifier: ^2.8.5
         version: 2.8.5
       express:
         specifier: ^4.18.2
         version: 4.18.2
+      typescript:
+        specifier: ^5.1.3
+        version: 5.1.3
+      vite-plugin-dts:
+        specifier: ^2.3.0
+        version: 2.3.0(@types/node@18.16.3)(vite@4.3.5)
     devDependencies:
       '@types/express':
         specifier: ^4.17.17
@@ -213,18 +210,6 @@ importers:
       '@types/node':
         specifier: ^18.16.3
         version: 18.16.3
-
-  packages/tools/parseTypes:
-    dependencies:
-      '@ts-ast-parser/core':
-        specifier: ^0.2.0
-        version: 0.2.0(typescript@5.1.3)
-      typescript:
-        specifier: ^5.1.3
-        version: 5.1.3
-      vite-plugin-dts:
-        specifier: ^2.3.0
-        version: 2.3.0(@types/node@18.16.3)(vite@4.3.5)
 
   packages/wrappers/common: {}
 

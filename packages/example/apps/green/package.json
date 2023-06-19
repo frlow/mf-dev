@@ -14,7 +14,6 @@
   "devDependencies": {
     "@mf-dev/dev-helper": "workspace:*",
     "@mf-dev/wrapper-vue": "workspace:^",
-    "@mf-dev/parse-types": "workspace:*",
     "@vitejs/plugin-vue": "^4.2.3",
     "concurrently": "^8.0.1",
     "typescript": "^5.0.4",
