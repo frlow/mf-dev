@@ -100,9 +100,6 @@ importers:
       '@mf-dev/parse-types':
         specifier: workspace:*
         version: link:../../../tools/parseTypes
-      '@mf-dev/react-preamble':
-        specifier: workspace:^
-        version: link:../../../tools/reactPreamble
       '@mf-dev/wrapper-react':
         specifier: workspace:*
         version: link:../../../wrappers/react
@@ -228,8 +225,6 @@ importers:
       vite-plugin-dts:
         specifier: ^2.3.0
         version: 2.3.0(@types/node@18.16.3)(vite@4.3.5)
-
-  packages/tools/reactPreamble: {}
 
   packages/wrappers/common: {}
 

@@ -1,6 +1,0 @@
-{
-  "name": "@mf-dev/react-preamble",
-  "version": "0.0.0",
-  "type": "module",
-  "main": "./index.js"
-}

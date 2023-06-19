@@ -1,2 +1,2 @@
-import '@mf-dev/react-preamble'
+import '@mf-dev/wrapper-react/preamble'
 import './main.js'
