@@ -4,10 +4,7 @@ import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    svelte(),
-    parseMfTypesPlugin('src/main.ts', '../base/public/red-types.json'),
-  ],
+  plugins: [svelte(), parseMfTypesPlugin('../base/public/red-types.json')],
   base: './',
   build: {
     rollupOptions: {

@@ -1,5 +1,1 @@
-export const parseMfTypesPlugin: (
-  file: string,
-  outFile: string,
-  deleteTemp?: boolean
-) => any
+export const parseMfTypesPlugin: (outFile: string, deleteTemp?: boolean) => any
