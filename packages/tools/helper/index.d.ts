@@ -1,4 +1,4 @@
-export const loadAssets: (
+export const helperClient: (
   url: string,
   localStorageKey?: string
-) => Promise<any[]>
+) => Promise<void>

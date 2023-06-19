@@ -32,9 +32,6 @@ importers:
       '@mf-dev/dev-helper':
         specifier: workspace:*
         version: link:../../../tools/helper
-      '@mf-dev/lazy-custom-elements':
-        specifier: workspace:*
-        version: link:../../../tools/lazyCustomElements
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
@@ -219,8 +216,6 @@ importers:
       '@types/node':
         specifier: ^18.16.3
         version: 18.16.3
-
-  packages/tools/lazyCustomElements: {}
 
   packages/tools/parseTypes:
     dependencies:

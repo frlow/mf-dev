@@ -7,7 +7,9 @@ export const registerLazyCustomElements = (lazyComponents) =>
         )
       )
       .forEach((tag) => {
-        const lazyComponent = lazyComponents.find((l) => l.component === tag)
+        const lazyComponent = Object.values(lazyComponents).find(
+          (l) => l.component === tag
+        )
         if (!lazyComponent || lazyComponent.imported || !lazyComponent.target)
           return
         lazyComponent.imported = true
