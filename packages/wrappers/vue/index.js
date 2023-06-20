@@ -7,6 +7,7 @@ export * from '@mf-dev/wrapper-common'
   tag?: string,
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createVueWrapperImpl = (options, useShadowRoot) => {
+  options.component.props = options.types
   const attributes = Object.keys(options.component.props || {})
     .filter((p) => p !== 'host')
     .map((p) => kebabize(p))

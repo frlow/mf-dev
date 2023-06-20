@@ -6,7 +6,7 @@ import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    parseMfTypesPlugin('../base/public/blue-types.json'),
+    parseMfTypesPlugin('src/main.ts', '../base/public/blue-types.json'),
   ],
   base: './',
   build: {

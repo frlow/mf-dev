@@ -4,7 +4,10 @@ import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), parseMfTypesPlugin('../base/public/core-types.json')],
+  plugins: [
+    react(),
+    parseMfTypesPlugin('src/main.ts', '../base/public/core-types.json'),
+  ],
   base: './',
   build: {
     rollupOptions: {
