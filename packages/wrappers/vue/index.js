@@ -1,5 +1,6 @@
 import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
+
 export * from '@mf-dev/wrapper-common'
 /** @type {(options: {
   component: any,
@@ -7,7 +8,7 @@ export * from '@mf-dev/wrapper-common'
   tag?: string,
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createVueWrapperImpl = (options, useShadowRoot) => {
-  options.component.props = options.types
+  if (options.types) options.component.props = options.types
   const attributes = Object.keys(options.component.props || {})
     .filter((p) => p !== 'host')
     .map((p) => kebabize(p))
