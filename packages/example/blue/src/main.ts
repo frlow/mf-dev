@@ -10,6 +10,7 @@ import { SolidButton } from './SolidButton.js'
 export const AppType = typeInfo({
   tag: 'ex-blue',
   props: { myCount: t<number>() },
+  dispatch: { myEvent: t<string>() },
 })
 createSolidWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo({ tag: 'ex-solid-button' })

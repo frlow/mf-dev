@@ -2,7 +2,7 @@
   import type { AppType } from "./main.js";
 
   let show = false;
-  export let {myCount, host}: typeof AppType = {} as any
+  export let {myCount, dispatch}: typeof AppType = {} as any
 </script>
 
 <main is="ex-main">
@@ -11,7 +11,7 @@
   {#if show}
     <button is="ex-button" class="secondary">Demo</button>
   {/if}
-  <button is="ex-button" on:click={()=>host.dispatchEvent(new CustomEvent("my-event", {detail: "red"}))}>
+  <button is="ex-button" on:click={()=>dispatch("myEvent", "red")}>
     Dispatch {myCount}</button>
   <ex-svelte-button text="Svelte Button"></ex-svelte-button>
 </main>

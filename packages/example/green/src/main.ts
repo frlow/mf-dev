@@ -10,6 +10,7 @@ import VueButton from './VueButton.vue'
 export const AppType = typeInfo({
   tag: 'ex-green',
   props: { myCount: t<number>() },
+  dispatch: { myEvent: t<string>() },
 })
 createVueWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo({ tag: 'ex-vue-button' })

@@ -13,9 +13,7 @@ export const App = (props: typeof AppType) => {
       <button
         is="ex-button"
         onClick={(e) => {
-          props.host.dispatchEvent(
-            new CustomEvent('my-event', { detail: 'blue' })
-          )
+          props.dispatch('myEvent', 'blue')
         }}
       >
         Dispatch {props.myCount}

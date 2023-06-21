@@ -44,7 +44,7 @@ export function typeInfo(options) {
   return {
     tag: options.tag,
     props: options.props,
-    types: { ...options.props, host: null },
+    types: { ...options.props, host: null, dispatch: null },
     attributes: Object.keys(options.props || {}).map((p) => kebabize(p)),
   }
 }

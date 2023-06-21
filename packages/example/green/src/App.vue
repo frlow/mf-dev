@@ -5,9 +5,8 @@ const count = ref(0)
 const increment = () => {
   count.value++
 }
-const { host, myCount } = defineProps() as typeof AppType
-const send = () =>
-  host.dispatchEvent(new CustomEvent('my-event', { detail: 'green' }))
+const { myCount, dispatch } = defineProps() as typeof AppType
+const send = () => dispatch('myEvent', 'green')
 const log = console.log
 </script>
 

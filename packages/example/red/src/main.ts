@@ -10,6 +10,7 @@ import SvelteButton from './SvelteButton.svelte'
 export const AppType = typeInfo({
   tag: 'ex-red',
   props: { myCount: t<number>() },
+  dispatch: {myEvent: t<string>()},
 })
 createSvelteWrapper({
   component: App,
