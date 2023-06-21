@@ -13,13 +13,13 @@ import { ReactButton } from './ReactButton.js'
 
 window.HistoryLibrary = createBrowserHistory()
 
-export const AppType = typeInfo({
-  tag: 'ex-core',
-  props: { myCount: t<number>() },
-  dispatch: {
+export const AppType = typeInfo(
+  'ex-core',
+  { myCount: t<number>() },
+  {
     myEvent: t<string>(),
-  },
-})
+  }
+)
 createReactWrapper({
   component: App,
   handleAttribute: (name, value) => {
@@ -33,7 +33,7 @@ createReactWrapper({
   ...AppType,
 })
 
-export const ButtonType = typeInfo({ tag: 'ex-react-button' })
+export const ButtonType = typeInfo('ex-react-button')
 createReactWebComponent({
   component: ReactButton,
   ...ButtonType,

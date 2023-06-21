@@ -7,11 +7,11 @@ export function typeInfo<
   TTag extends string,
   TProps extends Record<string, any> = {},
   TDispatch extends Record<string, any> = {}
->(options: {
-  tag?: TTag
-  props?: TProps
+>(
+  tag: TTag,
+  props?: TProps,
   dispatch?: TDispatch
-}): {
+): {
   tag: TTag
   host: Element
   types: any
@@ -20,4 +20,6 @@ export function typeInfo<
     detail?: TDispatch[TKey]
   ) => void
   dispatchType: TDispatch
+  props: TProps
+  mfTypeInfo: 'mf-type-info'
 } & TProps

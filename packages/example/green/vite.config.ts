@@ -10,7 +10,7 @@ export default defineConfig({
         compilerOptions: { isCustomElement: (tag) => tag.startsWith('ex-') },
       },
     }),
-    parseMfTypesPlugin('src/main.ts', '../base/public/green-types.json'),
+    parseMfTypesPlugin('../base/public/green-types.json'),
   ],
   base: './',
   build: {
