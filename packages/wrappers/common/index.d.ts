@@ -19,4 +19,5 @@ export function typeInfo<
     name: TKey,
     detail?: TDispatch[TKey]
   ) => void
+  dispatchType: TDispatch
 } & TProps

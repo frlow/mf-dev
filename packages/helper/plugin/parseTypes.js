@@ -32,33 +32,21 @@ export const parseMfTypesPlugin = (files, outFile, deleteTemp = true) =>
           .getText(source)
           .replace(/"/g, '')
         const propsType = source.statements[0].type.types[1]
+        const dispatchTypes = source.statements[0].type.types[0].members[4].type
         let props
+        let dispatches
         if (propsType.members)
           props = propsType.members?.map((p) => ({
             name: p.name.getText(source),
             type: p.type.getText(source).replace(/\n/g, '').replace(/ /g, ''),
           }))
-        // else if (propsType.typeName) {
-        //   const typeDef = parsed.declarations.find(
-        //     (d) => d.name === propsType.typeName.getText(source)
-        //   )
-        //   if (typeDef?.value) {
-        //     const propsSource = tst.createSourceFile(
-        //       'demo.ts',
-        //       `type t = ${typeDef.value}`,
-        //       tst.ScriptTarget.ES2020
-        //     )
-        //     const propsTypeMembers = propsSource.statements[0].type.members
-        //     props = propsTypeMembers?.map((p) => ({
-        //       name: p.name.getText(propsSource),
-        //       type: p.type
-        //         .getText(propsSource)
-        //         .replace(/\n/g, '')
-        //         .replace(/ /g, ''),
-        //     }))
-        //   }
-        // }
-        return { tag, props }
+        if (dispatchTypes.members) {
+          dispatches = dispatchTypes.members?.map((p) => ({
+            name: p.name.getText(source),
+            type: p.type.getText(source).replace(/\n/g, '').replace(/ /g, ''),
+          }))
+        }
+        return { tag, props, dispatches }
       })
       fs.writeFileSync(outFile, JSON.stringify(tagTypes, null, 2), 'utf8')
     },
