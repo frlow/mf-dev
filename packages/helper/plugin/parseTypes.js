@@ -38,26 +38,26 @@ export const parseMfTypesPlugin = (files, outFile, deleteTemp = true) =>
             name: p.name.getText(source),
             type: p.type.getText(source).replace(/\n/g, '').replace(/ /g, ''),
           }))
-        else if (propsType.typeName) {
-          const typeDef = parsed.declarations.find(
-            (d) => d.name === propsType.typeName.getText(source)
-          )
-          if (typeDef?.value) {
-            const propsSource = tst.createSourceFile(
-              'demo.ts',
-              `type t = ${typeDef.value}`,
-              tst.ScriptTarget.ES2020
-            )
-            const propsTypeMembers = propsSource.statements[0].type.members
-            props = propsTypeMembers?.map((p) => ({
-              name: p.name.getText(propsSource),
-              type: p.type
-                .getText(propsSource)
-                .replace(/\n/g, '')
-                .replace(/ /g, ''),
-            }))
-          }
-        }
+        // else if (propsType.typeName) {
+        //   const typeDef = parsed.declarations.find(
+        //     (d) => d.name === propsType.typeName.getText(source)
+        //   )
+        //   if (typeDef?.value) {
+        //     const propsSource = tst.createSourceFile(
+        //       'demo.ts',
+        //       `type t = ${typeDef.value}`,
+        //       tst.ScriptTarget.ES2020
+        //     )
+        //     const propsTypeMembers = propsSource.statements[0].type.members
+        //     props = propsTypeMembers?.map((p) => ({
+        //       name: p.name.getText(propsSource),
+        //       type: p.type
+        //         .getText(propsSource)
+        //         .replace(/\n/g, '')
+        //         .replace(/ /g, ''),
+        //     }))
+        //   }
+        // }
         return { tag, props }
       })
       fs.writeFileSync(outFile, JSON.stringify(tagTypes, null, 2), 'utf8')

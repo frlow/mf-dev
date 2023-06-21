@@ -2,7 +2,7 @@ import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
 import type { AppType } from './main.js'
 
-export const App = ({ myCount, host }: typeof AppType) => {
+export const App = ({ myCount, dispatch }: typeof AppType) => {
   const menuItems = (window as any).assets.filter((asset) => asset.menu)
   return (
     <>
@@ -16,12 +16,7 @@ export const App = ({ myCount, host }: typeof AppType) => {
             />
           ))}
         </ul>
-        <button
-          is="ex-button"
-          onClick={() =>
-            host.dispatchEvent(new CustomEvent('my-event', { detail: 'core' }))
-          }
-        >
+        <button is="ex-button" onClick={() => dispatch('myEvent', 'core')}>
           Dispatch {myCount}
         </button>
         <ex-react-button></ex-react-button>
@@ -34,9 +29,7 @@ export const App = ({ myCount, host }: typeof AppType) => {
               <Component
                 my-count={myCount}
                 onmy-event={(e) => {
-                  host.dispatchEvent(
-                    new CustomEvent('my-event', { detail: e.detail })
-                  )
+                  dispatch('myEvent', e.detail)
                 }}
               />
             </Route>

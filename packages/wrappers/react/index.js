@@ -1,6 +1,7 @@
 import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
+
 export * from '@mf-dev/wrapper-common'
 export const createReactWrapper = (options) =>
   createReactWrapperImpl(options, false)
@@ -22,7 +23,12 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
       super()
       const root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.app = createRoot(root)
-      this.props = { host: this }
+
+      this.props = {
+        host: this,
+        dispatch: (name, detail) =>
+          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
+      }
     }
 
     static get observedAttributes() {

@@ -20,7 +20,11 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
     constructor() {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
-      this.props = reactive({ host: this })
+      this.props = reactive({
+        host: this,
+        dispatch: (name, detail) =>
+          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
+      })
     }
 
     static get observedAttributes() {

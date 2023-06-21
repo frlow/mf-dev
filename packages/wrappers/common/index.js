@@ -40,11 +40,11 @@ export function t() {
   return null
 }
 
-export function typeInfo(tag, props) {
+export function typeInfo(options) {
   return {
-    tag,
-    props,
-    types: { ...props, host: null },
-    attributes: Object.keys(props || {}).map((p) => kebabize(p)),
+    tag: options.tag,
+    props: options.props,
+    types: { ...options.props, host: null },
+    attributes: Object.keys(options.props || {}).map((p) => kebabize(p)),
   }
 }

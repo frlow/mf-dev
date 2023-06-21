@@ -16,6 +16,8 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       super()
       this.temp = {
         host: this,
+        dispatch: (name, detail) =>
+          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
       }
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
     }

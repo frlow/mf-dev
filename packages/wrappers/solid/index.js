@@ -48,6 +48,8 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
           return acc
         }, {})
         props.host = this
+        props.dispatch = (name, detail) =>
+          this.dispatchEvent(new CustomEvent(kebabize(name), { detail }))
         return createComponent(options.component, props)
       })
       render(() => app, this.root)

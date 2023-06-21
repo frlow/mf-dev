@@ -10,9 +10,16 @@ import {
   t,
 } from '@mf-dev/wrapper-react'
 import { ReactButton } from './ReactButton.js'
+
 window.HistoryLibrary = createBrowserHistory()
 
-export const AppType = typeInfo('ex-core', { myCount: t<number>() })
+export const AppType = typeInfo({
+  tag: 'ex-core',
+  props: { myCount: t<number>() },
+  dispatch: {
+    myEvent: t<string>(),
+  },
+})
 createReactWrapper({
   component: App,
   handleAttribute: (name, value) => {
@@ -26,7 +33,7 @@ createReactWrapper({
   ...AppType,
 })
 
-export const ButtonType = typeInfo('ex-react-button')
+export const ButtonType = typeInfo({ tag: 'ex-react-button' })
 createReactWebComponent({
   component: ReactButton,
   ...ButtonType,
