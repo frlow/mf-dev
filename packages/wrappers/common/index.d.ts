@@ -14,12 +14,24 @@ export function typeInfo<
 ): {
   tag: TTag
   host: Element
+  /**
+   * @deprecated only for internal framework use
+   */
   types: any
   dispatch: <TKey extends keyof TDispatch>(
     name: TKey,
     detail?: TDispatch[TKey]
   ) => void
+  /**
+   * @deprecated only for internal framework use
+   */
   dispatchType: TDispatch
+  /**
+   * @deprecated only for internal framework use
+   */
   props: TProps
+  /**
+   * @deprecated only for internal framework use
+   */
   mfTypeInfo: 'mf-type-info'
 } & TProps
