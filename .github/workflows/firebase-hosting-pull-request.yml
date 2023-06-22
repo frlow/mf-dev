@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          pnpm run build
+          pnpm i
+          pnpm build
           rm -rf public
           mkdir -p public
           cp packages/example/base/index.html public/
