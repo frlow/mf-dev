@@ -6,7 +6,7 @@ on:
   push:
     branches: [ "master" ]
 jobs:
-  firebase:
+  firebase-hosting:
     runs-on: ubuntu-latest
     steps:
       - uses: pnpm/action-setup@v2
@@ -41,3 +41,15 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MF_DEMO_77739 }}'
           projectId: mf-demo-77739
           channelId: 'pr-${{ github.event.number }}-${{ github.event.pull_request.head.ref }}'
+
+  npm-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
+
+      - run: | 
+          sh upgrade.sh $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
