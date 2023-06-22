@@ -75,6 +75,15 @@ fs.writeFileSync(
                 type: p.type,
               },
             })),
+            js: {
+              properties: t.props.map((p) => ({
+                name: kebabize(p.name),
+                value: {
+                  type: p.type,
+                },
+              })),
+              events: t.dispatch?.map(e=>({name: kebabize(e.name)}))
+            }
           })),
         },
       },
