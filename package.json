@@ -1,27 +1,27 @@
 {
   "name": "micro-frontend-demo",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "keywords": [],
   "scripts": {
-    "dev": "pnpm run --stream --parallel dev",
-    "build": "rm -rf packages/base/public && mkdir packages/base/public && pnpm run --stream --parallel build",
-    "preview": "pnpm run build && pnpm run --filter=base dev",
-    "test": "pnpm dlx playwright test",
-    "helper": "pnpm run --filter helper dev",
-    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/base/index.html public/ && cp -r packages/base/public public/public/ && firebase deploy --only hosting",
-    "clear": "rm -rf .firebase public playwright-report test-results",
-    "build-tests": "node testbuild.mjs"
+    "start": "pnpm run --stream --parallel start",
+    "build": "rm -rf packages/example/base/public && mkdir packages/example/base/public && pnpm run --stream --parallel build",
+    "preview": "pnpm run build && pnpm run --filter=base start",
+    "helper": "pnpm run --filter @mf-dev/dev-helper dev",
+    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/base/index.html public/ && cp -r packages/example/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
+    "clear": "rm -rf .firebase public playwright-report test-results"
   },
   "devDependencies": {
-    "@playwright/test": "^1.33.0",
     "@types/node": "^18.16.3",
     "firebase-tools": "^11.29.1",
     "prettier": "^2.8.8",
     "esbuild": "^0.17.18",
-    "glob": "^10.2.2"
+    "glob": "^10.2.2",
+    "prettier-plugin-sort-json": "^1.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "web-types": "./dist/web-types.json"
 }

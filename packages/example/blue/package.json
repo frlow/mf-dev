@@ -1,0 +1,27 @@
+{
+  "name": "blue",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "concurrently \"vite\" \"dev-helper\"",
+    "build": "vite build"
+  },
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "@mf-dev/dev-helper": "workspace:*",
+    "@mf-dev/wrapper-solid": "workspace:*",
+    "concurrently": "^8.0.1",
+    "rollup": "^3.21.3",
+    "rollup-plugin-import-css": "^3.2.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5",
+    "vite-plugin-solid": "^2.7.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.4",
+    "solid-styled-components": "^0.28.5"
+  },
+  "helper": {}
+}

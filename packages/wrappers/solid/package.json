@@ -1,0 +1,12 @@
+{
+  "name": "@mf-dev/wrapper-solid",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./index.js",
+  "dependencies": {
+    "@mf-dev/wrapper-common": "workspace:^"
+  },
+  "devDependencies": {
+    "solid-js": "^1.7.4"
+  }
+}

@@ -1,9 +1,10 @@
 node_modules/
 .idea/
 dist/
-packages/base/public/
+packages/example/base/public/
 test-results/
 public/
 *.cache
 playwright-report/
 .firebase/
+.npmrc

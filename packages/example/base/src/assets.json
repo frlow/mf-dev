@@ -1,0 +1,34 @@
+{
+  "red": {
+    "target": "/public/red.js",
+    "component": "ex-red",
+    "menu": {
+      "label": "Red",
+      "route": "/red"
+    },
+    "types": "/public/red-types.json"
+  },
+  "green": {
+    "target": "/public/green.js",
+    "component": "ex-green",
+    "menu": {
+      "label": "Green",
+      "route": "/green"
+    },
+    "types": "/public/green-types.json"
+  },
+  "blue": {
+    "target": "/public/blue.js",
+    "component": "ex-blue",
+    "menu": {
+      "label": "Blue",
+      "route": "/blue"
+    },
+    "types": "/public/blue-types.json"
+  },
+  "core": {
+    "target": "/public/core.js",
+    "load": true,
+    "types": "/public/core-types.json"
+  }
+}

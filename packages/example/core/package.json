@@ -1,0 +1,29 @@
+{
+  "name": "core",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "concurrently \"vite\" \"dev-helper\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "history": "^5.3.0",
+    "react": "experimental",
+    "react-dom": "experimental"
+  },
+  "devDependencies": {
+    "@mf-dev/dev-helper": "workspace:*",
+    "@mf-dev/wrapper-react": "workspace:*",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.0.1S",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5"
+  },
+  "helper": {
+    "entry": "src/dev.ts"
+  }
+}
