@@ -1,5 +1,10 @@
 # mf-dev
 
+Table of contents
+- [Basic project](#basic)
+- [Helper library](#helper)
+
+<a name="basic"></a>
 ## Basic project
 ```shell
 npm create vite my-app
@@ -143,4 +148,5 @@ createSvelteWrapper({
 
 In this case, the attributes and props are defined in one place. Make sure to use "import **type** { AppType }", otherwise you will get a circular reference error from TypeScript.
 
+<a name="helper"></a>
 # Helper library
