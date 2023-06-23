@@ -82,7 +82,7 @@ document.body.appendChild(el);
 To add props/attributes to your app, the props must be listed in the attributes prop when creating the wrapper. 
 
 Example in svelte
-```sveltehtml
+```html
 <!--App.svelte-->
 <script lang="ts">
   export let msg: string // <-- external prop
@@ -132,13 +132,15 @@ createSvelteWrapper({
 })
 ```
 
-```sveltehtml
+```html
 <script lang="ts">
-  import type { AppType } from "./main.js";
+  import type { AppType } from "./main.js"; // IMPORTANT!, use import type
   export let { msg }: typeof AppType = {} as any
 </script>
 
 <div>{msg}</div>
 ```
 
-In this case, the attributes and props are defined in one place. Make sure to use "import type { AppType }", otherwise you will get a circular reference error from TypeScript.
+In this case, the attributes and props are defined in one place. Make sure to use "import **type** { AppType }", otherwise you will get a circular reference error from TypeScript.
+
+# Helper library
