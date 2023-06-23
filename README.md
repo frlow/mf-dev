@@ -32,7 +32,7 @@ export default defineConfig({
 rm index.html
 ```
 
-### Create index.ts
+### Create index.ts, entry file for production build
 Create an entry file, index.ts so that css is loaded correctly. Only use for build.
 ```typescript
 // src/index.ts
@@ -77,3 +77,68 @@ document.body.appendChild(el);
 ```
 
 *Check that hot reloading is working!*
+
+## Add attributes
+To add props/attributes to your app, the props must be listed in the attributes prop when creating the wrapper. 
+
+Example in svelte
+```sveltehtml
+<!--App.svelte-->
+<script lang="ts">
+  export let msg: string // <-- external prop
+</script>
+
+<div>{msg}</div>
+```
+
+```typescript
+// main.ts
+import App from './App.svelte'
+import {createSvelteWrapper} from "@mf-dev/wrapper-svelte";
+
+createSvelteWrapper({
+  tag: "my-svelte-app",
+  component: App,
+  attributes: ["msg"] // define attributes here
+})
+```
+
+The attribute can be used like this
+```html
+<my-svelte-app msg="some text"></my-svelte-app>
+```
+
+*Note that attributes are kebab-cased and props are camelCased. An attribute named "my-value" will have a corresponding prop named "myValue"*
+
+## Advanced typing
+The wrappers have a more advanced way of defining props/attributes such that they only have to be defined once. 
+
+```typescript
+// main.ts
+import {
+  createSvelteWrapper,
+  typeInfo,
+  t,
+} from '@mf-dev/wrapper-svelte'
+import App from './App.svelte'
+
+export const AppType = typeInfo(
+  'my-svelte-app',
+  { msg: t<number>() }
+)
+createSvelteWrapper({
+  component: App,
+  ...AppType,
+})
+```
+
+```sveltehtml
+<script lang="ts">
+  import type { AppType } from "./main.js";
+  export let { msg }: typeof AppType = {} as any
+</script>
+
+<div>{msg}</div>
+```
+
+In this case, the attributes and props are defined in one place. Make sure to use "import type { AppType }", otherwise you will get a circular reference error from TypeScript.
