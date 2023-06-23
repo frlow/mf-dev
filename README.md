@@ -63,7 +63,7 @@ createSvelteWrapper({tag: "my-svelte-app", component: App})
 
 ```
 
-## Test your app
+### Test your app
 start the dev server
 ```shell
 npm run dev
@@ -83,7 +83,7 @@ document.body.appendChild(el);
 
 *Check that hot reloading is working!*
 
-## Add attributes
+### Add attributes
 To add props/attributes to your app, the props must be listed in the attributes prop when creating the wrapper. 
 
 Example in svelte
@@ -115,7 +115,7 @@ The attribute can be used like this
 
 *Note that attributes are kebab-cased and props are camelCased. An attribute named "my-value" will have a corresponding prop named "myValue"*
 
-## Advanced typing
+### Advanced typing
 The wrappers have a more advanced way of defining props/attributes such that they only have to be defined once. 
 
 ```typescript
@@ -149,4 +149,13 @@ createSvelteWrapper({
 In this case, the attributes and props are defined in one place. Make sure to use "import **type** { AppType }", otherwise you will get a circular reference error from TypeScript.
 
 <a name="helper"></a>
-# Helper library
+## Helper library
+The helper library is a tool that enables the creation of a micro-frontend architecture. It consists of 4 tools. 
+
+### Helper browser client
+
+### Helper cli
+
+### Type export plugin
+
+### Type importer/generator
