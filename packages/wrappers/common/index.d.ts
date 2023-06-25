@@ -35,3 +35,8 @@ export function typeInfo<
    */
   mfTypeInfo: 'mf-type-info'
 } & TProps
+
+export type PropsType<T extends ReturnType<typeof typeInfo>> = Omit<
+  T,
+  'types' | 'dispatchType' | 'props' | 'mfTypeInfo'
+>

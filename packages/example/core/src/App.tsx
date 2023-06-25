@@ -1,8 +1,9 @@
 import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
 import type { AppType } from './main.js'
+import type { PropsType } from '@mf-dev/wrapper-react'
 
-export const App = ({ myCount, dispatch }: typeof AppType) => {
+export const App = ({ myCount, dispatch }: PropsType<typeof AppType>) => {
   const menuItems = (window as any).assets.filter((asset) => asset.menu)
   return (
     <>

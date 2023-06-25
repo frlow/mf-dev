@@ -1,8 +1,9 @@
 import style from './App.module.scss'
 import { createSignal } from 'solid-js'
 import { AppType } from './main.js'
+import { PropsType } from '@mf-dev/wrapper-solid'
 
-export const App = (props: typeof AppType) => {
+export const App = (props: PropsType<typeof AppType>) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>

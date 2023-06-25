@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { AppType } from "./main.js";
+  import type {PropsType}from '@mf-dev/wrapper-svelte'
 
   let show = false;
-  export let {myCount, dispatch}: typeof AppType = {} as any
+  export let {myCount, dispatch} = {} as PropsType<typeof AppType>
 </script>
 
 <main is="ex-main">
