@@ -1,22 +1,20 @@
-export const registerLazyCustomElements = (lazyComponents) =>
+export const registerLazyCustomElements = (assets) => {
+  const lazyComponents = Object.values(assets)
+    .filter((a) => a.component && a.target)
+    .reduce(
+      (acc, cur) => ({ ...acc, [cur.component.toUpperCase()]: cur.target }),
+      {}
+    )
   new MutationObserver((records) => {
-    records
-      .flatMap((mutationRecord) =>
-        Array.from(mutationRecord.addedNodes).map((addedNode) =>
-          addedNode.nodeName.toLowerCase()
-        )
-      )
-      .forEach((tag) => {
-        const lazyComponent = Object.values(lazyComponents).find(
-          (l) => l.component === tag
-        )
-        if (!lazyComponent || lazyComponent.imported || !lazyComponent.target)
-          return
-        lazyComponent.imported = true
-        console.log('Importing', lazyComponent.name)
-        import(lazyComponent.target)
+    records.forEach((record) =>
+      record.addedNodes.forEach((addedNode) => {
+        if (!lazyComponents[addedNode.tagName]) return
+        import(lazyComponents[addedNode.tagName])
+        delete lazyComponents[addedNode.tagName]
       })
+    )
   }).observe(document.body, {
     childList: true,
     subtree: true,
   })
+}

@@ -11,12 +11,8 @@ export const App = ({ myCount, dispatch }: PropsType<typeof AppType>) => {
     <>
       <nav is="ex-nav">
         <ul>
-          {menuItems.map((asset) => (
-            <NavLink
-              text={asset.menu.label}
-              url={asset.menu.route}
-              key={asset.name}
-            />
+          {menuItems.map((asset, i) => (
+            <NavLink text={asset.menu.label} url={asset.menu.route} key={i} />
           ))}
         </ul>
         <button is="ex-button" onClick={() => dispatch('myEvent', 'core')}>
@@ -25,10 +21,10 @@ export const App = ({ myCount, dispatch }: PropsType<typeof AppType>) => {
         <ex-react-button></ex-react-button>
       </nav>
       <Router>
-        {menuItems.map((asset) => {
+        {menuItems.map((asset, i) => {
           const Component = asset.component
           return (
-            <Route default path={asset.menu.route} key={asset.name}>
+            <Route default path={asset.menu.route} key={i}>
               <Component
                 my-count={myCount}
                 onmy-event={(e) => {

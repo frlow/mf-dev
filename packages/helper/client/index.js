@@ -4,13 +4,11 @@ import { loadDevAssets } from './dev.js'
 
 export const helperClient = async (url) => {
   let assets = await fetch(url).then((r) => r.json())
-  if (localStorage.getItem('dev')) {
-    assets = await loadDevAssets(assets)
-  }
+  if (localStorage.getItem('dev')) assets = await loadDevAssets(assets)
+
   registerLazyCustomElements(assets)
   autoLoad(assets)
   window.assets = Object.entries(assets).map(([name, value]) => ({
     ...value,
-    name,
   }))
 }
