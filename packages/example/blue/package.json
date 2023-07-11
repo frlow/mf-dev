@@ -9,7 +9,7 @@
   "type": "module",
   "license": "MIT",
   "devDependencies": {
-    "@mf-dev/dev-helper": "workspace:*",
+    "@mf-dev/types": "workspace:*",
     "@mf-dev/wrapper-solid": "workspace:*",
     "concurrently": "^8.0.1",
     "rollup": "^3.21.3",

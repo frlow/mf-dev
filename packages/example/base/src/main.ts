@@ -1,3 +1,3 @@
-import { helperClient } from '@mf-dev/dev-helper'
+import { hostClient } from '@mf-dev/host'
 
-helperClient('/public/assets.json').then()
+hostClient('/public/assets.json').then()

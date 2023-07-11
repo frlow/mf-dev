@@ -1,4 +1,4 @@
-export const helperClient: (
+export const hostClient: (
   url: string,
   localStorageKey?: string
 ) => Promise<Record<string, any>>

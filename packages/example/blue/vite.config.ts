@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
-import { parseMfTypesPlugin } from '@mf-dev/dev-helper/plugin'
+import { parseMfTypesPlugin } from '@mf-dev/types'
 
 // https://vitejs.dev/config/
 export default defineConfig({

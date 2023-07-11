@@ -6,7 +6,7 @@ export const parseMfTypesPlugin = (outFile, deleteTemp = true) => {
   const allTypes = []
   return dts({
     skipDiagnostics: true,
-    outputDir: './defTemp',
+    outDir: './defTemp',
     async beforeWriteFile(filePath, content) {
       const tst = ts.default
       const source = tst.createSourceFile(
