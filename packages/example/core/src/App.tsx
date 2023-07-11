@@ -4,7 +4,9 @@ import type { AppType } from './main.js'
 import type { PropsType } from '@mf-dev/wrapper-react'
 
 export const App = ({ myCount, dispatch }: PropsType<typeof AppType>) => {
-  const menuItems = (window as any).assets.filter((asset) => asset.menu)
+  const menuItems: any[] = Object.values((window as any).assets).filter(
+    (asset: any) => asset.menu
+  )
   return (
     <>
       <nav is="ex-nav">

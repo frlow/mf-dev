@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "vite build"
   },
   "type": "module",
@@ -23,5 +22,13 @@
     "solid-js": "^1.7.4",
     "solid-styled-components": "^0.28.5"
   },
-  "helper": {}
+  "assets": {
+    "blue": {
+      "component": "ex-blue",
+      "menu": {
+        "label": "Blue",
+        "route": "/blue"
+      }
+    }
+  }
 }

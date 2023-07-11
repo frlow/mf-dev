@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -23,7 +22,10 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.5"
   },
-  "helper": {
-    "entry": "src/dev.ts"
+  "assets": {
+    "core": {
+      "entry": "src/dev.ts",
+      "load": true
+    }
   }
 }

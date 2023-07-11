@@ -13,12 +13,8 @@
     "@types/express": "^4.17.17",
     "@types/node": "^18.16.3"
   },
-  "scripts": {
-    "start": "node cli/devHelper.mjs"
-  },
   "bin": {
-    "mf-dev-helper": "./cli/devHelper.mjs",
-    "mf-import-types": "./cli/importTypes.mjs"
+    "import-types": "./cli/importTypes.mjs"
   },
   "exports": {
     ".": {

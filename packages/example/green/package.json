@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -20,5 +19,13 @@
     "vite": "^4.3.5",
     "vue-tsc": "^1.6.3"
   },
-  "helper": {}
+  "assets": {
+    "green": {
+      "component": "ex-green",
+      "menu": {
+        "label": "Green",
+        "route": "/green"
+      }
+    }
+  }
 }

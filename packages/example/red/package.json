@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"dev-helper\"",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
@@ -24,5 +23,13 @@
     "vite": "^4.3.5",
     "vite-plugin-dts": "^2.3.0"
   },
-  "helper": {}
+  "assets": {
+    "red": {
+      "component": "ex-red",
+      "menu": {
+        "label": "Red",
+        "route": "/red"
+      }
+    }
+  }
 }
