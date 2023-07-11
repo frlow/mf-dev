@@ -1,6 +1,6 @@
 reference="@mf-dev/wrapper-common"
 current=$(pnpm pkg get version | sed -r 's/\"//g')
-remote=$(pnpm show $reference --version)
+remote=$(pnpm show $reference version)
 if [ "$current" != "$remote" ];
 then
   npm config -L project set '//registry.npmjs.org/:_authToken' $1
