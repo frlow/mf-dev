@@ -14,15 +14,15 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
   const wrapperClass = class VueWrapper extends HTMLElement {
     app
     props
+    root
 
     render() {
-      this.app.render(createElement(options.component, this.props))
+      this.app?.render(createElement(options.component, this.props))
     }
 
     constructor() {
       super()
-      const root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
-      this.app = createRoot(root)
+      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
 
       this.props = {
         host: this,
@@ -42,14 +42,15 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
           ? options.handleAttribute(name, newValue)
           : newValue
       )
-      this.render()
     }
 
     updateProp(name, value) {
       this.props[camelize(name)] = value
+      this.render()
     }
 
     connectedCallback() {
+      this.app = createRoot(this.root)
       this.render()
     }
 
