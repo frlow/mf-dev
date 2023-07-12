@@ -13,8 +13,8 @@ const log = console.log
 
 <template>
   <h1>GREEN</h1>
-  <button is="ex-button" @click="increment">Clicked: {{ count }}</button>
-  <button is="ex-button" @click="send()">Dispatch: {{ myCount }}</button>
+  <button @click="increment">Clicked: {{ count }}</button>
+  <button @click="send()">Dispatch: {{ myCount }}</button>
   <ex-vue-button @click="(e: Event) => log(e)"></ex-vue-button>
 </template>
 

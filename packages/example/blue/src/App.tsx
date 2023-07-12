@@ -8,12 +8,9 @@ export const App = (props: PropsType<typeof AppType>) => {
   return (
     <div class={style.root}>
       <h1>BLUE</h1>
-      <button onClick={() => setCount(count() + 1)} is={'ex-button'}>
-        Clicked: {count()}
-      </button>
+      <button onClick={() => setCount(count() + 1)}>Clicked: {count()}</button>
       <button
-        is="ex-button"
-        onClick={(e) => {
+        onClick={() => {
           props.dispatch('myEvent', 'blue')
         }}
       >

@@ -6,13 +6,13 @@
   export let {myCount, dispatch} = {} as PropsType<typeof AppType>
 </script>
 
-<main is="ex-main">
+<main>
   <h1>RED</h1>
-  <button is="ex-button" on:click={()=>show=!show}>Toggle</button>
+  <button on:click={()=>show=!show}>Toggle</button>
   {#if show}
-    <button is="ex-button" class="secondary">Demo</button>
+    <button class="secondary">Demo</button>
   {/if}
-  <button is="ex-button" on:click={()=>dispatch("myEvent", "red")}>
+  <button on:click={()=>dispatch("myEvent", "red")}>
     Dispatch {myCount}</button>
   <ex-svelte-button text="Svelte Button"></ex-svelte-button>
 </main>

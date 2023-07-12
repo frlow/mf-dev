@@ -8,7 +8,7 @@ export const hostClient = async (url) => {
 
   registerLazyCustomElements(assets)
   autoLoad(assets)
-  window.assets = Object.entries(assets).map(([name, value]) => ({
+  window.assets = Object.entries(assets).map(([, value]) => ({
     ...value,
   }))
 }

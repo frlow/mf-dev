@@ -9,13 +9,13 @@ export const App = ({ myCount, dispatch }: PropsType<typeof AppType>) => {
   )
   return (
     <>
-      <nav is="ex-nav">
+      <nav>
         <ul>
           {menuItems.map((asset, i) => (
             <NavLink text={asset.menu.label} url={asset.menu.route} key={i} />
           ))}
         </ul>
-        <button is="ex-button" onClick={() => dispatch('myEvent', 'core')}>
+        <button onClick={() => dispatch('myEvent', 'core')}>
           Dispatch {myCount}
         </button>
         <ex-react-button></ex-react-button>

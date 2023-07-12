@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body is="ex-body" x-data="{ counter: 1 }">
+<body x-data="{ counter: 1 }">
 <ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:my-count="counter"></ex-core>
 </body>
 
