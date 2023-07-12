@@ -20,21 +20,21 @@ export function typeInfo<
   types: any
   dispatch: <TKey extends keyof TDispatch>(
     name: TKey,
-    detail?: TDispatch[TKey]
+    detail?: ReturnType<TDispatch[TKey]>
   ) => void
   /**
    * @deprecated only for internal framework use
    */
-  dispatchType: TDispatch
+  dispatchType: { [P in keyof TDispatch]: ReturnType<TDispatch[P]> }
   /**
    * @deprecated only for internal framework use
    */
-  props: TProps
+  props: { [P in keyof TProps]: ReturnType<TProps[P]> }
   /**
    * @deprecated only for internal framework use
    */
   mfTypeInfo: 'mf-type-info'
-} & TProps
+} & { [P in keyof TProps]: ReturnType<TProps[P]> }
 
 export type PropsType<T extends ReturnType<typeof typeInfo>> = Omit<
   T,
