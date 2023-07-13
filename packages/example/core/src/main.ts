@@ -1,5 +1,4 @@
 import { createBrowserHistory } from 'history'
-import './core.css'
 
 import './ReactButton.js'
 import App from './App.js'
