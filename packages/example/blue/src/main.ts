@@ -9,9 +9,9 @@ import { SolidButton } from './SolidButton.js'
 
 export const AppType = typeInfo(
   'ex-blue',
-  { myCount: t<number> },
+  { 'my-count': t<number> },
   {
-    myEvent: t<string>,
+    'my-event': t<string>,
   }
 )
 createSolidWrapper({ component: App, ...AppType })

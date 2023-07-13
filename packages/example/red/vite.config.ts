@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [svelte(), parseMfTypesPlugin('../base/public/red-types.json')],
   base: './',
   build: {
+    minify: false,
     rollupOptions: {
       input: 'src/red.ts',
       output: {

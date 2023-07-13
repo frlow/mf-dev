@@ -1,4 +1,5 @@
-import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
+
 export * from '@mf-dev/wrapper-common'
 export const createSvelteWrapper = (options) =>
   createSvelteWrapperImpl(options, false)
@@ -17,7 +18,7 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       this.temp = {
         host: this,
         dispatch: (name, detail) =>
-          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
+          this.dispatchEvent(new CustomEvent(name, { detail })),
       }
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
     }
@@ -35,8 +36,7 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       )
     }
 
-    updateProp(rawName, value) {
-      const name = camelize(rawName)
+    updateProp(name, value) {
       if (this.app)
         this.app.$$set({
           [name]: value,

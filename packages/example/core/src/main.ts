@@ -14,9 +14,9 @@ window.HistoryLibrary = createBrowserHistory()
 
 export const AppType = typeInfo(
   'ex-core',
-  { myCount: t<number> },
+  { 'my-count': t<number> },
   {
-    myEvent: t<string>,
+    'my-event': t<string>,
   }
 )
 createReactWrapper({

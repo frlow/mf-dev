@@ -1,4 +1,4 @@
-import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
@@ -27,7 +27,7 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
       this.props = {
         host: this,
         dispatch: (name, detail) =>
-          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
+          this.dispatchEvent(new CustomEvent(name, { detail })),
       }
     }
 
@@ -45,7 +45,7 @@ const createReactWrapperImpl = (options, useShadowRoot) => {
     }
 
     updateProp(name, value) {
-      this.props[camelize(name)] = value
+      this.props[name] = value
       this.render()
     }
 

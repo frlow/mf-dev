@@ -1,9 +1,7 @@
 <script lang="ts">
   import type { AppType } from "./main.js";
-  import type {PropsType}from '@mf-dev/wrapper-svelte'
-
   let show = false;
-  export let {myCount, dispatch} = {} as PropsType<typeof AppType>
+  $: args = $$props as typeof AppType
 </script>
 
 <main>
@@ -12,8 +10,8 @@
   {#if show}
     <button class="secondary">Demo</button>
   {/if}
-  <button on:click={()=>dispatch("myEvent", "red")}>
-    Dispatch {myCount}</button>
+  <button on:click={()=>args.dispatch("my-event", "red")}>
+    Dispatch {args["my-count"]}</button>
   <ex-svelte-button text="Svelte Button"></ex-svelte-button>
 </main>
 

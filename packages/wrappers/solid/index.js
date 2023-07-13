@@ -1,6 +1,7 @@
-import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
+
 export * from '@mf-dev/wrapper-common'
 export const createSolidWrapper = (options) =>
   createSolidWrapperImpl(options, false)
@@ -17,7 +18,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
       this.signals = attributes.reduce(
-        (acc, cur) => ({ ...acc, [camelize(cur)]: createSignal() }),
+        (acc, cur) => ({ ...acc, [cur]: createSignal() }),
         {}
       )
     }
@@ -36,7 +37,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
     }
 
     updateProp(name, value) {
-      this.signals[camelize(name)][1](value)
+      this.signals[name][1](value)
     }
 
     connectedCallback() {
@@ -49,7 +50,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
         }, {})
         props.host = this
         props.dispatch = (name, detail) =>
-          this.dispatchEvent(new CustomEvent(kebabize(name), { detail }))
+          this.dispatchEvent(new CustomEvent(name, { detail }))
         return createComponent(options.component, props)
       })
       render(() => app, this.root)

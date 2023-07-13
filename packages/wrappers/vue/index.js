@@ -1,4 +1,4 @@
-import { applyProps, camelize, kebabize } from '@mf-dev/wrapper-common'
+import { applyProps } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
 
 export * from '@mf-dev/wrapper-common'
@@ -9,9 +9,9 @@ export * from '@mf-dev/wrapper-common'
 }, useShadowRoot: boolean)=>HTMLElement} **/
 const createVueWrapperImpl = (options, useShadowRoot) => {
   if (options.types) options.component.props = options.types
-  const attributes = Object.keys(options.component.props || {})
-    .filter((p) => p !== 'host')
-    .map((p) => kebabize(p))
+  const attributes = Object.keys(options.component.props || {}).filter(
+    (p) => p !== 'host'
+  )
   const wrapperClass = class VueWrapper extends HTMLElement {
     props
     root
@@ -23,7 +23,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       this.props = reactive({
         host: this,
         dispatch: (name, detail) =>
-          this.dispatchEvent(new CustomEvent(kebabize(name), { detail })),
+          this.dispatchEvent(new CustomEvent(name, { detail })),
       })
     }
 
@@ -40,8 +40,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       )
     }
 
-    updateProp(rawName, value) {
-      const name = camelize(rawName)
+    updateProp(name, value) {
       this.props[name] = value
     }
 

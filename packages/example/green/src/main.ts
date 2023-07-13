@@ -9,8 +9,8 @@ import VueButton from './VueButton.vue'
 
 export const AppType = typeInfo(
   'ex-green',
-  { myCount: t<number> },
-  { myEvent: t<string> }
+  { 'my-count': t<number> },
+  { 'my-event': t<string> }
 )
 createVueWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo('ex-vue-button')

@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { AppType } from './main.js'
-import type { PropsType } from '@mf-dev/wrapper-vue'
+
 const count = ref(0)
 const increment = () => {
   count.value++
 }
-const { myCount, dispatch } = defineProps() as PropsType<typeof AppType>
-const send = () => dispatch('myEvent', 'green')
+const { 'my-count': myCount, dispatch } = defineProps() as typeof AppType
+
+const send = () => dispatch('my-event', 'green')
 const log = console.log
 </script>
 

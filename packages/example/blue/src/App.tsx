@@ -1,9 +1,8 @@
 import style from './App.module.scss'
 import { createSignal } from 'solid-js'
 import { AppType } from './main.js'
-import { PropsType } from '@mf-dev/wrapper-solid'
 
-export const App = (props: PropsType<typeof AppType>) => {
+export const App = (props: typeof AppType) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>
@@ -11,10 +10,10 @@ export const App = (props: PropsType<typeof AppType>) => {
       <button onClick={() => setCount(count() + 1)}>Clicked: {count()}</button>
       <button
         onClick={() => {
-          props.dispatch('myEvent', 'blue')
+          props.dispatch('my-event', 'blue')
         }}
       >
-        Dispatch {props.myCount}
+        Dispatch {props['my-count']}
       </button>
       <ex-solid-button></ex-solid-button>
     </div>
