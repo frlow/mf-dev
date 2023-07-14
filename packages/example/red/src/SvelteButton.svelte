@@ -2,10 +2,10 @@
 import type { ButtonType } from "./main.js";
 
 const css = String.raw
-export let {text}: typeof ButtonType={} as any
+$: args = $$props as typeof ButtonType
 </script>
 
-<button>{text}</button>
+<button>{args.text}</button>
 <svelte:element this="style">
   {css`
     button {

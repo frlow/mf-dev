@@ -50,6 +50,10 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
         : createApp({
             render: () => h(options.component, this.props),
           })
+      this.app.config.warnHandler = (msg, instance, trace) => {
+        if (msg.includes('Expected T')) return
+        console.warn(msg, instance, trace)
+      }
       this.app.mount(this.root)
     }
 
