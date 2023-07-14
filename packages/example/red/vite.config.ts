@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { parseMfTypesPlugin } from '@mf-dev/types'
+import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
