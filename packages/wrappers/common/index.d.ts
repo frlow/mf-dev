@@ -13,6 +13,6 @@ export function typeInfo<
   host: Element
   dispatch: <TKey extends keyof TDispatch>(
     name: TKey,
-    detail?: ReturnType<TDispatch[TKey]>
+    detail?: { [P in keyof TDispatch]: ReturnType<TDispatch[P]> }[TKey]
   ) => void
 } & { [P in keyof TProps]: ReturnType<TProps[P]> }

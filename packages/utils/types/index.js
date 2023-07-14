@@ -6,6 +6,10 @@ export const parseMfTypesPlugin = (outFile, deleteTemp = true) => {
   const allTypes = []
   return dts({
     skipDiagnostics: true,
+    compilerOptions: {
+      target: ts.default.ScriptTarget.ES2020,
+      strict: false,
+    },
     outDir: './defTemp',
     async beforeWriteFile(filePath, content) {
       const tst = ts.default
@@ -20,28 +24,28 @@ export const parseMfTypesPlugin = (outFile, deleteTemp = true) => {
       if (exports.length === 0) return
       const typeInfos = exports
         .map((e) => e.declarationList?.declarations[0]?.type)
-        .filter((ti) => {
-          const members = ti.members || (ti.types ? ti.types[0]?.members : [])
-          return members.some((m) => m.name.getText(source) === 'mfTypeInfo')
-        })
+        .filter(
+          (ti) =>
+            ti.types &&
+            ti.types[0]?.members?.some((m) => m.name.getText(source) === 'tag')
+        )
       const meta = typeInfos.map((ti) => {
-        const members = ti.members || (ti.types ? ti.types[0]?.members : [])
-        const tag = members
-          .find((m) => m.name.getText(source) === 'tag')
-          ?.type?.getText(source)
+        const tag = ti.types[0]?.members[0]?.type
+          ?.getText(source)
           ?.replace(/"/g, '')
-        const props = members
-          .find((m) => m.name.getText(source) === 'props')
-          ?.type?.members?.map((m) => ({
-            name: m.name.getText(source),
-            type: m.type.getText(source),
-          }))
-        const dispatch = members
-          .find((m) => m.name.getText(source) === 'dispatchType')
-          ?.type?.members?.map((m) => ({
-            name: m.name.getText(source),
-            type: m.type.getText(source),
-          }))
+        const dispatch =
+          ti.types[0]?.members[2].type?.parameters[1]?.type?.objectType?.members?.map(
+            (m) => {
+              return {
+                name: m.name.getText(source).replace(/'/g, ''),
+                type: m.type.getText(source).replace(/[ \n]/g, ''),
+              }
+            }
+          )
+        const props = ti.types[1].members?.map((m) => ({
+          name: m.name.getText(source).replace(/'/g, ''),
+          type: m.type.getText(source).replace(/[ \n]/g, ''),
+        }))
         return { tag, props, dispatch }
       })
       allTypes.push(...meta)
