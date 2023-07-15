@@ -6,6 +6,9 @@
   "bin": {
     "import-types": "./cli.mjs"
   },
+  "scripts": {
+    "import-types": "node ./cli.mjs"
+  },
   "exports": {
     ".": {
       "import": "./index.js",

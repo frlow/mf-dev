@@ -1,9 +1,5 @@
-import {
-  createVueWebComponent,
-  createVueWrapper,
-  t,
-  typeInfo,
-} from '@mf-dev/wrapper-vue'
+import { createVueWebComponent, createVueWrapper } from '@mf-dev/wrapper-vue'
+import { t, typeInfo } from '@mf-dev/types'
 import App from './App.vue'
 import VueButton from './VueButton.vue'
 

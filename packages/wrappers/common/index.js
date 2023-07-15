@@ -10,16 +10,3 @@ export const applyProps = (wrapperClass, attributes) => {
     Object.defineProperty(wrapperClass.prototype, attribute, setter)
   })
 }
-
-export function t() {
-  return null
-}
-
-export function typeInfo(tag, props, dispatch) {
-  return {
-    tag,
-    props,
-    types: { ...props, host: null, dispatch: null },
-    attributes: Object.keys(props || {}),
-  }
-}

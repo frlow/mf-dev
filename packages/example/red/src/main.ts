@@ -1,9 +1,8 @@
 import {
   createSvelteWebComponent,
   createSvelteWrapper,
-  typeInfo,
-  t,
 } from '@mf-dev/wrapper-svelte'
+import { t, typeInfo } from '@mf-dev/types'
 import App from './App.svelte'
 import SvelteButton from './SvelteButton.svelte'
 

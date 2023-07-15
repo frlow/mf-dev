@@ -5,9 +5,8 @@ import App from './App.js'
 import {
   createReactWebComponent,
   createReactWrapper,
-  typeInfo,
-  t,
 } from '@mf-dev/wrapper-react'
+import { t, typeInfo } from '@mf-dev/types'
 import { ReactButton } from './ReactButton.js'
 
 window.HistoryLibrary = createBrowserHistory()

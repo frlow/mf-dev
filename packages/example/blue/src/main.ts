@@ -1,9 +1,8 @@
 import {
   createSolidWebComponent,
   createSolidWrapper,
-  typeInfo,
-  t,
 } from '@mf-dev/wrapper-solid'
+import { t, typeInfo } from '@mf-dev/types'
 import { App } from './App.js'
 import { SolidButton } from './SolidButton.js'
 
