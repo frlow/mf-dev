@@ -2,13 +2,16 @@ import { applyProps } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
 
 export * from '@mf-dev/wrapper-common'
-/** @type {(options: {
-  component: any,
-  createCustom?: (props: any) => App,
-  tag?: string,
-}, useShadowRoot: boolean)=>HTMLElement} **/
+
 const createVueWrapperImpl = (options, useShadowRoot) => {
-  if (options.types) options.component.props = options.types
+  options.component.props = {
+    host: null,
+    dispatch: null,
+    ...(options.attributes || []).reduce(
+      (acc, cur) => ({ ...acc, [cur]: null }),
+      {}
+    ),
+  }
   const attributes = Object.keys(options.component.props || {}).filter(
     (p) => p !== 'host'
   )
