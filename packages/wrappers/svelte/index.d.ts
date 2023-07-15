@@ -1,9 +1,6 @@
+import { WrapperOptions } from '@mf-dev/wrapper-common/index'
+
 export * from '@mf-dev/wrapper-common'
-export const createSvelteWrapper: (options: {
-  component: any
-  tag?: string
-  attributes?: string[]
-  handleAttribute?: (name: string, value: string) => any
-}) => HTMLElement
+export const createSvelteWrapper: (options: WrapperOptions) => void
 
 export const createSvelteWebComponent: typeof createSvelteWrapper

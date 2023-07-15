@@ -1,9 +1,6 @@
+import { WrapperOptions } from '@mf-dev/wrapper-common/index'
+
 export * from '@mf-dev/wrapper-common'
-export const createSolidWrapper: <T>(options: {
-  component: (props: T) => any
-  attributes?: string[]
-  tag?: string
-  handleAttribute?: (name: string, value: string) => any
-}) => HTMLElement
+export const createSolidWrapper: (options: WrapperOptions) => void
 
 export const createSolidWebComponent: typeof createSolidWrapper

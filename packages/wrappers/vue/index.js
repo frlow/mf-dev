@@ -4,16 +4,9 @@ import { createApp, reactive, h } from 'vue'
 export * from '@mf-dev/wrapper-common'
 
 const createVueWrapperImpl = (options, useShadowRoot) => {
-  options.component.props = {
-    host: null,
-    dispatch: null,
-    ...(options.attributes || []).reduce(
-      (acc, cur) => ({ ...acc, [cur]: null }),
-      {}
-    ),
-  }
-  const attributes = Object.keys(options.component.props || {}).filter(
-    (p) => p !== 'host'
+  options.component.props = ['host', 'dispatch', ...options.attributes].reduce(
+    (a, c) => ({ ...a, [c]: null }),
+    {}
   )
   const wrapperClass = class VueWrapper extends HTMLElement {
     props
@@ -31,7 +24,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
     }
 
     static get observedAttributes() {
-      return attributes
+      return options.attributes
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -65,9 +58,8 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       delete this.app
     }
   }
-  applyProps(wrapperClass, attributes)
-  if (options.tag) customElements.define(options.tag, wrapperClass)
-  return wrapperClass
+  applyProps(wrapperClass, options.attributes)
+  customElements.define(options.tag, wrapperClass)
 }
 
 export const createVueWrapper = (options) =>

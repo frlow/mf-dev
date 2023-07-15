@@ -61,6 +61,5 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
     }
   }
   applyProps(wrapperClass, attributes)
-  if (options.tag) customElements.define(options.tag, wrapperClass)
-  return wrapperClass
+  customElements.define(options.tag, wrapperClass)
 }
