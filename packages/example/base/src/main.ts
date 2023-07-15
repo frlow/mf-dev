@@ -1,3 +1,7 @@
 import { hostClient } from '@mf-dev/host'
 
-hostClient('/public/assets.json').then()
+hostClient({
+  url: '/public/assets.json',
+  autoLoad: true,
+  lazyElements: true,
+}).then()

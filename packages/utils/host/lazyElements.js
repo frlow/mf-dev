@@ -18,3 +18,20 @@ export const registerLazyCustomElements = (assets) => {
     subtree: true,
   })
 }
+
+export const defineLazyComponentLoader = (assets) => {
+  class Loader extends HTMLElement {
+    static get observedAttributes() {
+      return ['component']
+    }
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === 'component') {
+        const asset = assets.find((a) => a.key === newValue)
+        if (!asset || !asset.target || asset.loaded) return
+        import(asset.target)
+        asset.loaded = true
+      }
+    }
+  }
+  customElements.define('component-loader', Loader)
+}
