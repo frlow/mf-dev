@@ -1,5 +1,4 @@
-export const loadDevAssets = async (assets) => {
-  const servers = parseInt(localStorage.getItem('dev')) || 1
+export const loadDevAssets = async (assets, servers) => {
   const ports = Array.from(Array(servers).keys()).map((key) => key + 5173)
   const devAssets = await Promise.all(
     ports.map((port) => {

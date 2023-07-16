@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "mkdir -p public && cp -r src/assets.json public/ && esbuild src/main.ts --bundle --minify --format=esm --outfile=public/index.js",
+    "build": "mkdir -p public && cp -r src/assets.json public/ && esbuild src/index.ts --bundle --minify --splitting --format=esm --outdir=public",
     "copy": "copy-and-watch src/assets.json public/",
     "start": "pnpm run dev",
     "dev": "pnpm run build && pnpm run copy && ws -p 3000 --spa index.html -z"

@@ -3,4 +3,5 @@ export const hostClient: (options: {
   autoLoad?: boolean
   lazyElements?: boolean
   componentLoader?: boolean
+  devAssets?: number
 }) => Promise<Record<string, any>>
