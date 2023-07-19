@@ -2,7 +2,7 @@
 
 Table of contents
 - [Basic project](#basic)
-- [Helper library](#helper)
+- [Advanced typing](#typing)
 
 <a name="basic"></a>
 ## Basic project
@@ -113,8 +113,7 @@ The attribute can be used like this
 <my-svelte-app msg="some text"></my-svelte-app>
 ```
 
-*Note that attributes are kebab-cased and props are camelCased. An attribute named "my-value" will have a corresponding prop named "myValue"*
-
+<a name="typing"></a>
 ### Advanced typing
 The wrappers have a more advanced way of defining props/attributes such that they only have to be defined once. 
 
@@ -147,15 +146,3 @@ createSvelteWrapper({
 ```
 
 In this case, the attributes and props are defined in one place. Make sure to use "import **type** { AppType }", otherwise you will get a circular reference error from TypeScript.
-
-<a name="helper"></a>
-## Helper library
-The helper library is a tool that enables the creation of a micro-frontend architecture. It consists of 4 tools. 
-
-### Helper browser client
-
-### Helper cli
-
-### Type export plugin
-
-### Type importer/generator
