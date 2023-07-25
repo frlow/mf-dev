@@ -9,10 +9,6 @@ export const createSvelteWebComponent = (options) =>
 const createSvelteWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
-    temp
-    app
-    root
-
     constructor() {
       super()
       this.temp = {
@@ -23,9 +19,7 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
     }
 
-    static get observedAttributes() {
-      return attributes
-    }
+    static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
       this.updateProp(
@@ -52,9 +46,7 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
       delete this.temp
     }
 
-    disconnectedCallback() {
-      this.app.$destroy()
-    }
+    disconnectedCallback = () => this.app.$destroy()
   }
   applyProps(wrapperClass, attributes)
   customElements.define(options.tag, wrapperClass)

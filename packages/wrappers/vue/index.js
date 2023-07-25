@@ -9,10 +9,6 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
     {}
   )
   const wrapperClass = class VueWrapper extends HTMLElement {
-    props
-    root
-    app = undefined
-
     constructor() {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
@@ -23,9 +19,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       })
     }
 
-    static get observedAttributes() {
-      return options.attributes
-    }
+    static observedAttributes = options.attributes || []
 
     attributeChangedCallback(name, oldValue, newValue) {
       this.updateProp(
@@ -36,9 +30,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       )
     }
 
-    updateProp(name, value) {
-      this.props[name] = value
-    }
+    updateProp = (name, value) => (this.props[name] = value)
 
     connectedCallback() {
       this.app = options.createCustom
@@ -53,10 +45,7 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
       this.app.mount(this.root)
     }
 
-    disconnectedCallback() {
-      this.app?.unmount()
-      delete this.app
-    }
+    disconnectedCallback = () => this.app?.unmount()
   }
   applyProps(wrapperClass, options.attributes)
   customElements.define(options.tag, wrapperClass)

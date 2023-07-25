@@ -10,10 +10,6 @@ export const createSolidWebComponent = (options) =>
 const createSolidWrapperImpl = (options, useShadowRoot) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
-    root
-    signals
-    dispose
-
     constructor() {
       super()
       this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
@@ -23,9 +19,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       )
     }
 
-    static get observedAttributes() {
-      return attributes
-    }
+    static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
       this.updateProp(
@@ -36,18 +30,19 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       )
     }
 
-    updateProp(name, value) {
-      this.signals[name][1](value)
-    }
+    updateProp = (name, value) => this.signals[name][1](value)
 
     connectedCallback() {
       const self = this
       const app = createRoot((dispose) => {
         self.dispose = dispose
-        const props = Object.entries(this.signals).reduce((acc, cur) => {
-          acc[cur[0]] = cur[1][0]
-          return acc
-        }, {})
+        const props = Object.entries(this.signals).reduce(
+          (acc, cur) => ({
+            ...acc,
+            [cur[0]]: cur[1][0],
+          }),
+          {}
+        )
         props.host = this
         props.dispatch = (name, detail) =>
           this.dispatchEvent(new CustomEvent(name, { detail }))
@@ -56,9 +51,7 @@ const createSolidWrapperImpl = (options, useShadowRoot) => {
       render(() => app, this.root)
     }
 
-    disconnectedCallback() {
-      this.dispose()
-    }
+    disconnectedCallback = () => this.dispose()
   }
   applyProps(wrapperClass, attributes)
   customElements.define(options.tag, wrapperClass)
