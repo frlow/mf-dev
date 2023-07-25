@@ -3,16 +3,15 @@ import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
 
 export * from '@mf-dev/wrapper-common'
-export const createSolidWrapper = (options) =>
-  createSolidWrapperImpl(options, false)
-export const createSolidWebComponent = (options) =>
-  createSolidWrapperImpl(options, true)
-const createSolidWrapperImpl = (options, useShadowRoot) => {
+
+export const createSolidWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
     constructor() {
       super()
-      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
+      this.root = options.shadowRoot
+        ? this.attachShadow({ mode: options.shadowRoot })
+        : this
       this.signals = attributes.reduce(
         (acc, cur) => ({ ...acc, [cur]: createSignal() }),
         {}

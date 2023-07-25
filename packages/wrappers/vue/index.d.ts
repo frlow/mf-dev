@@ -6,5 +6,3 @@ export const createVueWrapper: (
     createCustom?: (props: any) => App
   }
 ) => void
-
-export const createVueWebComponent: typeof createVueWrapper

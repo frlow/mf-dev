@@ -1,12 +1,8 @@
 import { applyProps } from '@mf-dev/wrapper-common'
 
 export * from '@mf-dev/wrapper-common'
-export const createSvelteWrapper = (options) =>
-  createSvelteWrapperImpl(options, false)
-export const createSvelteWebComponent = (options) =>
-  createSvelteWrapperImpl(options, true)
 
-const createSvelteWrapperImpl = (options, useShadowRoot) => {
+export const createSvelteWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
     constructor() {
@@ -16,7 +12,9 @@ const createSvelteWrapperImpl = (options, useShadowRoot) => {
         dispatch: (name, detail) =>
           this.dispatchEvent(new CustomEvent(name, { detail })),
       }
-      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
+      this.root = options.shadowRoot
+        ? this.attachShadow({ mode: options.shadowRoot })
+        : this
     }
 
     static observedAttributes = attributes

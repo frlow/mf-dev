@@ -3,4 +3,5 @@ export type WrapperOptions = {
   attributes?: string[]
   tag: string
   handleAttribute?: (name: string, value: string) => any
+  shadowRoot?: 'open' | 'closed'
 }

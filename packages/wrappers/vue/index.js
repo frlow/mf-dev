@@ -3,7 +3,7 @@ import { createApp, reactive, h } from 'vue'
 
 export * from '@mf-dev/wrapper-common'
 
-const createVueWrapperImpl = (options, useShadowRoot) => {
+export const createVueWrapper = (options) => {
   options.component.props = ['host', 'dispatch', ...options.attributes].reduce(
     (a, c) => ({ ...a, [c]: null }),
     {}
@@ -11,7 +11,9 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
   const wrapperClass = class VueWrapper extends HTMLElement {
     constructor() {
       super()
-      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
+      this.root = options.shadowRoot
+        ? this.attachShadow({ mode: options.shadowRoot })
+        : this
       this.props = reactive({
         host: this,
         dispatch: (name, detail) =>
@@ -50,8 +52,3 @@ const createVueWrapperImpl = (options, useShadowRoot) => {
   applyProps(wrapperClass, options.attributes)
   customElements.define(options.tag, wrapperClass)
 }
-
-export const createVueWrapper = (options) =>
-  createVueWrapperImpl(options, false)
-export const createVueWebComponent = (options) =>
-  createVueWrapperImpl(options, true)

@@ -1,7 +1,4 @@
-import {
-  createSolidWebComponent,
-  createSolidWrapper,
-} from '@mf-dev/wrapper-solid'
+import { createSolidWrapper } from '@mf-dev/wrapper-solid'
 import { t, typeInfo } from '@mf-dev/types'
 import { App } from './App.js'
 import { SolidButton } from './SolidButton.js'
@@ -15,7 +12,8 @@ export const AppType = typeInfo(
 )
 createSolidWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo('ex-solid-button')
-createSolidWebComponent({
+createSolidWrapper({
   ...ButtonType,
+  shadowRoot: 'open',
   component: SolidButton,
 })

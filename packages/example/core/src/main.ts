@@ -2,10 +2,7 @@ import { createBrowserHistory } from 'history'
 
 import './ReactButton.js'
 import App from './App.js'
-import {
-  createReactWebComponent,
-  createReactWrapper,
-} from '@mf-dev/wrapper-react'
+import { createReactWrapper } from '@mf-dev/wrapper-react'
 import { t, typeInfo } from '@mf-dev/types'
 import { ReactButton } from './ReactButton.js'
 
@@ -32,7 +29,8 @@ createReactWrapper({
 })
 
 export const ButtonType = typeInfo('ex-react-button')
-createReactWebComponent({
+createReactWrapper({
+  shadowRoot: 'open',
   component: ReactButton,
   ...ButtonType,
 })

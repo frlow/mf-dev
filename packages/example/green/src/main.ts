@@ -1,4 +1,4 @@
-import { createVueWebComponent, createVueWrapper } from '@mf-dev/wrapper-vue'
+import { createVueWrapper } from '@mf-dev/wrapper-vue'
 import { t, typeInfo } from '@mf-dev/types'
 import App from './App.vue'
 import VueButton from './VueButton.vue'
@@ -10,4 +10,4 @@ export const AppType = typeInfo(
 )
 createVueWrapper({ component: App, ...AppType })
 export const ButtonType = typeInfo('ex-vue-button')
-createVueWebComponent({ component: VueButton, ...ButtonType })
+createVueWrapper({ component: VueButton, ...ButtonType, shadowRoot: 'open' })

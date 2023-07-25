@@ -3,18 +3,17 @@ import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 
 export * from '@mf-dev/wrapper-common'
-export const createReactWrapper = (options) =>
-  createReactWrapperImpl(options, false)
 
-export const createReactWebComponent = (options) =>
-  createReactWrapperImpl(options, true)
-
-const createReactWrapperImpl = (options, useShadowRoot) => {
+// noinspection JSUnusedGlobalSymbols
+export const createReactWrapper = (options) => {
   const attributes = options.attributes || []
+  // noinspection JSPotentiallyInvalidUsageOfThis,JSUnusedGlobalSymbols
   const wrapperClass = class VueWrapper extends HTMLElement {
     constructor() {
       super()
-      this.root = useShadowRoot ? this.attachShadow({ mode: 'open' }) : this
+      this.root = options.shadowRoot
+        ? this.attachShadow({ mode: options.shadowRoot })
+        : this
 
       this.props = {
         host: this,
