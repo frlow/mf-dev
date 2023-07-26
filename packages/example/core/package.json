@@ -21,11 +21,5 @@
     "concurrently": "^8.0.1S",
     "typescript": "^5.0.4",
     "vite": "^4.3.5"
-  },
-  "assets": {
-    "core": {
-      "entry": "src/dev.ts",
-      "load": true
-    }
   }
 }

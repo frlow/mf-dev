@@ -21,14 +21,5 @@
   "dependencies": {
     "solid-js": "^1.7.4",
     "solid-styled-components": "^0.28.5"
-  },
-  "assets": {
-    "blue": {
-      "component": "ex-blue",
-      "menu": {
-        "label": "Blue",
-        "route": "/blue"
-      }
-    }
   }
 }

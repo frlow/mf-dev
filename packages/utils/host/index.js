@@ -1,22 +1,49 @@
-import {
-  defineLazyComponentLoader,
-  registerLazyCustomElements,
-} from './lazyElements.js'
-import { autoLoad as autoLoadFunc } from './autoLoad.js'
-
-export const hostClient = async ({
-  url,
-  lazyElements,
-  componentLoader,
-  autoLoad,
-  devAssets,
-}) => {
-  let assets = await fetch(url).then((r) => r.json())
-  if (devAssets)
-    assets = await (await import('./dev.js')).loadDevAssets(assets, devAssets)
-
-  if (lazyElements) registerLazyCustomElements(assets)
-  if (componentLoader) defineLazyComponentLoader(assets)
-  if (autoLoad) autoLoadFunc(assets)
-  window.assets = assets
+export const hostClient = async (assetsSource) => {
+  const assets = [fetch(assetsSource).then((r) => r.json())]
+  for (let i = 0; i < parseInt(localStorage.dev || '0'); i++) {
+    const root = `http://localhost:${5173 + i}`
+    assets.push(
+      fetch(`${root}/assets.json`)
+        .then((r) => r.json())
+        .then((a) =>
+          Object.entries(a).reduce(
+            (acc, [key, value]) => ({
+              ...acc,
+              [key]: {
+                ...value,
+                target:
+                  value.target || `${root}/${value.entry || 'src/main.ts'}`,
+              },
+            }),
+            {}
+          )
+        )
+        .catch(() => undefined)
+    )
+  }
+  window.assets = (await Promise.all(assets)).reduce(
+    (acc, cur) => ({ ...acc, ...cur }),
+    {}
+  )
+  Object.values(window.assets).forEach(
+    (a) => a.load && a.target && import(a.target)
+  )
+  const lazyComponents = Object.values(window.assets)
+    .filter((a) => a.component && a.target)
+    .reduce(
+      (acc, cur) => ({ ...acc, [cur.component.toUpperCase()]: cur.target }),
+      {}
+    )
+  new MutationObserver((records) => {
+    records.forEach((record) =>
+      record.addedNodes.forEach((addedNode) => {
+        if (!lazyComponents[addedNode.tagName]) return
+        import(lazyComponents[addedNode.tagName])
+        delete lazyComponents[addedNode.tagName]
+      })
+    )
+  }).observe(document.body, {
+    childList: true,
+    subtree: true,
+  })
 }

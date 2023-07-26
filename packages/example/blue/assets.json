@@ -1,0 +1,9 @@
+{
+  "blue": {
+    "component": "ex-blue",
+    "menu": {
+      "label": "Blue",
+      "route": "/blue"
+    }
+  }
+}

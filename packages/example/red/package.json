@@ -22,14 +22,5 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
     "vite-plugin-dts": "^2.3.0"
-  },
-  "assets": {
-    "red": {
-      "component": "ex-red",
-      "menu": {
-        "label": "Red",
-        "route": "/red"
-      }
-    }
   }
 }
