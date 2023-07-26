@@ -1,12 +1,8 @@
-import { createBrowserHistory } from 'history'
-
 import './ReactButton.js'
 import App from './App.js'
 import { createReactWrapper } from '@mf-dev/wrapper-react'
 import { t, typeInfo } from '@mf-dev/types'
 import { ReactButton } from './ReactButton.js'
-
-window.HistoryLibrary = createBrowserHistory()
 
 export const AppType = typeInfo(
   'ex-core',

@@ -1,14 +1,11 @@
 /// <reference types="vite/client" />
 
-import type { BrowserHistory } from 'history'
+export {}
 
 declare global {
   interface Window {
-    HistoryLibrary: BrowserHistory
+    routeTo: (url: string) => void
   }
-}
-
-declare global {
   namespace JSX {
     interface IntrinsicElements {
       'ex-green': any
