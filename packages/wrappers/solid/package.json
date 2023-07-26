@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "main": "./index.js",
-  "devDependencies": {
-    "solid-js": "^1.7.4"
+  "peerDependencies": {
+    "solid-js": "*"
   }
 }

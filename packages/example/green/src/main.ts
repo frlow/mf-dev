@@ -8,6 +8,9 @@ export const AppType = typeInfo(
   { 'my-count': t<number> },
   { 'my-event': t<string> }
 )
-createVueWrapper({ component: App, ...AppType })
+createVueWrapper({
+  component: App,
+  ...AppType,
+})
 export const ButtonType = typeInfo('ex-vue-button')
 createVueWrapper({ component: VueButton, ...ButtonType, shadowRoot: 'open' })

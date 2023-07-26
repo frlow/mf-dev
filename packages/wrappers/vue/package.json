@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "main": "./index.js",
-  "devDependencies": {
-    "vue": "^3.2.47"
+  "peerDependencies": {
+    "vue": "*"
   }
 }

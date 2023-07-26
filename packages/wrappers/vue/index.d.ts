@@ -1,4 +1,3 @@
-import type { App } from 'vue'
 export type WrapperOptions = {
   component: any
   attributes?: string[]
@@ -9,6 +8,6 @@ export type WrapperOptions = {
 
 export const createVueWrapper: (
   options: WrapperOptions & {
-    createCustom?: (props: any) => App
+    createCustom?: (props: any) => any
   }
 ) => void

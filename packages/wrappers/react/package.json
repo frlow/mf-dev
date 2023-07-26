@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "type": "module",
   "main": "./index.js",
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   },
   "exports": {
     ".": {
