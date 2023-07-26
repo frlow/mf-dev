@@ -1,7 +1,8 @@
 import { createApp, reactive, h } from 'vue'
 
 export const createVueWrapper = (options) => {
-  options.component.props = ['host', 'dispatch', ...options.attributes].reduce(
+  const attributes = options.attributes || []
+  options.component.props = ['host', 'dispatch', ...attributes].reduce(
     (a, c) => ({ ...a, [c]: null }),
     {}
   )
