@@ -1,8 +1,5 @@
-import { applyProps } from '@mf-dev/wrapper-common'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
-
-export * from '@mf-dev/wrapper-common'
 
 // noinspection JSUnusedGlobalSymbols
 export const createReactWrapper = (options) => {
@@ -48,6 +45,12 @@ export const createReactWrapper = (options) => {
 
     disconnectedCallback = () => this.app.unmount()
   }
-  applyProps(wrapperClass, attributes)
+  attributes.forEach((attribute) =>
+    Object.defineProperty(wrapperClass.prototype, attribute, {
+      set: function (value) {
+        this.updateProp(attribute, value)
+      },
+    })
+  )
   customElements.define(options.tag, wrapperClass)
 }

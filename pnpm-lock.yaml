@@ -197,13 +197,7 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(@types/node@18.16.3)(typescript@5.1.6)
 
-  packages/wrappers/common: {}
-
   packages/wrappers/react:
-    dependencies:
-      '@mf-dev/wrapper-common':
-        specifier: workspace:^
-        version: link:../common
     devDependencies:
       react:
         specifier: ^18.2.0
@@ -213,26 +207,14 @@ importers:
         version: 18.2.0(react@18.2.0)
 
   packages/wrappers/solid:
-    dependencies:
-      '@mf-dev/wrapper-common':
-        specifier: workspace:^
-        version: link:../common
     devDependencies:
       solid-js:
         specifier: ^1.7.4
         version: 1.7.4
 
-  packages/wrappers/svelte:
-    dependencies:
-      '@mf-dev/wrapper-common':
-        specifier: workspace:^
-        version: link:../common
+  packages/wrappers/svelte: {}
 
   packages/wrappers/vue:
-    dependencies:
-      '@mf-dev/wrapper-common':
-        specifier: workspace:^
-        version: link:../common
     devDependencies:
       vue:
         specifier: ^3.2.47

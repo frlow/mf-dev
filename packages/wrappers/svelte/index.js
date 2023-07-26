@@ -1,7 +1,3 @@
-import { applyProps } from '@mf-dev/wrapper-common'
-
-export * from '@mf-dev/wrapper-common'
-
 export const createSvelteWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class VueWrapper extends HTMLElement {
@@ -46,6 +42,12 @@ export const createSvelteWrapper = (options) => {
 
     disconnectedCallback = () => this.app.$destroy()
   }
-  applyProps(wrapperClass, attributes)
+  attributes.forEach((attribute) =>
+    Object.defineProperty(wrapperClass.prototype, attribute, {
+      set: function (value) {
+        this.updateProp(attribute, value)
+      },
+    })
+  )
   customElements.define(options.tag, wrapperClass)
 }

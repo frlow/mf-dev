@@ -1,8 +1,5 @@
-import { applyProps } from '@mf-dev/wrapper-common'
 import { render, createComponent } from 'solid-js/web'
 import { createRoot, createSignal } from 'solid-js'
-
-export * from '@mf-dev/wrapper-common'
 
 export const createSolidWrapper = (options) => {
   const attributes = options.attributes || []
@@ -52,6 +49,12 @@ export const createSolidWrapper = (options) => {
 
     disconnectedCallback = () => this.dispose()
   }
-  applyProps(wrapperClass, attributes)
+  attributes.forEach((attribute) =>
+    Object.defineProperty(wrapperClass.prototype, attribute, {
+      set: function (value) {
+        this.updateProp(attribute, value)
+      },
+    })
+  )
   customElements.define(options.tag, wrapperClass)
 }

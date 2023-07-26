@@ -1,7 +1,4 @@
-import { applyProps } from '@mf-dev/wrapper-common'
 import { createApp, reactive, h } from 'vue'
-
-export * from '@mf-dev/wrapper-common'
 
 export const createVueWrapper = (options) => {
   options.component.props = ['host', 'dispatch', ...options.attributes].reduce(
@@ -49,6 +46,12 @@ export const createVueWrapper = (options) => {
 
     disconnectedCallback = () => this.app?.unmount()
   }
-  applyProps(wrapperClass, options.attributes)
+  attributes.forEach((attribute) =>
+    Object.defineProperty(wrapperClass.prototype, attribute, {
+      set: function (value) {
+        this.updateProp(attribute, value)
+      },
+    })
+  )
   customElements.define(options.tag, wrapperClass)
 }
