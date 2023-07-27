@@ -6,14 +6,14 @@ import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    parseMfTypesPlugin('../base/public/blue-types.json'),
+    parseMfTypesPlugin('../../../public/blue-types.json'),
   ],
   base: './',
   build: {
     rollupOptions: {
       input: 'src/blue.ts',
       output: {
-        dir: '../base/public',
+        dir: '../../../public',
         chunkFileNames: '[name]-[hash].js',
         assetFileNames: '[name]-[hash][extname]',
         entryFileNames: '[name].js',

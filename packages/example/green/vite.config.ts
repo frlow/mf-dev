@@ -10,14 +10,14 @@ export default defineConfig({
         compilerOptions: { isCustomElement: (tag) => tag.startsWith('ex-') },
       },
     }),
-    parseMfTypesPlugin('../base/public/green-types.json'),
+    parseMfTypesPlugin('../../../public/green-types.json'),
   ],
   base: './',
   build: {
     rollupOptions: {
       input: 'src/green.ts',
       output: {
-        dir: '../base/public',
+        dir: '../../../public',
         chunkFileNames: '[name]-[hash].js',
         assetFileNames: '[name]-[hash][extname]',
         entryFileNames: '[name].js',

@@ -7,10 +7,9 @@
   "keywords": [],
   "scripts": {
     "start": "pnpm run --stream --parallel start",
-    "build": "rm -rf packages/example/base/public && mkdir packages/example/base/public && pnpm run --stream --parallel build",
-    "preview": "pnpm run build && pnpm run --filter=base start",
-    "helper": "pnpm run --filter @mf-dev/dev-helper dev",
-    "firebase": "pnpm run build && rm -rf public && mkdir -p public && cp packages/example/base/index.html public/ && cp -r packages/example/base/public public/public/ && firebase deploy --only hosting && pnpm run clear",
+    "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build",
+    "preview": "pnpm run build && ws -d public --spa index.html -p 3000",
+    "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results"
   },
   "devDependencies": {
@@ -19,7 +18,8 @@
     "prettier": "^2.8.8",
     "esbuild": "^0.17.18",
     "glob": "^10.2.2",
-    "prettier-plugin-sort-json": "^1.0.0"
+    "prettier-plugin-sort-json": "^1.0.0",
+    "local-web-server": "^5.3.0"
   },
   "author": "",
   "license": "ISC",

@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>Micro-Frontend demo</title>
-  <script type="module" src="public/index.js"></script>
+  <script type="module">
+    import { hostClient } from '@mf-dev/host'
+
+    hostClient('/assets.json').then()
+  </script>
   <script src="//unpkg.com/alpinejs" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
