@@ -1,5 +1,5 @@
-export const hostClient = async (assetsSource) => {
-  const assets = [fetch(assetsSource).then((r) => r.json())]
+export const hostClient = async (source) => {
+  const assets = [fetch(localStorage.assets || source).then((r) => r.json())]
   for (let i = 0; i < parseInt(localStorage.dev || '0'); i++) {
     const root = `http://localhost:${5173 + i}`
     assets.push(
