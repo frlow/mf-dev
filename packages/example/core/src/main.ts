@@ -13,14 +13,6 @@ export const AppType = typeInfo(
 )
 createReactWrapper({
   component: App,
-  handleAttribute: (name, value) => {
-    switch (name) {
-      case 'my-count':
-        return parseInt(value)
-      default:
-        return value
-    }
-  },
   ...AppType,
 })
 

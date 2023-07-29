@@ -12,7 +12,7 @@
 </head>
 
 <body x-data="{ counter: 1 }">
-<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:my-count="counter"></ex-core>
+<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-effect="$el['my-count']=counter"></ex-core>
 </body>
 
 </html>
