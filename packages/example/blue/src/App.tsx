@@ -7,14 +7,7 @@ export const App = (props: typeof AppType) => {
   return (
     <div class={style.root}>
       <h1>BLUE</h1>
-      <button
-        onClick={() => {
-          setCount(count() + 1)
-          window.routeTo('/blue/demo')
-        }}
-      >
-        Clicked: {count()}
-      </button>
+      <button onClick={() => setCount(count() + 1)}>Clicked: {count()}</button>
       <button
         onClick={() => {
           props.dispatch('my-event', 'blue')
@@ -23,6 +16,12 @@ export const App = (props: typeof AppType) => {
         Dispatch {props['my-count']}
       </button>
       <ex-solid-button></ex-solid-button>
+      <div>
+        <a href="/blue/internal">Internal</a>
+        <a href="/blue/external" is="external">
+          External
+        </a>
+      </div>
     </div>
   )
 }

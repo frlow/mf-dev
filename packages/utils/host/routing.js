@@ -11,7 +11,7 @@ window.addEventListener('popstate', () =>
 
 document.onclick = (e) => {
   if (e.target?.tagName === 'A') {
-    if (e.target?.attributes.is?.value === 'external-link') return
+    if (e.target?.attributes.is?.value === 'external') return
     e.preventDefault()
     window.routeTo(e.target?.attributes.href?.value)
   }
