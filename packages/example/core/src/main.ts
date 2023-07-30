@@ -3,6 +3,7 @@ import App from './App.js'
 import { createReactWrapper } from '@mf-dev/wrapper-react'
 import { t, typeInfo } from '@mf-dev/types'
 import { ReactButton } from './ReactButton.js'
+import './routing.js'
 
 export const AppType = typeInfo(
   'ex-core',

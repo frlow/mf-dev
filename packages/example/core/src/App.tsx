@@ -1,6 +1,6 @@
-import { NavLink } from './components/NavLink.js'
 import { Router, Route } from './components/Router.js'
 import type { AppType } from './main.js'
+import React from 'react'
 
 export const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
   const menuItems: any[] = Object.values((window as any).assets).filter(
@@ -11,7 +11,9 @@ export const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
       <nav>
         <ul>
           {menuItems.map((asset, i) => (
-            <NavLink text={asset.menu.label} url={asset.menu.route} key={i} />
+            <li key={i}>
+              <a href={asset.menu.route}>{asset.menu.label}</a>
+            </li>
           ))}
         </ul>
         <button onClick={() => dispatch('my-event', 'core')}>

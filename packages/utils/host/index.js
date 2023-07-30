@@ -46,13 +46,4 @@ export const hostClient = async (source) => {
     childList: true,
     subtree: true,
   })
-  window.routeTo = (path) => {
-    window.history.pushState({}, null, path)
-    window.dispatchEvent(new CustomEvent('route-changed', { detail: path }))
-  }
-  window.addEventListener('popstate', () =>
-    window.dispatchEvent(
-      new CustomEvent('route-changed', { detail: window.location.pathname })
-    )
-  )
 }
