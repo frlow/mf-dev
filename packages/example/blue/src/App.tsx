@@ -7,7 +7,14 @@ export const App = (props: typeof AppType) => {
   return (
     <div class={style.root}>
       <h1>BLUE</h1>
-      <button onClick={() => setCount(count() + 1)}>Clicked: {count()}</button>
+      <button
+        onClick={() => {
+          setCount(count() + 1)
+          window.routeTo('/blue/demo')
+        }}
+      >
+        Clicked: {count()}
+      </button>
       <button
         onClick={() => {
           props.dispatch('my-event', 'blue')

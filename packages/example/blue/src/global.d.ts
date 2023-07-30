@@ -10,4 +10,10 @@ declare module 'solid-js' {
   }
 }
 
+declare global {
+  interface Window {
+    routeTo: (url: string) => void
+  }
+}
+
 export {}

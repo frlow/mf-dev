@@ -1,9 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 
-const matchPath = (path: string, target: string) => {
-  return path === target
-}
-
 const useRouter = () => {
   const [path, setPath] = useState(window.location.pathname)
   useEffect(() => {
@@ -26,7 +22,7 @@ export const Router = ({
     : []
   const path = useRouter()
   return (
-    childElements.find((c) => matchPath(path, c.props.path)) ||
+    childElements.find((c) => path.startsWith(c.props.path)) ||
     childElements.find((d) => d.props.default)
   )
 }
