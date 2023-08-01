@@ -18,33 +18,29 @@ export const createSolidWrapper = (options) => {
     static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.updateProp(
-        name,
-        options.handleAttribute
-          ? options.handleAttribute(name, newValue)
-          : newValue
-      )
+      this.signals[name][1](newValue)
     }
 
-    updateProp = (name, value) => this.signals[name][1](value)
-
     connectedCallback() {
-      const self = this
-      const app = createRoot((dispose) => {
-        self.dispose = dispose
-        const props = Object.entries(this.signals).reduce(
-          (acc, cur) => ({
-            ...acc,
-            [cur[0]]: cur[1][0],
+      render(
+        () =>
+          createRoot((dispose) => {
+            this.dispose = dispose
+            return createComponent(options.component, {
+              ...Object.entries(this.signals).reduce(
+                (acc, cur) => ({
+                  ...acc,
+                  [cur[0]]: cur[1][0],
+                }),
+                {}
+              ),
+              host: this,
+              dispatch: (name, detail) =>
+                this.dispatchEvent(new CustomEvent(name, { detail })),
+            })
           }),
-          {}
-        )
-        props.host = this
-        props.dispatch = (name, detail) =>
-          this.dispatchEvent(new CustomEvent(name, { detail }))
-        return createComponent(options.component, props)
-      })
-      render(() => app, this.root)
+        this.root
+      )
     }
 
     disconnectedCallback = () => this.dispose()
@@ -52,7 +48,7 @@ export const createSolidWrapper = (options) => {
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {
       set: function (value) {
-        this.updateProp(attribute, value)
+        this.attributeChangedCallback(attribute, undefined, value)
       },
     })
   )

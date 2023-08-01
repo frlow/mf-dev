@@ -22,15 +22,8 @@ export const createVueWrapper = (options) => {
     static observedAttributes = options.attributes || []
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.updateProp(
-        name,
-        options.handleAttribute
-          ? options.handleAttribute(name, newValue)
-          : newValue
-      )
+      this.props[name] = newValue
     }
-
-    updateProp = (name, value) => (this.props[name] = value)
 
     connectedCallback() {
       this.app = options.createCustom
@@ -50,7 +43,7 @@ export const createVueWrapper = (options) => {
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {
       set: function (value) {
-        this.updateProp(attribute, value)
+        this.attributeChangedCallback(attribute, undefined, value)
       },
     })
   )

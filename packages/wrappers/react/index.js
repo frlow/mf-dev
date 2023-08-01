@@ -22,21 +22,12 @@ export const createReactWrapper = (options) => {
     static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.updateProp(
-        name,
-        options.handleAttribute
-          ? options.handleAttribute(name, newValue)
-          : newValue
-      )
+      this.props[name] = newValue
+      this.render()
     }
 
     render = () =>
       this.app?.render(createElement(options.component, this.props))
-
-    updateProp(name, value) {
-      this.props[name] = value
-      this.render()
-    }
 
     connectedCallback() {
       this.app = createRoot(this.root)
@@ -48,7 +39,7 @@ export const createReactWrapper = (options) => {
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {
       set: function (value) {
-        this.updateProp(attribute, value)
+        this.attributeChangedCallback(attribute, undefined, value)
       },
     })
   )

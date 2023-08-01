@@ -16,20 +16,11 @@ export const createSvelteWrapper = (options) => {
     static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
-      this.updateProp(
-        name,
-        options.handleAttribute
-          ? options.handleAttribute(name, newValue)
-          : newValue
-      )
-    }
-
-    updateProp(name, value) {
       if (this.app)
         this.app.$$set({
-          [name]: value,
+          [name]: newValue,
         })
-      else this.temp[name] = value
+      else this.temp[name] = newValue
     }
 
     connectedCallback() {
@@ -45,7 +36,7 @@ export const createSvelteWrapper = (options) => {
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {
       set: function (value) {
-        this.updateProp(attribute, value)
+        this.attributeChangedCallback(attribute, undefined, value)
       },
     })
   )
