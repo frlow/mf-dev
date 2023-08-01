@@ -43,7 +43,9 @@ export const createSolidWrapper = (options) => {
       )
     }
 
-    disconnectedCallback = () => this.dispose()
+    disconnectedCallback() {
+      this.dispose()
+    }
   }
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {

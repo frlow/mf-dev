@@ -34,7 +34,9 @@ export const createReactWrapper = (options) => {
       this.render()
     }
 
-    disconnectedCallback = () => this.app.unmount()
+    disconnectedCallback() {
+      this.app.unmount()
+    }
   }
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {

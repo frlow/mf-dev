@@ -31,7 +31,9 @@ export const createSvelteWrapper = (options) => {
       delete this.temp
     }
 
-    disconnectedCallback = () => this.app.$destroy()
+    disconnectedCallback() {
+      this.app.$destroy()
+    }
   }
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {

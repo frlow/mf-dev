@@ -38,7 +38,9 @@ export const createVueWrapper = (options) => {
       this.app.mount(this.root)
     }
 
-    disconnectedCallback = () => this.app?.unmount()
+    disconnectedCallback() {
+      this.app?.unmount()
+    }
   }
   attributes.forEach((attribute) =>
     Object.defineProperty(wrapperClass.prototype, attribute, {
