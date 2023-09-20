@@ -26,7 +26,7 @@ export const hostClient = async (source) => {
     {}
   )
   Object.values(window.assets).forEach(
-    (a) => a.load && a.target && import(a.target)
+    (a) => a.load && a.target && import(/* @vite-ignore */a.target)
   )
   const lazyComponents = Object.values(window.assets)
     .filter((a) => a.component && a.target)
@@ -38,7 +38,7 @@ export const hostClient = async (source) => {
     records.forEach((record) =>
       record.addedNodes.forEach((addedNode) => {
         if (!lazyComponents[addedNode.tagName]) return
-        import(lazyComponents[addedNode.tagName])
+        import(/* @vite-ignore */lazyComponents[addedNode.tagName])
         delete lazyComponents[addedNode.tagName]
       })
     )

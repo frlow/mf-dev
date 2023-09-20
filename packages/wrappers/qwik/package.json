@@ -1,0 +1,15 @@
+{
+  "name": "@mf-dev/wrapper-qwik",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./index.js",
+  "peerDependencies": {
+    "@builder.io/qwik": "^1.2.6"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    }
+  }
+}

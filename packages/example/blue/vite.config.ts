@@ -14,8 +14,8 @@ export default defineConfig({
       input: 'src/blue.ts',
       output: {
         dir: '../../../public',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
+        chunkFileNames: 'blue/[name]-[hash].js',
+        assetFileNames: 'blue/[name]-[hash][extname]',
         entryFileNames: '[name].js',
       },
     },

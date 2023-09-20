@@ -18,8 +18,8 @@ export default defineConfig({
       input: 'src/green.ts',
       output: {
         dir: '../../../public',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
+        chunkFileNames: 'green/[name]-[hash].js',
+        assetFileNames: 'green/[name]-[hash][extname]',
         entryFileNames: '[name].js',
       },
     },

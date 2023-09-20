@@ -11,8 +11,8 @@ export default defineConfig({
       input: 'src/core.ts',
       output: {
         dir: '../../../public',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
+        chunkFileNames: 'core/[name]-[hash].js',
+        assetFileNames: 'core/[name]-[hash][extname]',
         entryFileNames: '[name].js',
       },
     },

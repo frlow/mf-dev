@@ -12,8 +12,8 @@ export default defineConfig({
       input: 'src/red.ts',
       output: {
         dir: '../../../public',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash][extname]',
+        chunkFileNames: 'red/[name]-[hash].js',
+        assetFileNames: 'red/[name]-[hash][extname]',
         entryFileNames: '[name].js',
       },
     },
