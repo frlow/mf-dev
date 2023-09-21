@@ -9,6 +9,7 @@ export const App = component$((args: any) => {
     color: rebeccapurple;
   }
   `)
+  const ExQwikButton = "ex-qwik-button"
   return (
     <>
       <div>
@@ -17,6 +18,7 @@ export const App = component$((args: any) => {
           Dispatch {args["my-count"]}</button>
         <button onClick$={()=>count.value++}>Count: {count.value}</button>
         {count.value%2!==0?<Demo/>:''}
+        <ExQwikButton/>
       </div>
     </>
   )

@@ -14,7 +14,12 @@ export const createQwikWrapper = (options) => {
         constructor() {
             super()
             this.root = options.shadowRoot
-                ? this.attachShadow({mode: options.shadowRoot})
+                ? (() => {
+                    const shadowRoot = this.attachShadow({mode: options.shadowRoot})
+                    const rootEl = document.createElement("span")
+                    shadowRoot.appendChild(rootEl)
+                    return rootEl
+                })()
                 : this
 
             this.temp = {
@@ -46,7 +51,7 @@ export const createQwikWrapper = (options) => {
                 propsValues.dispatch = inlinedQrl((name, value) => self.dispatchEvent(new CustomEvent(name, {detail: value})), "dispatch")
                 return createElement(options.component, propsValues)
             }, "root"))
-            render(this, createElement(Root, {})).then(r => {
+            render(self.root, createElement(Root, {})).then(r => {
                 this.cleanup = r.cleanup
             })
         }
