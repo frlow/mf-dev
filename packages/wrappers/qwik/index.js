@@ -3,9 +3,6 @@ import {componentQrl, createElement, render, useSignal, inlinedQrl} from "@build
 export const createQwikWrapper = (options) => {
     const attributes = options.attributes || []
     const wrapperClass = class extends HTMLElement {
-        cleanup
-        temp = {}
-        root
         update = (name, value) => {
             this.temp[name] = value
         }

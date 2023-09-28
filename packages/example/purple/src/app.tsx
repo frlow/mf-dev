@@ -16,9 +16,9 @@ export const App = component$((args: any) => {
         <h1>PURPLE</h1>
         <button onClick$={()=>args.dispatch("my-event", "purple")}>
           Dispatch {args["my-count"]}</button>
+        <ExQwikButton/>
         <button onClick$={()=>count.value++}>Count: {count.value}</button>
         {count.value%2!==0?<Demo/>:''}
-        <ExQwikButton/>
       </div>
     </>
   )
