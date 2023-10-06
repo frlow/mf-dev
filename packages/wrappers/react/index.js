@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 export const createReactWrapper = (options) => {
   const attributes = options.attributes || []
   // noinspection JSPotentiallyInvalidUsageOfThis,JSUnusedGlobalSymbols
-  const wrapperClass = class VueWrapper extends HTMLElement {
+  const wrapperClass = class extends HTMLElement {
     constructor() {
       super()
       this.root = options.shadowRoot

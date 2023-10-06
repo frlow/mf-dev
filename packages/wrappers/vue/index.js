@@ -6,7 +6,7 @@ export const createVueWrapper = (options) => {
     (a, c) => ({ ...a, [c]: null }),
     {}
   )
-  const wrapperClass = class VueWrapper extends HTMLElement {
+  const wrapperClass = class extends HTMLElement {
     constructor() {
       super()
       this.root = options.shadowRoot

@@ -3,7 +3,7 @@ import { createRoot, createSignal } from 'solid-js'
 
 export const createSolidWrapper = (options) => {
   const attributes = options.attributes || []
-  const wrapperClass = class VueWrapper extends HTMLElement {
+  const wrapperClass = class extends HTMLElement {
     constructor() {
       super()
       this.root = options.shadowRoot

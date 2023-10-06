@@ -1,6 +1,6 @@
 export const createSvelteWrapper = (options) => {
   const attributes = options.attributes || []
-  const wrapperClass = class VueWrapper extends HTMLElement {
+  const wrapperClass = class extends HTMLElement {
     constructor() {
       super()
       this.temp = {
