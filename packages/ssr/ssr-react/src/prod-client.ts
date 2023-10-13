@@ -1,1 +1,1 @@
-import("./entry-client.ts")
+import("./entry-client")

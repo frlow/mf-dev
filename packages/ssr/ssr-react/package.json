@@ -7,7 +7,7 @@
     "start": "node dev.js",
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.ts"
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx"
   },
   "dependencies": {
     "react": "^18.2.0",
