@@ -215,8 +215,13 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
 
+  packages/ssr/ssr-common: {}
+
   packages/ssr/ssr-react:
     dependencies:
+      '@mf-dev/wrapper-react':
+        specifier: workspace:*
+        version: link:../../wrappers/react
       react:
         specifier: ^18.2.0
         version: 18.2.0

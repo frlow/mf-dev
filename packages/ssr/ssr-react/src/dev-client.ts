@@ -1,2 +1,2 @@
 import './preamble.ts'
-import './entry-client.tsx'
+import './entry-client.ts'

@@ -21,7 +21,7 @@ async function createServer() {
         const url = req.originalUrl
 
         try {
-            const { render } = await vite.ssrLoadModule('/src/entry-server.tsx')
+            const { render } = await vite.ssrLoadModule('/src/entry-server.ts')
             const html = await render(url)
             res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
         } catch (e) {

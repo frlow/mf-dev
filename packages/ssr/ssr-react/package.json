@@ -8,11 +8,12 @@
     "ssr-preview": "node prod.js",
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx"
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@mf-dev/wrapper-react": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
