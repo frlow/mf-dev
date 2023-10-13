@@ -10,7 +10,6 @@ const apps = [
 ]
 
 app.get("/", async (req, res) => {
-    console.log(req.cookies)
     const loadedApps = req.cookies.dev ?
         apps.map(app => `<${app.tag}></${app.tag}>`) :
         await Promise.all(apps.map(app => fetch(app.html).then(r => r.text())))
