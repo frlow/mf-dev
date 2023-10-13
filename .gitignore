@@ -7,3 +7,4 @@ public/
 playwright-report/
 .firebase/
 .npmrc
+.vscode/
