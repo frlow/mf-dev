@@ -7,7 +7,10 @@ export default defineConfig({
   base: "./",
   build: {
     rollupOptions: {
-      input: "src/prod-client.ts"
+      input: "src/prod-client.ts",
+      output: {
+        entryFileNames: "[name].js"
+      }
     }
   }
 })

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "ssr": "node dev.js",
+    "ssr-preview": "node prod.js",
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx"
@@ -19,6 +20,8 @@
     "@vitejs/plugin-react": "^4.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "serve-static": "^1.15.0"
   }
 }

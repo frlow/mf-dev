@@ -1,13 +1,19 @@
 import express from 'express'
 import parser from 'cookie-parser'
 
+const dev = process.argv[2] === "dev"
+
 const app = express()
 app.use(parser())
 
-const apps = [
-    {html: "http://127.0.0.1:4501/", entry: "http://127.0.0.1:4501/src/entry-client.ts", tag: "ex-react-ssr"},
-    {html: "http://127.0.0.1:4502/", entry: "http://127.0.0.1:4502/src/dev-client.ts", tag: "ex-vue-ssr"},
-]
+const apps = dev ? [
+        {html: "http://127.0.0.1:4501/", entry: "http://127.0.0.1:4501/src/entry-client.ts", tag: "ex-vue-ssr"},
+        {html: "http://127.0.0.1:4502/", entry: "http://127.0.0.1:4502/src/dev-client.ts", tag: "ex-react-ssr"},
+    ] :
+    [
+        {html: "http://127.0.0.1:4501/", entry: "http://127.0.0.1:4501/prod-client.js", tag: "ex-vue-ssr"},
+        {html: "http://127.0.0.1:4502/", entry: "http://127.0.0.1:4502/prod-client.js", tag: "ex-react-ssr"},
+    ]
 
 app.get("/", async (req, res) => {
     const loadedApps = req.cookies.dev ?

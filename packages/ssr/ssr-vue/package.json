@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "ssr": "node dev.js",
+    "ssr-preview": "node prod.js",
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.ts"
@@ -17,6 +18,8 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "serve-static": "^1.15.0",
+    "cors": "^2.8.5"
   }
 }
