@@ -28,22 +28,4 @@ export const hostClient = async (source) => {
   Object.values(window.assets).forEach(
     (a) => a.load && a.target && import(/* @vite-ignore */a.target)
   )
-  const lazyComponents = Object.values(window.assets)
-    .filter((a) => a.component && a.target)
-    .reduce(
-      (acc, cur) => ({ ...acc, [cur.component.toUpperCase()]: cur.target }),
-      {}
-    )
-  new MutationObserver((records) => {
-    records.forEach((record) =>
-      record.addedNodes.forEach((addedNode) => {
-        if (!lazyComponents[addedNode.tagName]) return
-        import(/* @vite-ignore */lazyComponents[addedNode.tagName])
-        delete lazyComponents[addedNode.tagName]
-      })
-    )
-  }).observe(document.body, {
-    childList: true,
-    subtree: true,
-  })
 }

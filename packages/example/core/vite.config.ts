@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
+import {defineConfig, Plugin} from 'vite'
 import react from '@vitejs/plugin-react'
-import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
+import {parseMfTypesPlugin} from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,12 +8,12 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      input: 'src/core.ts',
+      input: 'src/main.ts',
       output: {
         dir: '../../../public',
         chunkFileNames: 'core/[name]-[hash].js',
         assetFileNames: 'core/[name]-[hash][extname]',
-        entryFileNames: '[name].js',
+        entryFileNames: 'core.js',
       },
     },
   },
