@@ -1,7 +1,5 @@
 import { createVueWrapper } from '@mf-dev/wrapper-vue'
 import { t, typeInfo } from '@mf-dev/types'
-import App from './App.vue'
-import VueButton from './VueButton.vue'
 
 export const AppType = typeInfo(
   'ex-green',
@@ -9,8 +7,8 @@ export const AppType = typeInfo(
   { 'my-event': t<string> }
 )
 createVueWrapper({
-  component: App,
+  component: ()=>import("./App.vue").then(r=>r.default),
   ...AppType,
 })
 export const ButtonType = typeInfo('ex-vue-button')
-createVueWrapper({ component: VueButton, ...ButtonType, shadowRoot: 'open' })
+createVueWrapper({ component: ()=>import('./VueButton.vue'), ...ButtonType, shadowRoot: 'open' })

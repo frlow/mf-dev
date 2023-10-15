@@ -1,5 +1,5 @@
 export type WrapperOptions = {
-  component: any
+  component: ()=>Promise<any>
   attributes?: string[]
   tag: string
   shadowRoot?: 'open' | 'closed'

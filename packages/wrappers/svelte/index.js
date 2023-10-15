@@ -13,6 +13,11 @@ export const createSvelteWrapper = (options) => {
         : this
     }
 
+    static async load(){
+      const im = await options.component()
+      this.component = im.default || im
+    }
+
     static observedAttributes = attributes
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -24,11 +29,13 @@ export const createSvelteWrapper = (options) => {
     }
 
     connectedCallback() {
-      this.app = new options.component({
-        target: this.root,
-        props: this.temp,
+      this.constructor.load().then(()=>{
+        this.app = new this.constructor.component({
+          target: this.root,
+          props: this.temp,
+        })
+        delete this.temp
       })
-      delete this.temp
     }
 
     disconnectedCallback() {

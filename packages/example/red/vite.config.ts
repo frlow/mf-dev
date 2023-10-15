@@ -9,12 +9,12 @@ export default defineConfig({
   build: {
     minify: false,
     rollupOptions: {
-      input: 'src/red.ts',
+      input: 'src/main.ts',
       output: {
         dir: '../../../public',
         chunkFileNames: 'red/[name]-[hash].js',
         assetFileNames: 'red/[name]-[hash][extname]',
-        entryFileNames: '[name].js',
+        entryFileNames: 'red.js',
       },
     },
   },

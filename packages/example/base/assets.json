@@ -2,6 +2,7 @@
   "red": {
     "target": "/red.js",
     "component": "ex-red",
+    "load": true,
     "menu": {
       "label": "Red",
       "route": "/red"
@@ -11,6 +12,7 @@
   "green": {
     "target": "/green.js",
     "component": "ex-green",
+    "load": true,
     "menu": {
       "label": "Green",
       "route": "/green"

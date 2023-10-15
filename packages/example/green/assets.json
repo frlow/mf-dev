@@ -1,5 +1,6 @@
 {
   "green": {
+    "load": true,
     "component": "ex-green",
     "menu": {
       "label": "Green",
