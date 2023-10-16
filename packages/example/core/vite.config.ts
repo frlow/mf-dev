@@ -1,6 +1,6 @@
-import {defineConfig, Plugin} from 'vite'
+import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import {parseMfTypesPlugin} from '@mf-dev/types/plugin'
+import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({

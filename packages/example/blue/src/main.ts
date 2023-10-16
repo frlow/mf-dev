@@ -8,10 +8,10 @@ export const AppType = typeInfo(
     'my-event': t<string>,
   }
 )
-createSolidWrapper({ component: ()=>import('./App.jsx'), ...AppType })
+createSolidWrapper({ component: () => import('./App.jsx'), ...AppType })
 export const ButtonType = typeInfo('ex-solid-button')
 createSolidWrapper({
   ...ButtonType,
   shadowRoot: 'open',
-  component: ()=>import('./SolidButton.jsx'),
+  component: () => import('./SolidButton.jsx'),
 })

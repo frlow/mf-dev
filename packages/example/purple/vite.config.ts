@@ -1,15 +1,15 @@
-import {defineConfig} from 'vite'
-import {qwikVite} from '@builder.io/qwik/optimizer'
-import {parseMfTypesPlugin} from '@mf-dev/types/plugin'
+import { defineConfig } from 'vite'
+import { qwikVite } from '@builder.io/qwik/optimizer'
+import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     qwikVite({
       client: {
-        input: "src/main.ts",
-        outDir: '../../../public'
-      }
+        input: 'src/main.ts',
+        outDir: '../../../public',
+      },
     }),
     parseMfTypesPlugin('../../../public/purple-types.json'),
   ],

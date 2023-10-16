@@ -16,7 +16,7 @@ const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
             </li>
           ))}
         </ul>
-        <button onClick={() =>  dispatch('my-event', 'core')}>
+        <button onClick={() => dispatch('my-event', 'core')}>
           Dispatch {myCount}
         </button>
         <ex-react-button></ex-react-button>

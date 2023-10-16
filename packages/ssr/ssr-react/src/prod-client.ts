@@ -1,1 +1,1 @@
-import("./entry-client")
+import('./entry-client')

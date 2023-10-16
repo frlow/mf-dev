@@ -13,7 +13,7 @@ export const createSvelteWrapper = (options) => {
         : this
     }
 
-    static async load(){
+    static async load() {
       const im = await options.component()
       this.component = im.default || im
     }
@@ -29,7 +29,7 @@ export const createSvelteWrapper = (options) => {
     }
 
     connectedCallback() {
-      this.constructor.load().then(()=>{
+      this.constructor.load().then(() => {
         this.app = new this.constructor.component({
           target: this.root,
           props: this.temp,

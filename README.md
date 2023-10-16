@@ -1,16 +1,20 @@
 # mf-dev
 
 Table of contents
+
 - [Basic project](#basic)
 - [Advanced typing](#typing)
 
 <a name="basic"></a>
+
 ## Basic project
+
 ```shell
 npm create vite my-app
 ```
 
 vite-config.ts (replace svelte plugin with relevant plugin for your selected framework)
+
 ```typescript
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
@@ -33,38 +37,46 @@ export default defineConfig({
 ```
 
 ### Remove index.html
+
 ```shell
 rm index.html
 ```
 
 ### Create index.ts, entry file for production build
+
 Create an entry file, index.ts so that css is loaded correctly. Only use for build.
+
 ```typescript
 // src/index.ts
 import('./main')
 ```
 
 ### Move public to assets
-Move all assets in the public folder to assets. Public does not work well in this setup. 
+
+Move all assets in the public folder to assets. Public does not work well in this setup.
 
 ### Add wrapper dependency
+
 (svelte,react,vue,solid)
+
 ```shell
 npm i @mf-dev/wrapper-svelte --save
 ```
 
 ### Wrap app in custom element
+
 ```typescript
 // src/main.ts
 import App from './App.svelte'
-import {createSvelteWrapper} from "@mf-dev/wrapper-svelte";
+import { createSvelteWrapper } from '@mf-dev/wrapper-svelte'
 
-createSvelteWrapper({tag: "my-svelte-app", component: App})
-
+createSvelteWrapper({ tag: 'my-svelte-app', component: App })
 ```
 
 ### Test your app
+
 start the dev server
+
 ```shell
 npm run dev
 ```
@@ -72,21 +84,24 @@ npm run dev
 visit [example.com](https://example.com)
 
 open devTools and run the following script
+
 ```javascript
-document.head.innerHTML=""; 
-document.body.innerHTML="";
-import('http://localhost:5173/src/main.ts');
-const el = document.createElement("my-svelte-app");
-el.id="app";
-document.body.appendChild(el);
+document.head.innerHTML = ''
+document.body.innerHTML = ''
+import('http://localhost:5173/src/main.ts')
+const el = document.createElement('my-svelte-app')
+el.id = 'app'
+document.body.appendChild(el)
 ```
 
-*Check that hot reloading is working!*
+_Check that hot reloading is working!_
 
 ### Add attributes
-To add props/attributes to your app, the props must be listed in the attributes prop when creating the wrapper. 
+
+To add props/attributes to your app, the props must be listed in the attributes prop when creating the wrapper.
 
 Example in svelte
+
 ```html
 <!--App.svelte-->
 <script lang="ts">
@@ -99,37 +114,33 @@ Example in svelte
 ```typescript
 // main.ts
 import App from './App.svelte'
-import {createSvelteWrapper} from "@mf-dev/wrapper-svelte";
+import { createSvelteWrapper } from '@mf-dev/wrapper-svelte'
 
 createSvelteWrapper({
-  tag: "my-svelte-app",
+  tag: 'my-svelte-app',
   component: App,
-  attributes: ["msg"] // define attributes here
+  attributes: ['msg'], // define attributes here
 })
 ```
 
 The attribute can be used like this
+
 ```html
 <my-svelte-app msg="some text"></my-svelte-app>
 ```
 
 <a name="typing"></a>
+
 ### Advanced typing
-The wrappers have a more advanced way of defining props/attributes such that they only have to be defined once. 
+
+The wrappers have a more advanced way of defining props/attributes such that they only have to be defined once.
 
 ```typescript
 // main.ts
-import {
-  createSvelteWrapper,
-  typeInfo,
-  t,
-} from '@mf-dev/wrapper-svelte'
+import { createSvelteWrapper, typeInfo, t } from '@mf-dev/wrapper-svelte'
 import App from './App.svelte'
 
-export const AppType = typeInfo(
-  'my-svelte-app',
-  { msg: t<number>() }
-)
+export const AppType = typeInfo('my-svelte-app', { msg: t<number>() })
 createSvelteWrapper({
   component: App,
   ...AppType,
@@ -138,7 +149,7 @@ createSvelteWrapper({
 
 ```html
 <script lang="ts">
-  import type { AppType } from "./main.js"; // IMPORTANT!, use import type
+  import type { AppType } from './main.js' // IMPORTANT!, use import type
   export let { msg }: typeof AppType = {} as any
 </script>
 

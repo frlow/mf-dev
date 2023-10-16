@@ -7,8 +7,12 @@ export const AppType = typeInfo(
   { 'my-event': t<string> }
 )
 createVueWrapper({
-  component: ()=>import("./App.vue").then(r=>r.default),
+  component: () => import('./App.vue').then((r) => r.default),
   ...AppType,
 })
 export const ButtonType = typeInfo('ex-vue-button')
-createVueWrapper({ component: ()=>import('./VueButton.vue'), ...ButtonType, shadowRoot: 'open' })
+createVueWrapper({
+  component: () => import('./VueButton.vue'),
+  ...ButtonType,
+  shadowRoot: 'open',
+})

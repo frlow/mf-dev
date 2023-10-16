@@ -26,6 +26,6 @@ export const hostClient = async (source) => {
     {}
   )
   Object.values(window.assets).forEach(
-    (a) => a.target && import(/* @vite-ignore */a.target)
+    (a) => a.target && import(/* @vite-ignore */ a.target)
   )
 }

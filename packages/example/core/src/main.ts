@@ -1,12 +1,12 @@
-import {createReactWrapper} from '@mf-dev/wrapper-react'
-import {t, typeInfo} from '@mf-dev/types'
+import { createReactWrapper } from '@mf-dev/wrapper-react'
+import { t, typeInfo } from '@mf-dev/types'
 
 export const AppType = typeInfo(
-    'ex-core',
-    {'my-count': t<number>},
-    {
-      'my-event': t<string>,
-    }
+  'ex-core',
+  { 'my-count': t<number> },
+  {
+    'my-event': t<string>,
+  }
 )
 createReactWrapper({
   component: () => import('./App.js'),

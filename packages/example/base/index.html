@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Micro-Frontend demo</title>
-  <script type="module">
-    import { hostClient } from '@mf-dev/host'
-    import '@mf-dev/host/routing'
+  <head>
+    <title>Micro-Frontend demo</title>
+    <script type="module">
+      import { hostClient } from '@mf-dev/host'
+      import '@mf-dev/host/routing'
 
-    hostClient('/assets.json').then()
-  </script>
-  <script src="//unpkg.com/alpinejs" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+      hostClient('/assets.json').then()
+    </script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body x-data="{ counter: 1 }">
-<ex-core id="core" x-on:my-event="console.log($event);counter = counter + 1" x-bind:my-count="counter"></ex-core>
-</body>
-
+  <body x-data="{ counter: 1 }">
+    <ex-core
+      id="core"
+      x-on:my-event="console.log($event);counter = counter + 1"
+      x-bind:my-count="counter"
+    ></ex-core>
+  </body>
 </html>

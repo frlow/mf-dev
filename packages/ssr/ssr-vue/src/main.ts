@@ -7,4 +7,4 @@ export function createMyApp(hydrated: boolean = true) {
   return { app }
 }
 
-export const tag = "ex-vue-ssr"
+export const tag = 'ex-vue-ssr'

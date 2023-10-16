@@ -7,7 +7,7 @@ export const AppType = typeInfo(
   { 'my-event': t<string> }
 )
 createSvelteWrapper({
-  component: ()=>import("./App.svelte"),
+  component: () => import('./App.svelte'),
   ...AppType,
 })
 
@@ -16,7 +16,7 @@ export const ButtonType = typeInfo('ex-svelte-button', {
   demo: t<number>(),
 })
 createSvelteWrapper({
-  component: ()=>import("./SvelteButton.svelte"),
+  component: () => import('./SvelteButton.svelte'),
   shadowRoot: 'open',
   ...ButtonType,
 })

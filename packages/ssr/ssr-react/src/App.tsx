@@ -24,4 +24,4 @@ function App() {
 
 export default App
 
-export const tag = "ex-react-ssr"
+export const tag = 'ex-react-ssr'
