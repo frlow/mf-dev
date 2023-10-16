@@ -12,10 +12,3 @@ createQwikWrapper({
   component: () => import('./app.tsx'),
   ...AppType,
 })
-
-export const ButtonType = typeInfo('ex-qwik-button')
-createQwikWrapper({
-  ...ButtonType,
-  shadowRoot: 'open',
-  component: () => import('./QwikButton.tsx'),
-})

@@ -1,11 +1,3 @@
-import {
-  componentQrl,
-  createElement,
-  render,
-  useSignal,
-  inlinedQrl,
-} from '@builder.io/qwik'
-
 export const createQwikWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class extends HTMLElement {
@@ -31,7 +23,7 @@ export const createQwikWrapper = (options) => {
     }
 
     static async load() {
-      return options.component()
+      return Promise.all([options.component(), import('@builder.io/qwik')])
     }
 
     attributeChangedCallback(name, _, newValue) {
@@ -40,42 +32,54 @@ export const createQwikWrapper = (options) => {
 
     connectedCallback() {
       const self = this
-      this.constructor.load().then((component) => {
-        const startValues = { ...self.temp }
-        // @ts-ignore
-        delete self.temp
-        const Root = componentQrl(
-          inlinedQrl(() => {
-            const props = Object.entries(startValues).reduce(
-              (acc, cur) => ({
-                ...acc,
-                [cur[0]]: useSignal(cur[1]),
-              }),
-              {}
+      this.constructor
+        .load()
+        .then(
+          ([
+            component,
+            { componentQrl, createElement, render, useSignal, inlinedQrl },
+          ]) => {
+            const startValues = { ...self.temp }
+            // @ts-ignore
+            delete self.temp
+            const Root = componentQrl(
+              inlinedQrl(() => {
+                const props = Object.entries(startValues).reduce(
+                  (acc, cur) => ({
+                    ...acc,
+                    [cur[0]]: useSignal(cur[1]),
+                  }),
+                  {}
+                )
+                self.update = inlinedQrl(
+                  (name, value) => (props[name].value = value),
+                  'update'
+                )
+                const propsValues = Object.entries(props).reduce(
+                  (acc, [key, value]) => ({
+                    ...acc,
+                    [key]: value.value,
+                  }),
+                  {}
+                )
+                propsValues.dispatch = inlinedQrl(
+                  (name, value) =>
+                    self.dispatchEvent(
+                      new CustomEvent(name, { detail: value })
+                    ),
+                  'dispatch'
+                )
+                return createElement(
+                  component.default || component,
+                  propsValues
+                )
+              }, 'root')
             )
-            self.update = inlinedQrl(
-              (name, value) => (props[name].value = value),
-              'update'
-            )
-            const propsValues = Object.entries(props).reduce(
-              (acc, [key, value]) => ({
-                ...acc,
-                [key]: value.value,
-              }),
-              {}
-            )
-            propsValues.dispatch = inlinedQrl(
-              (name, value) =>
-                self.dispatchEvent(new CustomEvent(name, { detail: value })),
-              'dispatch'
-            )
-            return createElement(component.default || component, propsValues)
-          }, 'root')
+            render(self.root, createElement(Root, {})).then((r) => {
+              this.cleanup = r.cleanup
+            })
+          }
         )
-        render(self.root, createElement(Root, {})).then((r) => {
-          this.cleanup = r.cleanup
-        })
-      })
     }
 
     disconnectedCallback() {

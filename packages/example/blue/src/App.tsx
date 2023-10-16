@@ -4,7 +4,7 @@ import { AppType } from './main.js'
 const App = (props: typeof AppType) => {
   return (
     <div class={style.root}>
-      <h1>Solid js</h1>
+      <h1>SOLIDJS</h1>
       <button
         onClick={() => {
           props.dispatch('my-event', 'blue')

@@ -1,25 +1,41 @@
-import { component$, useSignal, useStylesScoped$ } from '@builder.io/qwik'
-import { Demo } from './Demo.tsx'
+import { component$, useStylesScoped$ } from '@builder.io/qwik'
 
 const css = String.raw
 const App = component$((args: any) => {
-  const count = useSignal(0)
   useStylesScoped$(css`
+    .root {
+      background-color: #271a37;
+      padding: 3rem;
+      border: 2px solid #2d3746;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
     h1 {
-      color: rebeccapurple;
+      color: #ac7ef2;
+    }
+
+    button {
+      border: 1px solid white;
+      padding: 1rem;
+      background-color: #ac7ef2;
+      text-transform: uppercase;
+      font-family: 'Avenir Next', serif;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      color: #dbdde1;
     }
   `)
-  const ExQwikButton = 'ex-qwik-button'
   return (
     <>
-      <div>
-        <h1>Qwik</h1>
+      <div class="root">
+        <h1>qwik</h1>
         <button onClick$={() => args.dispatch('my-event', 'purple')}>
-          Dispatch {args['my-count']}
+          Clicks: {args['my-count']}
         </button>
-        <ExQwikButton />
-        <button onClick$={() => count.value++}>Count: {count.value}</button>
-        {count.value % 2 !== 0 ? <Demo /> : ''}
       </div>
     </>
   )
