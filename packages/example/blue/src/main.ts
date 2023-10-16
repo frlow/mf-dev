@@ -9,9 +9,3 @@ export const AppType = typeInfo(
   }
 )
 createSolidWrapper({ component: () => import('./App.jsx'), ...AppType })
-export const ButtonType = typeInfo('ex-solid-button')
-createSolidWrapper({
-  ...ButtonType,
-  shadowRoot: 'open',
-  component: () => import('./SolidButton.jsx'),
-})
