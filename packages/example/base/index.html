@@ -16,8 +16,7 @@
                 turquoise: "/turquoise.js",
                 blue: "/blue.js",
             }
-            const dev = localStorage.dev ? parseInt(localStorage.dev) : 0
-            for (const x of Array(dev).keys()) {
+            for (const x of Array(Object.keys(apps).length).keys()) {
                 const pkg = await fetch(`http://localhost:${5173 + x}/package.json`).then(r => r.json()).catch(() => undefined)
                 if (pkg?.name)
                     apps[pkg.name] = `http://localhost:${5173 + x}/${pkg.main || 'src/main.ts'}`
@@ -32,7 +31,7 @@
     <div x-data="{show: localStorage[app]==='true'}">
         <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
         <template x-if="show">
-            <div x-html="`<ex-${app}></ex-${app}>`"></div>
+            <div x-html="`<ex-${app} x-bind:my-count='counter' @my-event='console.log($event); counter++'></ex-${app}>`"></div>
         </template>
     </div>
 </template>
