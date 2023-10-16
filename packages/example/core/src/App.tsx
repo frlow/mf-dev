@@ -2,7 +2,7 @@ import { Router, Route } from './components/Router.js'
 import type { AppType } from './main.js'
 import React from 'react'
 
-export const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
+const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
   const menuItems: any[] = Object.values((window as any).assets).filter(
     (asset: any) => asset.menu
   )

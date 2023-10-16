@@ -9,13 +9,13 @@ export const AppType = typeInfo(
     }
 )
 createReactWrapper({
-  component: () => import('./App.js').then(r => r.App),
+  component: () => import('./App.js'),
   ...AppType,
 })
 
 export const ButtonType = typeInfo('ex-react-button')
 createReactWrapper({
   shadowRoot: 'open',
-  component: () => import('./ReactButton.js').then(r => r.ReactButton),
+  component: () => import('./ReactButton.js'),
   ...ButtonType,
 })

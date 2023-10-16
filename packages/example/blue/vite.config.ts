@@ -11,12 +11,12 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      input: 'src/blue.ts',
+      input: 'src/main.ts',
       output: {
         dir: '../../../public',
         chunkFileNames: 'blue/[name]-[hash].js',
         assetFileNames: 'blue/[name]-[hash][extname]',
-        entryFileNames: '[name].js',
+        entryFileNames: 'blue.js',
       },
     },
   },

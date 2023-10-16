@@ -1,7 +1,5 @@
 import { createSolidWrapper } from '@mf-dev/wrapper-solid'
 import { t, typeInfo } from '@mf-dev/types'
-import { App } from './App.js'
-import { SolidButton } from './SolidButton.js'
 
 export const AppType = typeInfo(
   'ex-blue',
@@ -10,10 +8,10 @@ export const AppType = typeInfo(
     'my-event': t<string>,
   }
 )
-createSolidWrapper({ component: App, ...AppType })
+createSolidWrapper({ component: ()=>import('./App.jsx'), ...AppType })
 export const ButtonType = typeInfo('ex-solid-button')
 createSolidWrapper({
   ...ButtonType,
   shadowRoot: 'open',
-  component: SolidButton,
+  component: ()=>import('./SolidButton.jsx'),
 })

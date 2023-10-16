@@ -1,5 +1,5 @@
 const css = String.raw
-export const ReactButton = () => {
+const ReactButton = () => {
   return (
     <>
       <button>React Button</button>
@@ -12,3 +12,5 @@ export const ReactButton = () => {
     </>
   )
 }
+
+export default ReactButton

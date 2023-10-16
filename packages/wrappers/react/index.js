@@ -27,7 +27,7 @@ export const createReactWrapper = (options) => {
             const [react,reactDom,component] = await Promise.all([import("react"), import("react-dom/client"), options.component()])
             this.createRoot = reactDom.createRoot
             this.createElement = react.createElement
-            this.component = component
+            this.component = component.default || component
         }
 
         render = () => this.app?.render(this.constructor.createElement(this.constructor.component, this.props))
