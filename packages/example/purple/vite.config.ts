@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     qwikVite({
       client: {
-        input: "src/purple.ts",
+        input: "src/main.ts",
         outDir: '../../../public'
       }
     }),
@@ -19,7 +19,7 @@ export default defineConfig({
       output: {
         chunkFileNames: 'purple/[name]-[hash].js',
         assetFileNames: 'purple/[name]-[hash][extname]',
-        entryFileNames: '[name].js',
+        entryFileNames: 'purple.js',
       },
     },
   },
