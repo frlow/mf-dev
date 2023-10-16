@@ -24,14 +24,17 @@ export const createQwikWrapper = (options) => {
             }
         }
 
+        static async load(){
+            return options.component()
+        }
+
         attributeChangedCallback(name, _, newValue) {
             this.update(name, newValue)
         }
 
         connectedCallback() {
             const self = this
-
-            options.component().then(component => {
+            this.constructor.load().then(component => {
                 const startValues = {...self.temp}
                 // @ts-ignore
                 delete self.temp
