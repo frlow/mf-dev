@@ -1,5 +1,5 @@
 const css = String.raw
-export const SolidButton = () => {
+const SolidButton = () => {
   return (
     <>
       <button>Solid Button</button>
@@ -12,3 +12,5 @@ export const SolidButton = () => {
     </>
   )
 }
+
+export default SolidButton
