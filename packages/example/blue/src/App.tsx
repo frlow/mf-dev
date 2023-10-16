@@ -6,7 +6,7 @@ const App = (props: typeof AppType) => {
   const [count, setCount] = createSignal(0)
   return (
     <div class={style.root}>
-      <h1>BLUE</h1>
+      <h1>Solid js</h1>
       <button onClick={() => setCount(count() + 1)}>Clicked: {count()}</button>
       <button
         onClick={() => {

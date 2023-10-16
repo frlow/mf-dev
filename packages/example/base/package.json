@@ -5,14 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "vite build --outDir ../../../public --assetsDir . && cp assets.json ../../../public/",
+    "build": "vite build --outDir ../../../public --assetsDir .",
     "start": "vite --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@mf-dev/host": "workspace:*",
     "vite": "^4.4.7"
   }
 }

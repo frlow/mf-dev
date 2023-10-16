@@ -13,7 +13,7 @@ const App = component$((args: any) => {
   return (
     <>
       <div>
-        <h1>PURPLE</h1>
+        <h1>Qwik</h1>
         <button onClick$={() => args.dispatch('my-event', 'purple')}>
           Dispatch {args['my-count']}
         </button>

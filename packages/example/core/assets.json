@@ -1,6 +1,0 @@
-{
-  "core": {
-    "entry": "src/dev.ts",
-    "load": true
-  }
-}

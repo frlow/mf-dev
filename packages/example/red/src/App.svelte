@@ -5,7 +5,7 @@
 </script>
 
 <main>
-  <h1>RED</h1>
+  <h1>Svelte</h1>
   <button on:click={()=>show=!show}>Toggle</button>
   {#if show}
     <button class="secondary">Demo</button>

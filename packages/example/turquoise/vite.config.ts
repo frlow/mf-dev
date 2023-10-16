@@ -4,7 +4,10 @@ import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), parseMfTypesPlugin('../../../public/core-types.json')],
+  plugins: [
+    react(),
+    parseMfTypesPlugin('../../../public/turquoise-types.json'),
+  ],
   base: './',
   build: {
     rollupOptions: {
@@ -13,7 +16,7 @@ export default defineConfig({
         dir: '../../../public',
         chunkFileNames: 'core/[name]-[hash].js',
         assetFileNames: 'core/[name]-[hash][extname]',
-        entryFileNames: 'core.js',
+        entryFileNames: 'turquoise.js',
       },
     },
   },

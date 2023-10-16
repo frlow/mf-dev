@@ -2,7 +2,7 @@ import { createReactWrapper } from '@mf-dev/wrapper-react'
 import { t, typeInfo } from '@mf-dev/types'
 
 export const AppType = typeInfo(
-  'ex-core',
+  'ex-turquoise',
   { 'my-count': t<number> },
   {
     'my-event': t<string>,

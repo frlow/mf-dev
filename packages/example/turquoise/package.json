@@ -1,7 +1,8 @@
 {
-  "name": "core",
+  "name": "turquoise",
   "private": true,
   "type": "module",
+  "main": "src/dev.ts",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
