@@ -1,7 +1,7 @@
 import {component$, useStylesScoped$} from "@builder.io/qwik";
 
 const css = String.raw
-export const QwikButton = component$(() => {
+const QwikButton = component$(() => {
   useStylesScoped$(css`
   button{
     background-color: steelblue;
@@ -10,3 +10,5 @@ export const QwikButton = component$(() => {
   `)
   return <button>Qwik Button</button>
 })
+
+export default QwikButton

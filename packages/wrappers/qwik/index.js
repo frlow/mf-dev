@@ -30,27 +30,31 @@ export const createQwikWrapper = (options) => {
 
         connectedCallback() {
             const self = this
-            const startValues = {...self.temp}
-            // @ts-ignore
-            delete self.temp
-            const Root = componentQrl(inlinedQrl(() => {
-                const props = Object.entries(startValues).reduce((acc, cur) => ({
-                    ...acc,
-                    [cur[0]]: useSignal(cur[1])
-                }), {})
-                self.update = inlinedQrl((name, value) =>
-                        props[name].value = value
-                    , "update")
-                const propsValues = Object.entries(props).reduce((acc, [key, value]) => ({
-                    ...acc,
-                    [key]: value.value
-                }), {})
-                propsValues.dispatch = inlinedQrl((name, value) => self.dispatchEvent(new CustomEvent(name, {detail: value})), "dispatch")
-                return createElement(options.component, propsValues)
-            }, "root"))
-            render(self.root, createElement(Root, {})).then(r => {
-                this.cleanup = r.cleanup
+
+            options.component().then(component => {
+                const startValues = {...self.temp}
+                // @ts-ignore
+                delete self.temp
+                const Root = componentQrl(inlinedQrl(() => {
+                    const props = Object.entries(startValues).reduce((acc, cur) => ({
+                        ...acc,
+                        [cur[0]]: useSignal(cur[1])
+                    }), {})
+                    self.update = inlinedQrl((name, value) =>
+                            props[name].value = value
+                        , "update")
+                    const propsValues = Object.entries(props).reduce((acc, [key, value]) => ({
+                        ...acc,
+                        [key]: value.value
+                    }), {})
+                    propsValues.dispatch = inlinedQrl((name, value) => self.dispatchEvent(new CustomEvent(name, {detail: value})), "dispatch")
+                    return createElement(component.default || component, propsValues)
+                }, "root"))
+                render(self.root, createElement(Root, {})).then(r => {
+                    this.cleanup = r.cleanup
+                })
             })
+
         }
 
         disconnectedCallback() {

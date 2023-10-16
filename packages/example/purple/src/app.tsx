@@ -2,7 +2,7 @@ import {component$, useSignal, useStylesScoped$} from '@builder.io/qwik'
 import {Demo} from "./Demo.tsx";
 
 const css = String.raw
-export const App = component$((args: any) => {
+const App = component$((args: any) => {
   const count = useSignal(0)
   useStylesScoped$(css`
   h1{
@@ -23,3 +23,4 @@ export const App = component$((args: any) => {
     </>
   )
 })
+export default App
