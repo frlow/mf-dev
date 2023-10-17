@@ -2,7 +2,7 @@ import { createSolidWrapper } from '@mf-dev/wrapper-solid'
 import { t, typeInfo } from '@mf-dev/types'
 
 export const AppType = typeInfo(
-  'ex-blue',
+  'template-solid',
   { 'my-count': t<number> },
   {
     'my-event': t<string>,

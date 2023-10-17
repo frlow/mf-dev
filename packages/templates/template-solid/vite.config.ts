@@ -4,19 +4,15 @@ import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    solidPlugin(),
-    parseMfTypesPlugin('../../../public/blue-types.json'),
-  ],
+  plugins: [solidPlugin(), parseMfTypesPlugin('dist/types.json')],
   base: './',
   build: {
     rollupOptions: {
       input: 'src/main.ts',
       output: {
-        dir: '../../../public',
-        chunkFileNames: 'blue/[name]-[hash].js',
-        assetFileNames: 'blue/[name]-[hash][extname]',
-        entryFileNames: 'blue.js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash][extname]',
+        entryFileNames: '[name].js',
       },
     },
   },

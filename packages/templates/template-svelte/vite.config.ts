@@ -4,17 +4,15 @@ import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), parseMfTypesPlugin('../../../public/red-types.json')],
+  plugins: [svelte(), parseMfTypesPlugin('dist/types.json')],
   base: './',
   build: {
-    minify: false,
     rollupOptions: {
       input: 'src/main.ts',
       output: {
-        dir: '../../../public',
-        chunkFileNames: 'red/[name]-[hash].js',
-        assetFileNames: 'red/[name]-[hash][extname]',
-        entryFileNames: 'red.js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash][extname]',
+        entryFileNames: '[name].js',
       },
     },
   },
