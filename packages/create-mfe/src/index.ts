@@ -319,11 +319,11 @@ async function init() {
   switch (pkgManager) {
     case 'yarn':
       console.log('  yarn')
-      console.log('  yarn dev')
+      console.log('  yarn start')
       break
     default:
       console.log(`  ${pkgManager} install`)
-      console.log(`  ${pkgManager} run dev`)
+      console.log(`  ${pkgManager} run start`)
       break
   }
   console.log()
