@@ -8,18 +8,17 @@ export default defineConfig({
     qwikVite({
       client: {
         input: 'src/main.ts',
-        outDir: '../../../public',
       },
     }),
-    parseMfTypesPlugin('../../../public/purple-types.json'),
+    parseMfTypesPlugin('dist/types.json'),
   ],
   base: './',
   build: {
     rollupOptions: {
       output: {
-        chunkFileNames: 'purple/[name]-[hash].js',
-        assetFileNames: 'purple/[name]-[hash][extname]',
-        entryFileNames: 'purple.js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash][extname]',
+        entryFileNames: '[name].js',
       },
     },
   },

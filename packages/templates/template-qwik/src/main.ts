@@ -4,7 +4,7 @@ import { t, typeInfo } from '@mf-dev/types'
 import { createQwikWrapper } from '@mf-dev/wrapper-qwik'
 
 export const AppType = typeInfo(
-  'ex-purple',
+  'template-qwik',
   { 'my-count': t<number> },
   { 'my-event': t<string> }
 )
