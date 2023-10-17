@@ -1,0 +1,31 @@
+{
+  "name": "create-mfe",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "author": "Fredrik Löwenhamn",
+  "bin": "index.js",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "pnpm templates",
+    "templates": "cp -r ../templates .",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.3",
+    "@types/prompts": "^2.4.6",
+    "@types/cross-spawn": "^6.0.3",
+    "cross-spawn": "^7.0.3",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "tsx": "^3.13.0"
+  }
+}

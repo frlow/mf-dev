@@ -1,11 +1,11 @@
 {
-  "name": "base",
+  "name": "example",
   "private": true,
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "vite build --outDir ../../../public --assetsDir .",
+    "build": "vite build --outDir ../../public --assetsDir .",
     "start": "vite --port 3000"
   },
   "keywords": [],
