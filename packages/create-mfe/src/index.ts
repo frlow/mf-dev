@@ -46,7 +46,7 @@ const FRAMEWORKS: Framework[] = [
     color: green,
     variants: [
       {
-        name: 'vue-ts',
+        name: 'vue',
         display: 'TypeScript',
         color: blue,
       },
@@ -58,7 +58,7 @@ const FRAMEWORKS: Framework[] = [
     color: cyan,
     variants: [
       {
-        name: 'react-ts',
+        name: 'react',
         display: 'TypeScript',
         color: blue,
       },
@@ -70,7 +70,7 @@ const FRAMEWORKS: Framework[] = [
     color: red,
     variants: [
       {
-        name: 'svelte-ts',
+        name: 'svelte',
         display: 'TypeScript',
         color: blue,
       },
@@ -82,7 +82,7 @@ const FRAMEWORKS: Framework[] = [
     color: blue,
     variants: [
       {
-        name: 'solid-ts',
+        name: 'solid',
         display: 'TypeScript',
         color: blue,
       },
@@ -94,7 +94,7 @@ const FRAMEWORKS: Framework[] = [
     color: lightBlue,
     variants: [
       {
-        name: 'qwik-ts',
+        name: 'qwik',
         display: 'TypeScript',
         color: lightBlue,
       },
