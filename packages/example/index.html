@@ -23,7 +23,7 @@
                 purple: "/purple.js",
                 red: "/red.js",
                 green: "/green.js",
-                turquoise: "/turquoise.js",
+                "template-react": "/template-react/dist/main.js",
                 blue: "/blue.js",
             }
             for (const x of Array(Object.keys(apps).length).keys()) {
@@ -37,11 +37,11 @@
 </head>
 
 <body x-data="{ counter: 1 }">
-<template x-for="app in ['blue', 'green', 'purple', 'red', 'turquoise']">
+<template x-for="app in ['blue', 'green', 'purple', 'red', 'template-react']">
     <div x-data="{show: localStorage[app]==='true'}" style="display: flex; align-items: center; flex-direction: column">
         <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
         <template x-if="show">
-            <div x-html="`<ex-${app} x-bind:my-count='counter' @my-event='console.log($event); counter++'></ex-${app}>`"></div>
+            <div x-html="`<${app} x-bind:my-count='counter' @my-event='console.log($event); counter++'></${app}>`"></div>
         </template>
     </div>
 </template>

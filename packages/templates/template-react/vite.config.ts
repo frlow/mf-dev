@@ -4,19 +4,15 @@ import { parseMfTypesPlugin } from '@mf-dev/types/plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    parseMfTypesPlugin('../../../public/turquoise-types.json'),
-  ],
+  plugins: [react(), parseMfTypesPlugin('dist/types.json')],
   base: './',
   build: {
     rollupOptions: {
       input: 'src/main.ts',
       output: {
-        dir: '../../../public',
-        chunkFileNames: 'core/[name]-[hash].js',
-        assetFileNames: 'core/[name]-[hash][extname]',
-        entryFileNames: 'turquoise.js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash][extname]',
+        entryFileNames: '[name].js',
       },
     },
   },

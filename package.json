@@ -9,7 +9,8 @@
     "start": "pnpm run --stream --parallel start",
     "ssr": "pnpm run --stream --parallel ssr",
     "ssr-preview": "pnpm build && pnpm run --stream --parallel ssr-preview",
-    "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build",
+    "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build && pnpm build:copytemplate",
+    "build:copytemplate": "pnpm exec copyfiles --up 2 packages/templates/template-*/dist/* public",
     "preview": "pnpm run build && ws -d public --spa index.html -p 3000 -z",
     "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results"
@@ -21,7 +22,8 @@
     "esbuild": "^0.17.18",
     "glob": "^10.2.2",
     "prettier-plugin-sort-json": "^1.0.0",
-    "local-web-server": "^5.3.0"
+    "local-web-server": "^5.3.0",
+    "copyfiles": "^2.4.1"
   },
   "author": "",
   "license": "ISC",
