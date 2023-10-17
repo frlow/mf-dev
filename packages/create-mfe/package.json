@@ -1,6 +1,6 @@
 {
   "name": "create-mfe",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "type": "module",
   "license": "MIT",
   "author": "Fredrik Löwenhamn",
@@ -13,8 +13,9 @@
   "scripts": {
     "dev": "rm -rf mfe-project && tsx src/index.ts",
     "build": "pnpm templates && unbuild",
-    "templates": "rm -rf templates && cp -r ../templates .",
-    "typecheck": "tsc --noEmit"
+    "templates": "rm -rf templates && rsync -r --exclude dist --exclude node_modules ../templates .",
+    "typecheck": "tsc --noEmit",
+    "npm-publish": "pnpm build && npm publish"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0"

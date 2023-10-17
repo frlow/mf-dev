@@ -1,3 +1,24 @@
 h1 {
   color: #aa1e1e;
 }
+.root {
+  background-color: #350b0b;
+  padding: 3rem;
+  border: 2px solid #2d3746;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 10rem;
+}
+button {
+  border: 1px solid white;
+  padding: 1rem;
+  background-color: #aa1e1e;
+  text-transform: uppercase;
+  font-family: 'Avenir Next', serif;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  color: #dbdde1;
+}

@@ -16,7 +16,8 @@
     "rollup-plugin-import-css": "^3.2.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "sass": "^1.69.3"
   },
   "dependencies": {
     "solid-js": "^1.7.4",

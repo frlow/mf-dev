@@ -4,10 +4,10 @@
   $: args = $$props as typeof AppType
 </script>
 
-<main>
+<main class="root">
   <h1>Svelte</h1>
   <button on:click={()=>args.dispatch("my-event", "red")}>
-    Dispatch {args["my-count"]}</button>
+    Clicks: {args["my-count"]}</button>
 </main>
 
 <style lang="scss">

@@ -12,6 +12,7 @@ const App = component$((args: any) => {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      width: 10rem;
     }
 
     h1 {
