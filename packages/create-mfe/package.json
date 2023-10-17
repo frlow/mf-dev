@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "tsx src/index.ts",
-    "build": "pnpm templates",
+    "build": "pnpm templates && unbuild",
     "templates": "rm -rf templates && cp -r ../templates .",
     "typecheck": "tsc --noEmit"
   },
@@ -26,6 +26,7 @@
     "kolorist": "^1.8.0",
     "minimist": "^1.2.8",
     "prompts": "^2.4.2",
-    "tsx": "^3.13.0"
+    "tsx": "^3.13.0",
+    "unbuild": "^2.0.0"
   }
 }
