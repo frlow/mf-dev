@@ -1,16 +1,17 @@
 {
   "name": "create-mfe",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "type": "module",
   "license": "MIT",
   "author": "Fredrik Löwenhamn",
   "bin": "index.js",
   "files": [
     "index.js",
-    "dist"
+    "dist",
+    "templates"
   ],
   "scripts": {
-    "dev": "tsx src/index.ts",
+    "dev": "rm -rf mfe-project && tsx src/index.ts",
     "build": "pnpm templates && unbuild",
     "templates": "rm -rf templates && cp -r ../templates .",
     "typecheck": "tsc --noEmit"

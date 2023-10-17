@@ -110,7 +110,7 @@ const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
 }
 
-const defaultTargetDir = 'vite-project'
+const defaultTargetDir = 'mfe-project'
 
 async function init() {
   const argTargetDir = formatTargetDir(argv._[0])
@@ -298,6 +298,8 @@ async function init() {
   )
 
   pkg.name = packageName || getProjectName()
+  fixDependencies(pkg.dependencies)
+  fixDependencies(pkg.devDependencies)
 
   write('package.json', JSON.stringify(pkg, null, 2) + '\n')
 
@@ -325,6 +327,13 @@ async function init() {
       break
   }
   console.log()
+}
+
+function fixDependencies(deps: any) {
+  if (!deps) return
+  Object.keys(deps).forEach((key) => {
+    deps[key] = deps[key].replace(/workspace:./, 'latest')
+  })
 }
 
 function formatTargetDir(targetDir: string | undefined) {
