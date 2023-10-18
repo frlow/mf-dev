@@ -6,5 +6,3 @@ export function createMyApp(hydrated: boolean = true) {
   const app = createFunc(App)
   return { app }
 }
-
-export const tag = 'ex-vue-ssr'
