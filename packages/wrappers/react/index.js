@@ -5,8 +5,17 @@ export const createReactWrapper = (options) => {
   const wrapperClass = class extends HTMLElement {
     constructor() {
       super()
+      this.hydrate = !!this.innerHTML
       this.root = options.shadowRoot
-        ? this.attachShadow({ mode: options.shadowRoot })
+        ? (() => {
+            //TODO Shadow root hydration
+            console.warn('This is not tested yet!!')
+            const internals = this.attachInternals()
+            return (
+              internals.shadowRoot ||
+              this.attachShadow({ mode: options.shadowRoot })
+            )
+          })()
         : this
 
       this.props = {
@@ -30,6 +39,7 @@ export const createReactWrapper = (options) => {
         options.component(),
       ])
       this.createRoot = reactDom.createRoot
+      this.hydrateRoot = reactDom.hydrateRoot
       this.createElement = react.createElement
       this.component = component.default || component
     }
@@ -41,8 +51,18 @@ export const createReactWrapper = (options) => {
 
     connectedCallback() {
       this.constructor.load().then(() => {
-        this.app = this.constructor.createRoot(this.root)
-        this.render()
+        if (this.hydrate)
+          this.app = this.constructor.hydrateRoot(
+            this.root,
+            this.constructor.createElement(
+              this.constructor.component,
+              this.props
+            )
+          )
+        else {
+          this.app = this.constructor.createRoot(this.root)
+          this.render()
+        }
       })
     }
 
