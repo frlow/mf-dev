@@ -12,3 +12,16 @@ createReactWrapper({
   component: () => import('./App.js'),
   ...AppType,
 })
+
+export const ButtonType = typeInfo(
+  'react-button',
+  { text: t<string> },
+  {
+    'my-click': t<void>,
+  }
+)
+createReactWrapper({
+  shadowRoot: 'open',
+  component: () => import('./Button.js'),
+  ...ButtonType,
+})

@@ -6,9 +6,10 @@ const App = ({ 'my-count': myCount, dispatch }: typeof AppType) => {
   return (
     <div className={style.root}>
       <h1 className={style.header}>React</h1>
-      <button onClick={() => dispatch('my-event', 'core')}>
-        Clicks: {myCount}
-      </button>
+      <react-button
+        text={`Clicks: ${myCount}`}
+        onmy-click={() => dispatch('my-event', 'core')}
+      ></react-button>
     </div>
   )
 }
