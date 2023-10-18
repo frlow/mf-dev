@@ -15,6 +15,12 @@ app.get('/', async (req, res) => {
     meta.map((m) => fetch(m.url).then((r) => r.text()))
   )
   const imports = meta.map((m) => `import('${m.target}')`)
+  const styles = meta
+    .flatMap((m) => m.styles.map((s) => new URL(s, m.url).href))
+    .map(
+      (s) => `<link rel="stylesheet" crossorigin type="text/css" href="${s}" />`
+    )
+  debugger
   res.setHeader('content-type', 'text/html')
   res.send(`<!DOCTYPE html>
 <html>
@@ -24,6 +30,7 @@ app.get('/', async (req, res) => {
 <script type="module">
 ${imports.join('\n')}
 </script>
+${styles.join('\n')}
 </head>
 
 <body>

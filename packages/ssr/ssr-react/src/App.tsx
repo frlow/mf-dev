@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import style from './App.module.css'
 
 function App() {
+  const Sub = lazy(() => import('./Sub'))
   const [count, setCount] = useState(0)
 
   return (
@@ -11,6 +12,11 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        {count > 0 ? (
+          <Suspense fallback={'loading...'}>
+            <Sub></Sub>
+          </Suspense>
+        ) : null}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

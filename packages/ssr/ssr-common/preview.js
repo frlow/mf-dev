@@ -9,7 +9,13 @@ import fs from 'fs'
 async function createServer() {
   const app = express()
   const port = await startServerOnAvailablePort(app)
-
+  const entryPath = path.join('dist/client/entry-client.js')
+  const styles = fs
+    .readFileSync(entryPath, 'utf8')
+    .match(/"\.\/.*?\..*?"/gm)
+    .map((m) => m.replace(/"/g, ''))
+    .filter((m) => m.endsWith('.css'))
+    .filter((v, i, a) => a.indexOf(v) === i)
   app.use(cors())
   app.use(serveStatic('dist/client', { index: false }))
   app.use('/__', (req, res) => {
@@ -17,6 +23,7 @@ async function createServer() {
       target: `http://localhost:${port}/entry-client.js`,
       url: `http://localhost:${port}/`,
       name: JSON.parse(fs.readFileSync('package.json', 'utf8')).name,
+      styles,
     }
     res.setHeader('content-type', 'application/json')
     res.send(JSON.stringify(meta))
