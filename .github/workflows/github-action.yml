@@ -49,7 +49,7 @@ jobs:
       - shell: bash
         run: |
           npm config -L project set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
-          reference="@mf-dev/wrapper-common"
+          reference="@mf-dev/wrapper-react"
           current=$(pnpm pkg get version | sed -r 's/\"//g')
           remote=$(pnpm show $reference version)
           if [ "$current" != "$remote" ];
