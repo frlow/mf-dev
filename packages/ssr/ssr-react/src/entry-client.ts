@@ -1,3 +1,3 @@
 import { createReactWrapper } from '@mf-dev/wrapper-react'
 
-createReactWrapper({ tag: 'ex-react-ssr', component: () => import('./App') })
+createReactWrapper({ tag: 'ssr-react', component: () => import('./App') })

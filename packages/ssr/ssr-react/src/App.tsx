@@ -13,7 +13,7 @@ function App() {
           count is {count}
         </button>
         {count > 0 ? (
-          <Suspense fallback={'loading...'}>
+          <Suspense>
             <Sub></Sub>
           </Suspense>
         ) : null}

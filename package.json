@@ -8,7 +8,7 @@
   "scripts": {
     "start": "pnpm run --stream --parallel start",
     "ssr": "pnpm run --stream --parallel ssr",
-    "ssr-preview": "pnpm run --stream --parallel ssr-preview",
+    "ssr-preview": "pnpm --filter 'ssr-*' build && pnpm run --stream --parallel ssr-preview",
     "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build && pnpm build:copytemplate",
     "build:copytemplate": "pnpm exec copyfiles --up 2 packages/templates/template-*/dist/* public",
     "preview": "pnpm run build && ws -d public --spa index.html -p 3000 -z",

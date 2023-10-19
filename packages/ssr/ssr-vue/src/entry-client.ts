@@ -17,4 +17,4 @@ class Wrapper extends HTMLElement {
   }
 }
 
-customElements.define('ex-vue-ssr', Wrapper)
+customElements.define('ssr-vue', Wrapper)

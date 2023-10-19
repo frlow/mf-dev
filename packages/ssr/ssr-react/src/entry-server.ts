@@ -4,5 +4,5 @@ import App from './App.tsx'
 
 export async function render(_: string) {
   const inner = ReactDOMServer.renderToString(React.createElement(App))
-  return `<ex-react-ssr>${inner}</ex-react-ssr>`
+  return `<ssr-react>${inner}</ssr-react>`
 }
