@@ -6,14 +6,5 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
-  },
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "types": "./index.d.ts"
-    },
-    "./preamble": {
-      "import": "./preamble.js"
-    }
   }
 }

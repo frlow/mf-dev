@@ -1,2 +1,2 @@
-import '@mf-dev/wrapper-react/preamble'
+import './preamble.ts'
 import './entry-client.ts'

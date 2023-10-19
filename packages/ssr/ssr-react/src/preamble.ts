@@ -1,3 +1,4 @@
+//@ts-nocheck
 import RefreshRuntime from '/@react-refresh'
 const w = window
 RefreshRuntime.injectIntoGlobalHook(w)
