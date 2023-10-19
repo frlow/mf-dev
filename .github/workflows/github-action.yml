@@ -49,21 +49,33 @@ jobs:
       - shell: bash
         run: |
           npm config -L project set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
+          
           reference="@mf-dev/wrapper-react"
           current=$(pnpm pkg get version | sed -r 's/\"//g')
           remote=$(pnpm show $reference version)
           if [ "$current" != "$remote" ];
           then
-            echo "new version, publishing $current"
+            echo "new version of mf-dev, publishing $current"
             pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version $current
             pnpm i
             pnpm -r --filter="@mf-dev/*" publish --no-git-checks --access public
             pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version 0.0.0
             pnpm i
-            rm .npmrc
           else
-            echo "same version"
+            echo "same version of mf-dev"
           fi
-          pnpm --filter create-mfe npm-publish || true
+          
+          reference="create-mfe"
+          current=$(pnpm pkg get version | sed -r 's/\"//g')
+          remote=$(pnpm show $reference version)
+          if [ "$current" != "$remote" ];
+          then
+            echo "new version of create-mfe, publishing $current"
+            pnpm i
+            pnpm --filter create-mfe npm-publish || true
+          else
+            echo "same version of create-mfe"
+          fi
+          rm .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
