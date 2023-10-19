@@ -38,8 +38,9 @@ export const createReactWrapper = (options) => {
         import('react-dom/client'),
         options.component(),
       ])
-      this.createRoot = reactDom.createRoot
-      this.hydrateRoot = reactDom.hydrateRoot
+      const dom = reactDom.default || reactDom
+      this.createRoot = dom.createRoot
+      this.hydrateRoot = dom.hydrateRoot
       this.createElement = react.createElement
       this.component = component.default || component
     }
