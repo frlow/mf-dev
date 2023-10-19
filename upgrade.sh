@@ -7,7 +7,7 @@ then
   echo "new version, publishing $current"
   pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version $current
   pnpm i
-  pnpm -r publish --no-git-checks --access public
+  pnpm -r --filter="@mf-dev/*" publish --no-git-checks --access public
   pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version 0.0.0
   pnpm i
   rm .npmrc
