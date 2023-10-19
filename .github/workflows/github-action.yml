@@ -47,6 +47,7 @@ jobs:
           version: 8.6.2
 
       - shell: bash
+        name: publish npm packages
         run: |
           npm config -L project set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
           
