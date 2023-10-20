@@ -8,8 +8,6 @@ export const createReactWrapper = (options) => {
       this.hydrate = !!this.innerHTML
       this.root = options.shadowRoot
         ? (() => {
-            //TODO Shadow root hydration
-            console.warn('This is not tested yet!!')
             const internals = this.attachInternals()
             return (
               internals.shadowRoot ||
