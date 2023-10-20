@@ -13,11 +13,13 @@
   "scripts": {
     "dev": "rm -rf mfe-project && tsx src/index.ts",
     "build": "pnpm templates && unbuild",
-    "templates": "rm -rf templates && rsync -r --exclude dist --exclude node_modules ../templates .",
+    "templates": "rm -rf templates && rsync -r --exclude dist --exclude node_modules ../../templates .",
     "typecheck": "tsc --noEmit",
     "npm-publish": "pnpm build && npm publish",
     "test": "vitest",
-    "test:prepare": "node test/setup.js"
+    "test:prepare": "node test/setup.js",
+    "test:run": "pnpm test:prepare && pnpm test run && test:clean",
+    "test:clean": "rm -rf mfe-test-*"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0"

@@ -7,7 +7,6 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
-    "isolatedModules": true,
-    "moduleResolution": "Node16"
+    "isolatedModules": true
   }
 }

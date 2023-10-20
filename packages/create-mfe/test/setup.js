@@ -12,7 +12,7 @@ const dirs = fs
   .readdirSync('templates')
   .filter((d) => fs.lstatSync(path.join('templates', d)).isDirectory())
 await execAsync(
-  'pnpm --filter "@mf-dev/wrapper*" exec npm pack --pack-destination ../../create-mfe/templates'
+  'pnpm --filter "@mf-dev/wrapper*" exec npm pack --pack-destination ../create-mfe/templates'
 )
 for (const dir of dirs) {
   const name = dir.replace('template-', '')
