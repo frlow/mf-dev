@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { AppType } from './main.js'
+const { mycount, dispatch } = defineProps() as {
+  mycount: number
+  dispatch: (name: string, detail?: any) => void
+}
 
-const { 'my-count': myCount, dispatch } = defineProps() as typeof AppType
-
-const send = () => dispatch('my-event', 'green')
-const log = console.log
+const send = () => dispatch('myevent', 'green')
 </script>
 
 <template>
   <div class="root">
     <h1>Vue</h1>
-    <button @click="send()">Clicks: {{ myCount }}</button>
+    <button @click="send()">Clicks: {{ mycount }}</button>
   </div>
 </template>
 
@@ -26,9 +26,11 @@ const log = console.log
   gap: 1rem;
   width: 10rem;
 }
+
 h1 {
   color: #41b883;
 }
+
 button {
   border: 1px solid white;
   padding: 1rem;

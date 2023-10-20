@@ -1,16 +1,18 @@
 import style from './App.module.scss'
-import { AppType } from './main.js'
 
-const App = (props: typeof AppType) => {
+const App = (props: {
+  mycount: number
+  dispatch: (name: string, detail?: any) => void
+}) => {
   return (
     <div class={style.root}>
       <h1>SOLIDJS</h1>
       <button
         onClick={() => {
-          props.dispatch('my-event', 'blue')
+          props.dispatch('myevent', 'blue')
         }}
       >
-        Clicks: {props['my-count']}
+        Clicks: {props.mycount}
       </button>
     </div>
   )

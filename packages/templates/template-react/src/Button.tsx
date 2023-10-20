@@ -1,6 +1,10 @@
-import type { ButtonType } from './main.js'
-
-export default ({ text, dispatch }: typeof ButtonType) => {
+export default ({
+  text,
+  dispatch,
+}: {
+  text: string
+  dispatch: (name: string, detail?: any) => void
+}) => {
   const style = `button {
       border: 1px solid white;
       padding: 1rem;

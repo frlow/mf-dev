@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { AppType } from "./main.js";
   let show = false;
-  $: args = $$props as typeof AppType
+  export let mycount: number
+  export let dispatch: (name: string, detail?: any)=>void
 </script>
 
 <main class="root">
   <h1>Svelte</h1>
-  <button on:click={()=>args.dispatch("my-event", "red")}>
-    Clicks: {args["my-count"]}</button>
+  <button on:click={()=>dispatch("myevent", "red")}>
+    Clicks: {mycount}</button>
 </main>
 
 <style lang="scss">

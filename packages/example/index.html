@@ -41,7 +41,7 @@
     <div x-data="{show: localStorage[app]==='true'}" style="display: flex; align-items: center; flex-direction: column">
         <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
         <template x-if="show">
-            <div x-html="`<template-${app} x-bind:my-count='counter' @my-event='console.log($event); counter++'></template-${app}>`"></div>
+            <div x-html="`<template-${app} x-bind:mycount='counter' @myevent='console.log($event); counter++'></template-${app}>`"></div>
         </template>
     </div>
 </template>
