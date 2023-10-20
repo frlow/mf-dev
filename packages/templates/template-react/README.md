@@ -1,22 +1,38 @@
 # React mfe
 
 Visit https://example.com
-enter the following in the console. 
-```
-const tag ='template-react';
-const entry='src/dev.ts'
+enter the following in the console.
 
+Dev:
+```dev
 // Clear all styling
 document.head.innerHTML="";
 
 // Import the javascript
-import(`http://localhost:5173/${entry}`);
+import(`http://localhost:5173/src/dev.ts`);
 
 // Add the custom element
-document.body.innerHTML=`<${tag} my-count='0' id='app'></${tag}>`;
+document.body.innerHTML=`<template-react mycount='0' id='app'></template-react>`;
 
 // Increment on click
 let count = 0;
 const el = document.getElementById('app');
-el.addEventListener("my-event", ()=>el.setAttribute("my-count", ++count));
+el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
+```
+
+Preview:
+```preview
+// Clear all styling
+document.head.innerHTML="";
+
+// Import the javascript
+import(`http://localhost:4173/main.js`);
+
+// Add the custom element
+document.body.innerHTML=`<template-react mycount='0' id='app'></template-react>`;
+
+// Increment on click
+let count = 0;
+const el = document.getElementById('app');
+el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
 ```

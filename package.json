@@ -10,7 +10,7 @@
     "ssr": "pnpm run --stream --parallel ssr",
     "ssr-preview": "pnpm --filter 'ssr-*' build && pnpm run --stream --parallel ssr-preview",
     "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build && pnpm build:copytemplate",
-    "build:copytemplate": "pnpm exec copyfiles --up 2 packages/templates/template-*/dist/* public",
+    "build:copytemplate": "rsync -R -a packages/templates/./template-*/dist/ public",
     "preview": "pnpm run build && ws -d public --spa index.html -p 3000 -z",
     "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public playwright-report test-results"
