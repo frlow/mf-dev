@@ -6,7 +6,7 @@ const App = (props: {
 }) => {
   return (
     <div class={style.root}>
-      <h1>SOLIDJS</h1>
+      <h1>solid</h1>
       <button
         onClick={() => {
           props.dispatch('myevent', 'blue')

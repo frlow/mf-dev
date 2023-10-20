@@ -4,11 +4,11 @@
   export let dispatch: (name: string, detail?: any)=>void
 </script>
 
-<main class="root">
+<div class="root">
   <h1>Svelte</h1>
   <button on:click={()=>dispatch("myevent", "red")}>
     Clicks: {mycount}</button>
-</main>
+</div>
 
 <style lang="scss">
   @import "./style.scss";

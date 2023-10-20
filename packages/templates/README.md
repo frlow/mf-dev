@@ -1,4 +1,4 @@
-# react mfe
+# #NAME# mfe
 
 Visit https://example.com
 enter the following in the console.
@@ -9,10 +9,10 @@ Dev:
 document.head.innerHTML="";
 
 // Import the javascript
-import(`http://localhost:5173/src/dev.ts`);
+import(`http://localhost:5173/src/#ENTRY#`);
 
 // Add the custom element
-document.body.innerHTML=`<template-react mycount='0' id='app'></template-react>`;
+document.body.innerHTML=`<template-#NAME# mycount='0' id='app'></template-#NAME#>`;
 
 // Increment on click
 let count = 0;
@@ -29,7 +29,7 @@ document.head.innerHTML="";
 import(`http://localhost:4173/main.js`);
 
 // Add the custom element
-document.body.innerHTML=`<template-react mycount='0' id='app'></template-react>`;
+document.body.innerHTML=`<template-#NAME# mycount='0' id='app'></template-#NAME#>`;
 
 // Increment on click
 let count = 0;

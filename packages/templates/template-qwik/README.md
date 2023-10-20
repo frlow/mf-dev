@@ -1,38 +1,38 @@
-# Qwik + Vite
+# qwik mfe
 
-## Qwik in CSR mode
+Visit https://example.com
+enter the following in the console.
 
-This starter is using a pure CSR (Client Side Rendering) mode. This means, that the application is fully bootstrapped in the browser. Most of Qwik innovations however take advantage of SSR (Server Side Rendering) mode.
+Dev:
+```dev
+// Clear all styling
+document.head.innerHTML="";
 
-```ts
-export default defineConfig({
-  plugins: [
-    qwikVite({
-      csr: true,
-    }),
-  ],
-})
+// Import the javascript
+import(`http://localhost:5173/src/main.ts`);
+
+// Add the custom element
+document.body.innerHTML=`<template-qwik mycount='0' id='app'></template-qwik>`;
+
+// Increment on click
+let count = 0;
+const el = document.getElementById('app');
+el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
 ```
 
-Use `npm create qwik@latest` to create a full production ready Qwik application, using SSR and [QwikCity](https://qwik.builder.io/docs/qwikcity/), our server-side metaframwork.
+Preview:
+```preview
+// Clear all styling
+document.head.innerHTML="";
 
-## Usage
+// Import the javascript
+import(`http://localhost:4173/main.js`);
 
-```bash
-$ npm install # or pnpm install or yarn install
+// Add the custom element
+document.body.innerHTML=`<template-qwik mycount='0' id='app'></template-qwik>`;
+
+// Increment on click
+let count = 0;
+const el = document.getElementById('app');
+el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
 ```
-
-Learn more on the [Qwik Website](https://qwik.builder.io) and join our community on our [Discord](https://qwik.builder.io/chat)
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm run dev`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
