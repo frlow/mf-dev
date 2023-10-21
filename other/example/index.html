@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Micro-Frontend demo</title>
-    <script type="module">
-    </script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <style>
-        body{
-            background-color: #1e1e20;
-            color: white;
-            font-family: "Avenir Next", "Tahoma", serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-    <script type="module">
-        (async ()=>{
-            const apps = {
-                "template-qwik": "/template-qwik/dist/main.js",
-                "template-svelte": "/template-svelte/dist/main.js",
-                "template-vue": "/template-vue/dist/main.js",
-                "template-react": "/template-react/dist/main.js",
-                "template-solid": "/template-solid/dist/main.js",
-            }
-            for (const x of Array(Object.keys(apps).length).keys()) {
-                const pkg = await fetch(`http://localhost:${5173 + x}/package.json`).then(r => r.json()).catch(() => undefined)
-                if (pkg?.name)
-                    apps[pkg.name] = `http://localhost:${5173 + x}/${pkg.main || 'src/main.ts'}`
-            }
-            for (const url of Object.values(apps)) import(/* @vite-ignore */url)
-        })()
-    </script>
+  <title>Micro-Frontend demo</title>
+  <script type="module">
+  </script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+      body {
+          background-color: #1e1e20;
+          color: white;
+          font-family: "Avenir Next", "Tahoma", serif;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+  </style>
+
 </head>
 
-<body x-data="{ counter: 1 }">
-<template x-for="app in ['solid', 'vue', 'qwik', 'svelte', 'react']">
-    <div x-data="{show: localStorage[app]==='true'}" style="display: flex; align-items: center; flex-direction: column">
-        <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
-        <template x-if="show">
-            <div x-html="`<template-${app} x-bind:mycount='counter' @myevent='console.log($event); counter++'></template-${app}>`"></div>
-        </template>
-    </div>
+<body x-data="store">
+<template x-for="app in apps">
+  <div x-data="{show: localStorage[app]==='true'}" style="display: flex; align-items: center; flex-direction: column">
+    <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
+    <template x-if="show">
+      <div
+        x-html="`<template-${app} x-bind:mycount='counter' @myevent='console.log($event); counter++'></template-${app}>`"></div>
+    </template>
+  </div>
 </template>
+<script>
+  document.addEventListener("alpine:init", () => {
+    const apps = ["react", "vue", "svelte", "solid", "qwik"];
+    for (const app of apps) import(/* @vite-ignore */`/template-${app}/dist/entry.js`);
+    Alpine.data("store", () => ({
+      apps,
+      counter: 0
+    }));
+  });
+
+</script>
 </body>
 </html>

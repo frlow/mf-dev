@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build --outDir ../../public --assetsDir .",
-    "start": "vite --port 3000"
+    "start": "vite --port 3000 "
   },
   "keywords": [],
   "author": "",

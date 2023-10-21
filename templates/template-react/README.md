@@ -26,7 +26,7 @@ Preview:
 document.head.innerHTML="";
 
 // Import the javascript
-import(`http://localhost:4173/main.js`);
+import(`http://localhost:4173/entry.js`);
 
 // Add the custom element
 document.body.innerHTML=`<template-react mycount='0' id='app'></template-react>`;

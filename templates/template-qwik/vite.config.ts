@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     qwikVite({
       client: {
-        input: 'src/main.ts',
+        input: 'src/entry.ts',
       },
     }),
   ],
