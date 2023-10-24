@@ -52,7 +52,7 @@ export const createReactWrapper = (options) => {
     }
   }
   attributes.forEach((attribute) =>
-    Object.defineProperty(wrapperClass.constructor, attribute, {
+    Object.defineProperty(wrapperClass.prototype, attribute, {
       set: function (value) {
         this.attributeChangedCallback(attribute, undefined, value)
       },

@@ -17,28 +17,69 @@
           align-items: center;
       }
   </style>
-
 </head>
 
 <body x-data="store">
 <template x-for="app in apps">
-  <div x-data="{show: localStorage[app]==='true'}" style="display: flex; align-items: center; flex-direction: column">
-    <h3 x-text="`${show?'[':''}${app.toUpperCase()}${show?']':''}`" @click="show=!show; localStorage[app]=show"></h3>
-    <template x-if="show">
+  <div style="display: flex; align-items: center; flex-direction: column">
+    <h3 x-text="app.text" @click="handleClick($event, app)"
+        :style="app.override?'color:firebrick;':'color: white;'"></h3>
+    <template x-if="app.show">
       <div
-        x-html="`<template-${app} x-bind:mycount='counter' @myevent='console.log($event); counter++'></template-${app}>`"></div>
+        x-html="`<template-${app.name} x-effect='$el.mycount=counter' @myevent='console.log($event); counter++'></template-${app.name}>`"></div>
     </template>
   </div>
 </template>
 <script>
-  document.addEventListener("alpine:init", () => {
-    const apps = ["react", "vue", "svelte", "solid", "qwik"];
-    for (const app of apps) import(/* @vite-ignore */`/template-${app}/dist/entry.js`);
+  const updateText = (app) => `${app.show ? "[" : ""}${app.name.toUpperCase()}${app.show ? "]" : ""}`;
+  const loadApps = async () => {
+    const appNames = ["react", "vue", "svelte", "solid", "qwik"];
+    const apps = [];
+    for (const key of appNames) {
+      const app = {};
+      app.show = localStorage[key] === "true";
+      app.override = localStorage[`${key}-override`] === "true";
+      app.name = key;
+      app.text = updateText(app);
+      apps.push(app);
+    }
+    if (apps.some(app => app.override)) {
+      const devResults = [];
+      for (let i = 0; i < apps.length; i++) {
+        const result = await fetch(`http://localhost:${5173 + i}/package.json`).then(r => r.json()).catch(() => ({}));
+        devResults.push({ ...result, port: 5173 + i });
+      }
+      apps.filter(app => app.override).forEach(app => {
+        const pkg = devResults.find(dr => dr.name === `template-${app.name}`);
+        const target = pkg.main || "src/main.ts";
+        app.target = `http://localhost:${pkg.port}/${target}`;
+      });
+    }
+    for (const app of apps) {
+      const target = app.target || `/template-${app.name}/dist/entry.js`;
+      import(/* @vite-ignore */target);
+    }
+    return apps;
+  };
+  loadApps().then((apps) => document.addEventListener("alpine:init", () => {
     Alpine.data("store", () => ({
       apps,
-      counter: 0
+      counter: 0,
+      dev: {},
+      handleClick(e, app) {
+        if (e.altKey) {
+          app.override = !app.override;
+          localStorage[`${app.name}-override`] = app.override;
+          window.location.reload()
+        } else {
+          app.show = !app.show;
+          localStorage[app.name] = app.show;
+          app.text = updateText(app);
+        }
+      }
     }));
-  });
+  }));
+
 
 </script>
 </body>
