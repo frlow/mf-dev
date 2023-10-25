@@ -7,11 +7,12 @@
   "keywords": [],
   "scripts": {
     "start": "pnpm run --stream --parallel start",
-    "build": "rm -rf public && mkdir public && pnpm run --stream --parallel build && pnpm build:copytemplate",
+    "build": "rm -rf public && pnpm readme && mkdir public && pnpm run --stream --parallel build && pnpm build:copytemplate",
     "build:copytemplate": "rsync -R -a templates/./template-*/dist/ public",
     "preview": "pnpm run build && ws -d public --spa index.html -p 3000 -z",
     "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
-    "clear": "rm -rf .firebase public"
+    "clear": "rm -rf .firebase public",
+    "readme": "node ./readme.mjs"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",

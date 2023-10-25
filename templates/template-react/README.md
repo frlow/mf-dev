@@ -1,4 +1,4 @@
-# react mfe
+# react Micro Frontend
 
 Visit https://example.com
 enter the following in the console.
