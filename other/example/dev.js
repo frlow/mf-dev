@@ -31,5 +31,9 @@ app.use('*', async (req, res, next) => {
 app.use(express.static('../../public'))
 
 const port = 3000
-console.log(`Listening on http://127.0.0.1:${port}/`)
+console.log(`
+==================DEV==================
+Listening on http://127.0.0.1:${port}/
+=======================================
+`)
 app.listen(port)
