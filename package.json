@@ -12,7 +12,7 @@
     "preview": "pnpm run build && ws -d public --spa index.html -p 3000 -z",
     "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public",
-    "readme": "node ./readme.mjs"
+    "readme": "node ./generate-readme.mjs"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",

@@ -27,7 +27,7 @@ el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
     return `${generate("dev", devBase + entry, name)}\n\n${generate("preview", previewBase, name)}`
 }
 
-const getReadmeText = (name, example) => `${name} Micro Frontend
+const getReadmeText = (name, example) => `# ${name} micro-frontend
 Visit https://example.com enter the following in the console.
 
 ${example}`
