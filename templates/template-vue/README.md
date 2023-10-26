@@ -1,15 +1,13 @@
-# vue Micro Frontend
+vue Micro Frontend
+Visit https://example.com enter the following in the console.
 
-Visit https://example.com
-enter the following in the console.
-
-Dev:
+dev:
 ```dev
 // Clear all styling
 document.head.innerHTML="";
 
 // Import the javascript
-import(`http://localhost:5173/src/main.ts`);
+import('http://localhost:5173/src/main.ts');
 
 // Add the custom element
 document.body.innerHTML=`<template-vue mycount='0' id='app'></template-vue>`;
@@ -20,13 +18,13 @@ const el = document.getElementById('app');
 el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
 ```
 
-Preview:
+preview:
 ```preview
 // Clear all styling
 document.head.innerHTML="";
 
 // Import the javascript
-import(`http://localhost:4173/entry.js`);
+import('http://localhost:4173/entry.js');
 
 // Add the custom element
 document.body.innerHTML=`<template-vue mycount='0' id='app'></template-vue>`;
