@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import * as url from 'url';
+import url from 'node:url';
 
 const root = path.join(url.fileURLToPath(new URL('.', import.meta.url)), "templates")
 
