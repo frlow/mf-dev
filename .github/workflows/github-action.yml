@@ -57,25 +57,13 @@ jobs:
           if [ "$current" != "$remote" ];
           then
             echo "new version of mf-dev, publishing $current"
-            pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version $current
+            pnpm -r --filter="@mf-dev/*" --filter=create-mfe exec pnpm version --no-git-tag-version $current
             pnpm i
-            pnpm -r --filter="@mf-dev/*" publish --no-git-checks --access public
-            pnpm -r --filter="@mf-dev/*" exec pnpm version --no-git-tag-version 0.0.0
+            pnpm -r --filter="@mf-dev/*" --filter=create-mfe publish --no-git-checks --access public
+            pnpm -r --filter="@mf-dev/*" --filter=create-mfe exec pnpm version --no-git-tag-version 0.0.0
             pnpm i
           else
-            echo "same version of mf-dev"
-          fi
-          
-          reference="create-mfe"
-          current=$(pnpm --filter create-mfe exec npm pkg get version | sed -r 's/\"//g')
-          remote=$(pnpm show $reference version)
-          if [ "$current" != "$remote" ];
-          then
-            echo "new version of create-mfe, publishing $current"
-            pnpm i
-            pnpm --filter create-mfe npm-publish || true
-          else
-            echo "same version of create-mfe"
+            echo "same version, no publish needed"
           fi
           rm .npmrc
         env:
