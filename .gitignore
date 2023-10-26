@@ -8,3 +8,4 @@ playwright-report/
 .firebase/
 .npmrc
 .vscode/
+templates/**/README.md
