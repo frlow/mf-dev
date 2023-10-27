@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [solidPlugin()],
   base: './',
   build: {
+    minify: false,
     rollupOptions: {
       input: 'src/entry.ts',
       output: {
