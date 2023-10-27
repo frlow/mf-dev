@@ -41,9 +41,9 @@ test('solid preview', async () => {
 }, timeout)
 
 test('qwik dev', async () => {
-  await baseTest('qwik', 'dev', testDev)
+  await baseTest('qwik', 'dev', testDev, true)
 }, timeout)
 
 test('qwik preview', async () => {
-  await baseTest('qwik', 'preview', testDev)
+  await baseTest('qwik', 'preview', testDev, true)
 }, timeout)

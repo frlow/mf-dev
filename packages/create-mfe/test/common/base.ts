@@ -6,7 +6,11 @@ import type {ViteDevServer} from 'vite'
 
 export let viteServer: ViteDevServer = null
 
-export const baseTest = async (framework: string, mode: 'dev' | 'preview', testDev: boolean) => {
+export const baseTest = async (
+    framework: string,
+    mode: 'dev' | 'preview',
+    testDev: boolean,
+    noWebComponents: boolean = false) => {
   const basePath = testDev
       ? `../../templates/template-${framework}`
       : `mfe-test-template-${framework}`
@@ -14,7 +18,7 @@ export const baseTest = async (framework: string, mode: 'dev' | 'preview', testD
   const readme = parseReadme(basePath)
   expect(readme[mode]).not.toBeUndefined()
   const clickAmount = 6
-  const pageResult = await parseWeb(readme[mode], clickAmount)
+  const pageResult = await parseWeb(readme[mode], clickAmount, noWebComponents)
   expect(pageResult.label.toLowerCase()).toEqual(framework)
   expect(pageResult.clicks).toEqual(`Clicks: ${clickAmount}`)
 }
