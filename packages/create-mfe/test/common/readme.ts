@@ -5,7 +5,6 @@ export const parseReadme = (basePath: string) => {
   const readmePath = path.join(basePath, 'README.md')
   if (!fs.existsSync(readmePath)) return {}
   const readme = fs.readFileSync(readmePath, 'utf8')
-  const dev = readme.match(/```dev(.*?)```/ms)
-  const preview = readme.match(/```preview(.*?)```/ms)
-  return { dev: dev[1], preview: preview[1] }
+  const examples = readme.match(/```javascript(.*?)```/mgs).map(r=>r.match(/```javascript(.*?)```/s)[1])
+  return { dev: examples[0], preview: examples[1] }
 }

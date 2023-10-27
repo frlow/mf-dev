@@ -61,7 +61,8 @@
               const pkg = devResults.find(
                 (dr) => dr.name === `template-${app.name}`
               )
-              const target = pkg.main || 'src/main.ts'
+              if(!pkg) return
+              const target = pkg?.main || 'src/main.ts'
               app.target = `http://localhost:${pkg.port}/${target}`
             })
         }

@@ -8,7 +8,7 @@ const generateExampleCode = (entry, name) => {
     const devBase = "http://localhost:5173/src/"
     const previewBase = "http://localhost:4173/entry.js"
     const generate = (mode, entry, name) => `${mode}:
-\`\`\`${mode}
+\`\`\`javascript
 // Clear all styling
 document.head.innerHTML="";
 

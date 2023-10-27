@@ -1,44 +1,49 @@
-import {test} from 'vitest'
-import {baseTest} from './common/base'
+import {afterEach, test} from 'vitest'
+import {baseTest, viteServer} from './common/base'
 
 const testDev = process.env.MODE === "dev"
+const timeout = 10000
+
+afterEach(async ()=>{
+  await viteServer.close()
+})
 
 test('react dev', async () => {
   await baseTest('react', 'dev', testDev)
-}, 15000)
+}, timeout)
 
 test('react preview', async () => {
   await baseTest('react', 'preview', testDev)
-}, 15000)
+}, timeout)
 
 test('vue dev', async () => {
   await baseTest('vue', 'dev', testDev)
-}, 15000)
+}, timeout)
 
 test('vue preview', async () => {
   await baseTest('vue', 'preview', testDev)
-}, 15000)
+}, timeout)
 
 test('svelte dev', async () => {
   await baseTest('svelte', 'dev', testDev)
-}, 15000)
+}, timeout)
 
 test('svelte preview', async () => {
   await baseTest('svelte', 'preview', testDev)
-}, 15000)
+}, timeout)
 
 test('solid dev', async () => {
   await baseTest('solid', 'dev', testDev)
-}, 15000)
+}, timeout)
 
 test('solid preview', async () => {
   await baseTest('solid', 'preview', testDev)
-}, 15000)
+}, timeout)
 
 test('qwik dev', async () => {
   await baseTest('qwik', 'dev', testDev)
-}, 15000)
+}, timeout)
 
 test('qwik preview', async () => {
   await baseTest('qwik', 'preview', testDev)
-}, 15000)
+}, timeout)
