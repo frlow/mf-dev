@@ -1,13 +1,12 @@
 <script lang="ts">
   let show = false;
   export let mycount: number
-  export let dispatch: (name: string, detail?: any)=>void
+  export let dispatch: (name: string, detail?: any) => void
 </script>
 
 <div class="root">
-  <h1>Svelte</h1>
-  <button on:click={()=>dispatch("myevent", "red")}>
-    Clicks: {mycount}</button>
+    <h1>Svelte</h1>
+    <svelte-button on:myclick={()=>dispatch("myevent", "svelte")} text={`Clicks: ${mycount}`}/>
 </div>
 
 <style lang="scss">
