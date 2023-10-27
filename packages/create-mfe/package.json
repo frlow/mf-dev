@@ -17,7 +17,8 @@
     "typecheck": "tsc --noEmit",
     "npm-publish": "pnpm build && npm publish",
     "test": "vitest",
-    "test:prepare": "node node_modules/puppeteer/install.mjs && node test/setup.js",
+    "puppeteer": "node node_modules/puppeteer/install.mjs",
+    "test:prepare": "node test/setup.js",
     "test:run": "pnpm test:prepare && pnpm test run && pnpm test:clean",
     "test:clean": "rm -rf mfe-test-* && rm -rf templates"
   },

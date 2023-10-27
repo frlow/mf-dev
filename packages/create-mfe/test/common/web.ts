@@ -13,6 +13,7 @@ export const parseWeb = async (script: string, clickAmount: number, noWebCompone
       await page.$('#app > div > h1')
   )
   const button = await page.$('#app > div > :nth-child(2)')
+  await new Promise(r => setTimeout(() => r(""), 500))
   for (let i = 0; i < clickAmount; i++) {
     await button.click()
   }
