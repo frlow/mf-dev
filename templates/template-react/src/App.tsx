@@ -13,7 +13,7 @@ const App = ({
       <h1 className={style.header}>React</h1>
       <react-button
         text={`Clicks: ${mycount}`}
-        onmy-click={() => dispatch('myevent', 'core')}
+        onmyclick={() => dispatch('myevent', 'react')}
       ></react-button>
     </div>
   )

@@ -17,7 +17,7 @@ export default ({
     }`
   return (
     <>
-      <button onClick={() => dispatch('my-click')}>{text}</button>
+      <button onClick={() => dispatch('myclick')}>{text}</button>
       <style>{style}</style>
     </>
   )
