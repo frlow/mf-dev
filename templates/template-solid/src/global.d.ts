@@ -5,14 +5,8 @@ declare module 'solid-js' {
       is?: string
     }
     interface IntrinsicElements {
-      'ex-solid-button': any
+      'solid-button': any
     }
-  }
-}
-
-declare global {
-  interface Window {
-    routeTo: (url: string) => void
   }
 }
 

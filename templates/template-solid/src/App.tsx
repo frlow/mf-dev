@@ -1,19 +1,17 @@
+import 'solid-js'
 import style from './App.module.scss'
 
 const App = (props: {
-  mycount: number
+  mycount: ()=>number
   dispatch: (name: string, detail?: any) => void
 }) => {
+  const clicks = ()=>`Clicks: ${props.mycount()}`
   return (
     <div class={style.root}>
       <h1>solid</h1>
-      <button
-        onClick={() => {
-          props.dispatch('myevent', 'blue')
-        }}
-      >
-        Clicks: {props.mycount}
-      </button>
+      <solid-button text={clicks()} onmyclick={() => {
+        props.dispatch('myevent', 'solid')
+      }}></solid-button>
     </div>
   )
 }

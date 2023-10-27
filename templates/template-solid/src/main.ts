@@ -5,3 +5,10 @@ createSolidWrapper({
   tag: 'template-solid',
   attributes: ['mycount'],
 })
+
+createSolidWrapper({
+  shadowRoot: "open",
+  component: () => import('./Button.jsx'),
+  tag: 'solid-button',
+  attributes: ['text'],
+})
