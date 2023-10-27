@@ -19,7 +19,7 @@
     "test": "vitest",
     "test:prepare": "node test/setup.js",
     "test:run": "pnpm test:prepare && pnpm test run && pnpm test:clean",
-    "test:clean": "rm -rf mfe-test-*"
+    "test:clean": "rm -rf mfe-test-* && rm -rf templates"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
