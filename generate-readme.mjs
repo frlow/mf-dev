@@ -30,7 +30,11 @@ el.addEventListener("myevent", ()=>el.setAttribute("mycount", ++count));
 const getReadmeText = (name, example) => `# ${name} micro-frontend
 Visit https://example.com enter the following in the console.
 
-${example}`
+${example}
+
+This template includes an example of:
+- Micro-frontend app without shadowRoot
+- WebComponent with isolated css in shadowRoot`
 
 const dirs = fs.readdirSync(root).filter((f) => fs.lstatSync(path.join(root, f)).isDirectory())
 for (const dir of dirs) {
