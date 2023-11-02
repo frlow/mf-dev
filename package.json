@@ -13,7 +13,7 @@
     "firebase": "pnpm run build && firebase deploy --only hosting && pnpm run clear",
     "clear": "rm -rf .firebase public",
     "readme": "node ./generate-readme.mjs",
-    "test": "pnpm --filter create-mfe test:run"
+    "test": "pnpm readme && pnpm --filter create-mfe test:run"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",

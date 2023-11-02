@@ -31,7 +31,6 @@ jobs:
       - name: test
         run: |
           pnpm i
-          pnpm readme
           pnpm --filter create-mfe puppeteer
           pnpm test
 
