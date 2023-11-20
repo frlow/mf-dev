@@ -1,4 +1,5 @@
 import { createReactWrapper } from '@mf-dev/wrapper-react'
+import '@preact/signals-react'
 
 createReactWrapper({
   component: () => import('./App.js'),

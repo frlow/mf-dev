@@ -1,5 +1,12 @@
 <script setup lang="ts">
-const { mycount, dispatch } = defineProps() as {
+import {refSignal} from "./signals";
+
+const {mySignal, fizzBuzz} = (window as any).store
+const counter = refSignal<number>(mySignal)
+const text = refSignal<string>(fizzBuzz)
+
+
+const {mycount, dispatch} = defineProps() as {
   mycount: number
   dispatch: (name: string, detail?: any) => void
 }
@@ -12,6 +19,7 @@ const send = () => dispatch('myevent', 'vue')
     <h1>Vue</h1>
     <vue-button :text="`Clicks: ${mycount}`"
                 @myclick="send()"></vue-button>
+    <button @click="counter++">{{mySignal}} = {{ text }}</button>
   </div>
 </template>
 
