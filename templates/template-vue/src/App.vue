@@ -5,7 +5,6 @@ const {mySignal, fizzBuzz} = (window as any).store
 const counter = refSignal<number>(mySignal)
 const text = refSignal<string>(fizzBuzz)
 
-
 const {mycount, dispatch} = defineProps() as {
   mycount: number
   dispatch: (name: string, detail?: any) => void
