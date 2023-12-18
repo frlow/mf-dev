@@ -96,6 +96,8 @@ jobs:
       - shell: bash
         name: publish npm packages
         run: |
+          pnpm i
+          pnpm build
           npm config -L project set '//registry.npmjs.org/:_authToken' $NPM_TOKEN
           
           reference="@mf-dev/wrapper-react"
