@@ -1,14 +1,7 @@
-import { createSolidWrapper } from '@mf-dev/wrapper-solid'
+import { createSolidWrapper } from './wrapper'
 
 createSolidWrapper({
   component: () => import('./App.jsx'),
-  tag: 'template-solid',
+  tag: 'my-app',
   attributes: ['mycount'],
-})
-
-createSolidWrapper({
-  shadowRoot: "open",
-  component: () => import('./Button.jsx'),
-  tag: 'solid-button',
-  attributes: ['text'],
 })

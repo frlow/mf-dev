@@ -1,9 +1,0 @@
-{
-  "name": "@mf-dev/wrapper-solid",
-  "version": "0.0.0",
-  "type": "module",
-  "main": "./index.js",
-  "peerDependencies": {
-    "solid-js": ">=1.8.4"
-  }
-}

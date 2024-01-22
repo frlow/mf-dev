@@ -11,7 +11,7 @@
     "templates"
   ],
   "scripts": {
-    "dev": "rm -rf mfe-project && tsx src/index.ts",
+    "start": "rm -rf mfe-project && tsx src/index.ts",
     "build": "pnpm templates && unbuild",
     "templates": "rm -rf templates && rsync -r --exclude dist --exclude node_modules ../../templates . && node ./versions.js",
     "typecheck": "tsc --noEmit",

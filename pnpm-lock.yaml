@@ -72,15 +72,6 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6
 
-  packages/example:
-    devDependencies:
-      express:
-        specifier: ^4.18.2
-        version: 4.18.2
-      vite:
-        specifier: ^4.4.7
-        version: 4.5.0(@types/node@18.16.3)(sass@1.69.3)
-
   packages/types:
     dependencies:
       typescript:
@@ -104,12 +95,6 @@ importers:
       react-dom:
         specifier: experimental
         version: 0.0.0-experimental-8039e6d0b-20231026(react@0.0.0-experimental-8039e6d0b-20231026)
-
-  packages/wrapper-solid:
-    dependencies:
-      solid-js:
-        specifier: '>=1.8.4'
-        version: 1.8.4
 
   packages/wrapper-svelte: {}
 
@@ -172,18 +157,6 @@ importers:
         specifier: ^1.8.4
         version: 1.8.4
     devDependencies:
-      '@mf-dev/wrapper-solid':
-        specifier: workspace:*
-        version: link:../../packages/wrapper-solid
-      concurrently:
-        specifier: ^8.0.1
-        version: 8.0.1
-      rollup:
-        specifier: ^3.21.3
-        version: 3.29.4
-      rollup-plugin-import-css:
-        specifier: ^3.2.1
-        version: 3.2.1(rollup@3.29.4)
       sass:
         specifier: ^1.69.3
         version: 1.69.3
@@ -7121,15 +7094,6 @@ packages:
       typescript: 5.1.6
     optionalDependencies:
       '@babel/code-frame': 7.22.13
-    dev: true
-
-  /rollup-plugin-import-css@3.2.1(rollup@3.29.4):
-    resolution: {integrity: sha512-svr1JrBknT5ndEUM8nPaemTx/uF/5Tf4FAMQxvAYx2K9Sx7hL+JwB/rPuB1ZmUE1rjCnQHnz/fgik+noYM5+0w==}
-    peerDependencies:
-      rollup: ^2.x.x || ^3.x.x
-    dependencies:
-      '@rollup/pluginutils': 5.0.5(rollup@3.29.4)
-      rollup: 3.29.4
     dev: true
 
   /rollup@3.29.4:
