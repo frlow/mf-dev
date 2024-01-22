@@ -1,7 +1,8 @@
-import { createSolidWrapper } from './wrapper'
+import { createWrapper, t } from './wrapper'
 
-createSolidWrapper({
+export const AppProps = createWrapper({
   component: () => import('./App.jsx'),
   tag: 'my-app',
-  attributes: ['mycount'],
+  attributes: ['mycount'] as const,
+  emits: { myevent: t<string> },
 })

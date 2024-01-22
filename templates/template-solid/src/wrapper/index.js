@@ -1,15 +1,15 @@
-export const createSolidWrapper = (options) => {
+export const createWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class extends HTMLElement {
+    static observedAttributes = attributes
+
     constructor() {
       super()
       this.root = options.shadowRoot
-        ? this.attachShadow({ mode: options.shadowRoot })
+        ? this.attachShadow({mode: options.shadowRoot})
         : this
       this.temp = {}
     }
-
-    static observedAttributes = attributes
 
     static async load() {
       const [solid, solidWeb, component] = await Promise.all([
@@ -53,7 +53,7 @@ export const createSolidWrapper = (options) => {
                   ),
                   host: this,
                   dispatch: (name, detail) =>
-                    this.dispatchEvent(new CustomEvent(name, { detail })),
+                    this.dispatchEvent(new CustomEvent(name, {detail})),
                 }
               )
             }),
@@ -74,4 +74,7 @@ export const createSolidWrapper = (options) => {
     })
   )
   customElements.define(options.tag, wrapperClass)
+  return attributes.reduce((acc, cur) => ({...acc, [cur]: () => ""}), {})
 }
+
+export const t = ()=>{}
