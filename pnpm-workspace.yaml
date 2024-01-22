@@ -1,5 +1,2 @@
 packages:
-  - 'packages/**/*'
-  - '!**/create-mfe/templates/**'
-  - '!**/mfe-test*/**'
   - 'templates/**/*'
