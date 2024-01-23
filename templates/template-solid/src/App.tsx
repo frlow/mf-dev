@@ -18,7 +18,7 @@ const App = (props: typeof AppProps) => {
           'font-size': '1.2rem',
           color: '#dbdde1',
         }}
-        onClick={() => props.dispatch({ name: 'myevent', detail: 'my value' })}
+        onClick={() => props.dispatch('myevent', { value: 'something' })}
       >
         {clicks()}
       </button>
