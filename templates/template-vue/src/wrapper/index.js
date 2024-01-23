@@ -1,15 +1,8 @@
 export const createWrapper = (options) => {
   const attributes = options.attributes || []
   const wrapperClass = class extends HTMLElement {
-    constructor() {
-      super()
-      this.root = options.shadowRoot
-        ? this.attachShadow({ mode: options.shadowRoot })
-        : this
-      this.props = {}
-    }
-
     static observedAttributes = options.attributes || []
+    props = {}
 
     static async load() {
       const [vue, component] = await Promise.all([
@@ -36,17 +29,18 @@ export const createWrapper = (options) => {
           dispatch: (name, detail) =>
             this.dispatchEvent(new CustomEvent(name, { detail })),
         })
-        this.app = options.createCustom
-          ? options.createCustom(this.props)
-          : this.constructor.vue.createApp({
-              render: () =>
-                this.constructor.vue.h(this.constructor.component, this.props),
-            })
-        this.app.config.warnHandler = (msg, instance, trace) => {
-          if (msg.includes('Expected T')) return
-          console.warn(msg, instance, trace)
-        }
-        this.app.mount(this.root)
+        this.app = this.constructor.vue.createApp({
+          render: () =>
+            this.constructor.vue.h(this.constructor.component, this.props),
+        })
+        ;(async () => {
+          if (options.appUse) await options.appUse(this.app)
+          this.app.config.warnHandler = (msg, instance, trace) => {
+            if (msg.includes('Expected T')) return
+            console.warn(msg, instance, trace)
+          }
+          this.app.mount(this)
+        })()
       })
     }
 
