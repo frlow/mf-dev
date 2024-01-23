@@ -4,16 +4,16 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "type": "module",
   "keywords": [],
   "scripts": {
     "dev": "pnpm run --stream --parallel dev",
-    "common": "tsx ./common.ts"
+    "common": "node ./common.js"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
     "prettier": "^2.8.8",
-    "glob": "^10.3.10",
-    "tsx": "^4.7.0"
+    "glob": "^10.3.10"
   },
   "author": "",
   "license": "ISC"
