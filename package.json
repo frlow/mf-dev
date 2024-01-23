@@ -9,12 +9,14 @@
   "scripts": {
     "dev": "pnpm run --stream --parallel dev",
     "common": "node ./common.js",
-    "upgrade-all": "pnpm -r exec pnpm --package npm-check-updates dlx ncu -u"
+    "upgrade-all": "pnpm -r exec pnpm --package npm-check-updates dlx ncu -u",
+    "test": "npx playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.41.1",
     "@types/node": "^20.11.5",
-    "prettier": "^3.2.4",
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "prettier": "^3.2.4"
   },
   "author": "",
   "license": "ISC"
