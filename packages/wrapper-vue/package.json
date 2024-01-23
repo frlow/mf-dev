@@ -1,9 +1,0 @@
-{
-  "name": "@mf-dev/wrapper-vue",
-  "version": "0.0.0",
-  "type": "module",
-  "main": "./index.js",
-  "peerDependencies": {
-    "vue": ">=3.3.7"
-  }
-}
