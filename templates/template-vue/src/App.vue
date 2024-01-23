@@ -3,15 +3,14 @@ const { mycount, dispatch } = defineProps() as {
   mycount: number
   dispatch: (name: string, detail?: any) => void
 }
-
-const send = () => dispatch('myevent', 'vue')
 </script>
 
 <template>
   <div class="root">
     <h1>Vue</h1>
-    <vue-button :text="`Clicks: ${mycount}`"
-                @myclick="send()"></vue-button>
+    <button @click="dispatch('myevent', { value: 'vue app' })">
+      Clicks: {{ mycount }}
+    </button>
   </div>
 </template>
 

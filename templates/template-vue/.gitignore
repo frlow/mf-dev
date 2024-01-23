@@ -1,0 +1,10 @@
+node_modules/
+.idea/
+dist/
+test-results/
+public/
+*.cache
+playwright-report/
+.firebase/
+.npmrc
+.vscode/
