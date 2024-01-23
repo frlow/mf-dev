@@ -8,11 +8,12 @@
   "keywords": [],
   "scripts": {
     "dev": "pnpm run --stream --parallel dev",
-    "common": "node ./common.js"
+    "common": "node ./common.js",
+    "upgrade-all": "pnpm -r exec pnpm --package npm-check-updates dlx ncu -u"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3",
-    "prettier": "^2.8.8",
+    "@types/node": "^20.11.5",
+    "prettier": "^3.2.4",
     "glob": "^10.3.10"
   },
   "author": "",
