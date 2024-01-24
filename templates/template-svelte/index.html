@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SolidJs Template</title>
+    <script type="module" src="./src/main.ts"></script>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #1c2024;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+<my-app mycount="0"></my-app>
+<script type="module">
+  const el = document.querySelector("my-app")
+  el.addEventListener("myevent", () => {
+    el.setAttribute("mycount", parseInt(el.getAttribute("mycount")) + 1)
+  })
+</script>
+</body>
+
+</html>
