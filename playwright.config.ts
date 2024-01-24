@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
+import { frameworks } from './tests/frameworks'
 
 /**
  * Read environment variables from file.
@@ -69,9 +70,9 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: [
-    { command: 'pnpm --filter template-solid dev --port 3001' },
-    { command: 'pnpm --filter template-react dev --port 3002' },
-    { command: 'pnpm --filter template-vue dev --port 3003' },
-  ],
+  webServer: frameworks.map((framework, index) => ({
+    command: `pnpm --filter template-${framework} dev --port ${3000 + index}`,
+    timeout: 10 * 1000,
+    url: `http://localhost:${3000 + index}`,
+  })),
 })
