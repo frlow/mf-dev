@@ -1,1 +1,1 @@
-export const frameworks = ['react', 'vue', 'solid', 'svelte'] //, 'qwik']
+export const frameworks = ['react', 'vue', 'solid', 'svelte', 'qwik']

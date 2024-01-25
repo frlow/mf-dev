@@ -1,6 +1,7 @@
 <script lang="ts">
-  export let mycount: number
-  export let dispatch: (name: string, detail?: any) => void
+  import type {AppProps} from "./main";
+
+  export let {dispatch, mycount} = {} as typeof AppProps
 </script>
 
 <div class="root">

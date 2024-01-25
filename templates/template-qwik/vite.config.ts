@@ -5,9 +5,7 @@ import { qwikVite } from '@builder.io/qwik/optimizer'
 export default defineConfig({
   plugins: [
     qwikVite({
-      client: {
-        input: 'src/entry.ts',
-      },
+      csr: true,
     }),
   ],
   base: './',

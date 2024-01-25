@@ -4,8 +4,7 @@ import { frameworks } from './frameworks'
 test.describe('dev servers', () => {
   for (const framework of frameworks) {
     const port = 3000 + frameworks.indexOf(framework)
-    test(`local ${framework} template`, async ({ page }) => {
-      await page.goto(`http://localhost:${port}/`)
+    const performTest = async (page) => {
       expect(
         await page
           .locator('h1')
@@ -13,12 +12,19 @@ test.describe('dev servers', () => {
           .then((r) => r.toLowerCase()),
       ).toEqual(framework)
       await page.locator('button').click({ clickCount: 5 })
+      await page.evaluate(async () => {
+        await new Promise((r) => setTimeout(() => r(''), 1))
+      })
       expect(
         await page
           .locator('button')
           .textContent()
           .then((r) => r.trim().toLowerCase()),
       ).toEqual('clicks: 5')
+    }
+    test(`local ${framework} template`, async ({ page }) => {
+      await page.goto(`http://localhost:${port}/`)
+      await performTest(page)
     })
 
     test(`example.com ${framework} template`, async ({ page }) => {
@@ -36,19 +42,7 @@ test.describe('dev servers', () => {
         },
         { port },
       )
-      expect(
-        await page
-          .locator('h1')
-          .textContent()
-          .then((r) => r.toLowerCase()),
-      ).toEqual(framework)
-      await page.locator('button').click({ clickCount: 5 })
-      expect(
-        await page
-          .locator('button')
-          .textContent()
-          .then((r) => r.trim().toLowerCase()),
-      ).toEqual('clicks: 5')
+      await performTest(page)
     })
   }
 })

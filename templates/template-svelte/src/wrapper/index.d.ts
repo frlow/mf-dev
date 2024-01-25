@@ -13,7 +13,7 @@ export type WrapperProps<
 ]
   ? WrapperProps<
       TRest,
-      TCurrent extends string ? TAcc & { [K in TCurrent]: () => string } : never
+      TCurrent extends string ? TAcc & { [K in TCurrent]: string } : never
     >
   : TAcc
 
