@@ -9,11 +9,11 @@
     "preview": "http-server ./dist -s -a localhost --cors"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
     "http-server": "^14.1.1"
   },
   "dependencies": {
-    "@builder.io/qwik": "^1.2.6"
+    "@builder.io/qwik": "^1.4.1"
   }
 }
