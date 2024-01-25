@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "http-server ./dist -s -a localhost --cors"
   },
   "devDependencies": {
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "http-server": "^14.1.1"
   },
   "dependencies": {
     "@builder.io/qwik": "^1.2.6"

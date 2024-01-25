@@ -7,6 +7,20 @@ import { frameworks } from './tests/frameworks'
  */
 // require('dotenv').config();
 
+const webServer = [
+  ...frameworks.map((framework, index) => ({
+    command: `pnpm --filter template-${framework} dev --port ${3000 + index}`,
+    timeout: 20 * 1000,
+    url: `http://localhost:${3000 + index}`,
+  })),
+  ...frameworks.map((framework, index) => ({
+    command: `pnpm --filter template-${framework} preview --port ${3500 + index}`,
+    timeout: 20 * 1000,
+    url: `http://localhost:${3500 + index}/main.js`,
+  })),
+]
+// console.log(webServer.map((w) => w.command).join('\n'))
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -68,11 +82,6 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
   /* Run your local dev server before starting the tests */
-  webServer: frameworks.map((framework, index) => ({
-    command: `pnpm --filter template-${framework} dev --port ${3000 + index}`,
-    timeout: 10 * 1000,
-    url: `http://localhost:${3000 + index}`,
-  })),
+  webServer,
 })
