@@ -7,7 +7,7 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      input: 'src/entry.ts',
+      input: ['src/entry.ts', 'src/main.ts'],
       output: {
         entryFileNames: '[name].js',
       },

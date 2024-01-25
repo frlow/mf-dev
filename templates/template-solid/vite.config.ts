@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     minify: false,
     rollupOptions: {
-      input: 'src/entry.ts',
+      input: ['src/entry.ts', 'src/main.ts'],
       output: {
         entryFileNames: '[name].js',
       },
