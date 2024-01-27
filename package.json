@@ -1,6 +1,6 @@
 {
   "name": "create-mfe",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": false,
   "description": "",
   "main": "index.js",
@@ -26,6 +26,7 @@
     "minimist": "^1.2.8",
     "kolorist": "^1.8.0"
   },
+  "bin": "./create.ts",
   "files": ["templates", "create.ts"],
   "author": "",
   "license": "ISC"
